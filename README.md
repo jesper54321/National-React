@@ -38,6 +38,7 @@ User (Management of registered users into the Firebase database);
 1..1
  to
 0..N
+with
 
 Comment (Messages created by users, which are saved on the database for the not-live place chats);
 * id_comment - Primary Key number (Identifies an exact message)
@@ -48,6 +49,7 @@ Comment (Messages created by users, which are saved on the database for the not-
 0..1
  to
 1..1
+with
 
 Place (Data related to a place that's used in the Place View screen for users to consult)
 * id_place    - Primary Key number (Identifies an exact place)
@@ -57,6 +59,7 @@ Place (Data related to a place that's used in the Place View screen for users to
 1..1
  to
 1..N
+with
 
 Image (Records for every place's gallery)
 * id_image - Primary Key number (Identifies an exact image)
