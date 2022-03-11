@@ -1,0 +1,17 @@
+
+
+.classhome {
+    width: 300px;
+    margin:auto;
+    h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 3rem;
+    }
+
+    a:hover{
+        color:purple;
+        font-size: 250px;
+        transition: 0.4s ease-in-out;
+    }
+
+}
