@@ -1,0 +1,8 @@
+index               -> Landing
+/login              -> Login
+/register           -> Register
+/activities         -> Activities
+/map                -> Map
+/details/{{ID}}     -> Details
+/info               -> Information
+/contact            -> Contact
