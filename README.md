@@ -32,7 +32,7 @@ Description of tables and fields are the following..;
 User (Management of registered users into the Firebase database);
 * id_user  - Primary Key number (Every user has their own (made for ease of record management, but username also works (and also avoids users with same usernames)))
 * username - Variable text (users will have this text displayed on the chats they comment into and at the top of most application screens)
-* password - Variable text (through firebase's process of signing in, this field's content becomes a long, encripted text value that's decode upon their loggin in process)
+* password - Variable text (through firebase's process of signing in, this field contains a long, encripted text value, decoded on their loggin in process)
 * profile  - Variable text (Contains a link (route) of a static image between the project's public folder)
 
 1..1
@@ -41,8 +41,8 @@ User (Management of registered users into the Firebase database);
 
 Comment (Messages created by users, which are saved on the database for the not-live place chats);
 * id_comment - Primary Key number (Identifies an exact message)
-* id_user    - Numeric field (Contains the value of 'id_user' from the User table that this record belongs to)
-* id_place   - Numeric field (Contains the value of 'id_place' from the Place table that this record belongs to (remember, every place has its own not-live chat))
+* id_user    - Numeric field (Contains the value of 'id_user' from the User table this record belongs to)
+* id_place   - Numeric field (Contains the value of 'id_place' from the Place table this record belongs to (Every place has its own not-live chat))
 * content    - Variable text (Contains the message that the user at the field id_user has wrote)
 
 0..1
@@ -79,7 +79,7 @@ Between the files of this repository's root folder, a file of VP extension can b
 
 * The prototype's look and the final project's look might be different, as the prototype here serves as the 'main goal' the developers are going for.
 
-* Most imagery used here is free to use, excepting only the map of the main screen of the app and the background of the list view of available places; We are not responsible of the wrong use of the map image that does not take part on the project's application.
+* Most imagery used here is free to use, excepting those like the map of the main screen and the background of the list view; We are not responsible of the wrong use of non-free-of-use imagery within the project's application.
 
 The project initially contains up to 9 different, related views, from most to least important views, these are;
 
