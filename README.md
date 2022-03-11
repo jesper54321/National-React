@@ -30,7 +30,7 @@ The following image has been made to reflect the associations between the tables
 Description of tables and fields are the following..;
 
 User (Management of registered users into the Firebase database);
-* id_user  - Primary Key number (Every user has their own (Made for ease of record management, but username also works (and also avoids users with same usernames)))
+* id_user  - Primary Key number (Identifier made for ease of management, but username also works (and also avoids users with same usernames))
 * username - Variable text (Users will have this text displayed on the chats they comment into and at the top of most application screens)
 * password - Variable text (Firebase's process of signing in gives this field a long, encripted text value, decoded on their loggin in process)
 * profile  - Variable text (Contains a link (route) of a static image between the project's public folder)
@@ -52,7 +52,7 @@ Comment (Messages created by users, which are saved on the database for the not-
 with
 
 Place (Data related to a place that's used in the Place View screen for users to consult)
-* id_place    - Primary Key number (Identifies an exact place)
+* id_place    - Primary Key number (Identifies an exact place (Name also works as there aren't two same places (two countries, towns, etc..) with same names))
 * name        - Variable text (Contains the words this place has been named by)
 * description - Variable text (Contains the definition of the place in a text up to 255 characters length)
 
