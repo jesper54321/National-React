@@ -28,9 +28,46 @@ The following image has been made to reflect the associations between the tables
 
 Description of tables and fields are the following..;
 
-User (Management of registered users into the Firebase )
+User (Management of registered users into the Firebase database);
+* id_user  - Primary Key number (Every user has their own (made for ease of record management, but username also works (and also avoids users with same usernames)))
+* username - Variable text (users will have this text displayed on the chats they comment into and at the top of most application screens)
+* password - Variable text (through firebase's process of signing in, this field's content becomes a long, encripted text value that's decode upon their loggin in process)
+* profile  - Variable text (Contains a link (route) of a static image between the project's public folder)
+
+1..1
+ to
+0..N
+
+Comment (Messages created by users, which are saved on the database for the not-live place chats);
+* id_comment - Primary Key number (Identifies an exact message)
+* id_user    - Numeric field (Contains the value of 'id_user' from the User table that this record belongs to)
+* id_place   - Numeric field (Contains the value of 'id_place' from the Place table that this record belongs to (remember, every place has its own not-live chat))
+* content    - Variable text (Contains the message that the user at the field id_user has wrote)
+
+0..1
+ to
+1..1
+
+Place (Data related to a place that's used in the Place View screen for users to consult)
+* id_place    - Primary Key number (Identifies an exact place)
+* name        - Variable text (Contains the words this place has been named by)
+* description - Variable text (Contains the definition of the place in a text up to 255 characters length)
+
+1..1
+ to
+1..N
+
+Image (Records for every place's gallery)
+* id_image - Primary Key number (Identifies an exact image)
+* id_place - Numeric field (Contains the value of 'id_place' from the Place table that this image belongs to)
+* link     - Variable text (Contains the route of a static image saved within the project's public folder)
 
 
+Next table is born by the ManyToMany relationship between a user and a place (0..1 to 0..1)
+
+Visited (Tells which places an user has visited);
+* id_user  - Primary Key number (Identifies an user that visited the place indicated on id_place field of this table (Which value is that of a Place table record's id_place)
+* id_place - Primary Key number (Identifies a place that was visited by the user indicated on id_user field of this table (Which value is that of an User table record's id_user))
 
 
 
