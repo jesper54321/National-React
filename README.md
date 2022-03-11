@@ -30,9 +30,9 @@ The following image has been made to reflect the associations between the tables
 Description of tables and fields are the following..;
 
 User (Management of registered users into the Firebase database);
-* id_user  - Primary Key number (Every user has their own (made for ease of record management, but username also works (and also avoids users with same usernames)))
-* username - Variable text (users will have this text displayed on the chats they comment into and at the top of most application screens)
-* password - Variable text (through firebase's process of signing in, this field contains a long, encripted text value, decoded on their loggin in process)
+* id_user  - Primary Key number (Every user has their own (Made for ease of record management, but username also works (and also avoids users with same usernames)))
+* username - Variable text (Users will have this text displayed on the chats they comment into and at the top of most application screens)
+* password - Variable text (Firebase's process of signing in gives this field a long, encripted text value, decoded on their loggin in process)
 * profile  - Variable text (Contains a link (route) of a static image between the project's public folder)
 
 1..1
