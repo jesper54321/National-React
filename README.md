@@ -1,7 +1,7 @@
 # README's Content Table
 1. [Project Introduction; National-React](#national-react)
 2. [Project Prototype](#project-prototype) 
-3. [Database aspects](#entity-&-relation-diagram-and-database-description)
+3. [Database aspects](#database-aspects-of-the-project)
 
 
 # National-React
@@ -15,7 +15,8 @@ This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Fir
 
 
 
-# Database Of The Project
+# Database Aspects Of The Project
+---------------------------------
 
 The project makes use of up to 5 entities, all related to the others in a certain way. ManyToMany, ManyToOne and OneToOne types of relationships are contained within.
 
