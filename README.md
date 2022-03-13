@@ -125,7 +125,8 @@ Where different users connected to the app can remotely speak with each other. T
 
 This screen isn't required for the grades upon the project's evaluation, so there's a chance this view doesn't get added at the final project structure.
 
-This screen has not been designed inside the prototipe file just yet.. Wait for an update of this someday on the month of March (project deadline is marked down at day 26).
+![app-live-chat@1x](https://user-images.githubusercontent.com/71889035/158077271-440f68cb-3aae-48f9-bf3f-66d0e6e4e1c5.png)
+
 
 
 ### App; Place View Screen
@@ -134,7 +135,7 @@ Probably the most considered view along with the main screen, this screen shows 
 
 Unlikely the Live Chat, the chat of this screen is saved on a database and exclusively relates to the place (so other places will also have their own small chat), messages ever wrote here by any user will be loaded here for the user.
 
-![app-place-view@1x](https://user-images.githubusercontent.com/71889035/157850106-16267322-5061-4fd3-b0d0-985570f78d5a.png)
+![app-place-view@1x](https://user-images.githubusercontent.com/71889035/158077352-da4a3133-9988-4ae2-80ab-520214236712.png)
 
 
 ### App; Place List Screen
@@ -154,9 +155,7 @@ Made in case the user feels lost using the app, this screen explains the user ho
 
 * This screen was thought to be mixed with the Contact Screen (next one) as both have a 'similar nature'. The idea has not been implemented on the prototipe and is unknown to ever be on the final project.
 
-* This screen is being worked on, an earlier version of this screen is shown in the following image;
-
-![app-info@1x](https://user-images.githubusercontent.com/71889035/157851698-8562ee51-0ca6-446b-ac10-a0a16937c7a8.png)
+![app-info@1x](https://user-images.githubusercontent.com/71889035/158077380-a1d46b5d-dde1-4ac4-a4fb-cf3b0ad4f5f1.png)
 
 
 ### App; Contact Screen
@@ -167,9 +166,4 @@ Merely made for the user's good and following the structure of official websites
 
 * This screen was thought to be mixed with the Info Screen (previous one) as both have a 'similar nature'. The idea has not been implemented on the prototipe and is unknown to ever be on the final project.
 
-* This screen is being worked on, an earlier version of this screen is shown in the following image;
-
-![app-contact@1x](https://user-images.githubusercontent.com/71889035/157853016-2276d97f-895f-4351-bfa5-996fb9ff5d58.png)
-
-
-
+![app-contact@1x](https://user-images.githubusercontent.com/71889035/158077393-31486148-f18c-4998-ba10-420cfa7247d5.png)
