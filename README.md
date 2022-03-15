@@ -19,9 +19,13 @@ This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Fir
 
 # Manual of the Developer User
 
-Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of requirements and steps to get this working, made as clear and brief as possible.
+Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of materials, requirements and steps to get this working, made as clear and brief as possible.
 
-#### Materials for Project Setup;
+## Materials for Project Definition and Project Setup (Respectively)
+
+* Justinmind      - User Interface Design tool used for the making of the Project's prototype.
+* DIA             - Diagram Design tool used for the making of the Database's structure
+* Visual Paradigm - Diagram Design tool used for the making of User Cases.
 
 * Visual Studio Code - Mainly used IDE (Integrated Development Environment) for development (other IDEs can be used).
 * NodeJS             - Features a server for local deployment, templates and structure used by ReactJS.
@@ -29,17 +33,21 @@ Project's setup is easy to follow, and variation of material versions used shoul
 * Google Firebase    - Global deployment and database management backend API.
 
 
-#### Material's Download Page
+## Material's Official Page for downloading (Respectively)
 
-1. Download -> Visual Studio Code's Official Page - https://code.visualstudio.com/
-2. Download -> NodeJS's Official Page             - https://nodejs.org/en/
-ReactJS & Firebase do not require to download anything, check their official pages to see how they work;
-3. ReactJS' Official Page          - https://reactjs.org/
-4. Google Firebase's Official Page - https://firebase.google.com/ (google account required for database management)
+#### These three are totally optional, images made with these are provided through this readme documentation;
+* Justinmind      - https://github.com/jesper54321/National-React.git
+* DIA             - http://dia-installer.de/index.html.en
+* Visual Paradigm - https://www.visual-paradigm.com/
+
+#### Last two do not require any download, though you can check their official pages to learn their usage;
+* Visual Studio Code              - https://code.visualstudio.com/
+* NodeJS                          - https://nodejs.org/en/
+* ReactJS' Official Page          - https://reactjs.org/         (JavaScript library)
+* Google Firebase's Official Page - https://firebase.google.com/ (registered google account required for database management)
 
 
-#### Setup;
-
+## Setup;
 1. Create an empty folder to contain this Guthub Repository's project.
 2. (if downloading the ZIP source folder) Move the compressed file to the created folder & extract all files.
 3. Open the folder with any compatible Integrated Development Environment (IDE), such as Visual Studio Code.
@@ -50,11 +58,6 @@ ReactJS & Firebase do not require to download anything, check their official pag
 8. Enjoy the Application!
 
 Note: The firebase account this project is linked to (which also manages database data) might not work when this project is given a try. If this happens, consider changing the piece of code within the project's source that relates to said firebase account.
-
-
-
-
-
 
 
 
@@ -115,6 +118,10 @@ Next table is born by the ManyToMany relationship between a user and a place (0.
 Visited (Tells which places an user has visited);
 * id_user  - Primary Key number (Identifies an user that visited the place indicated on id_place field of this table (Which value is that of a Place table record's id_place)
 * id_place - Primary Key number (Identifies a place that was visited by the user indicated on id_user field of this table (Which value is that of an User table record's id_user))
+
+
+### Project's User Cases Diagram
+
 
 
 
