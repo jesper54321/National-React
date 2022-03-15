@@ -1,6 +1,6 @@
 # README's Content Table
 1. [Project Introduction; National-React](#national-react)
-2. [Manual - Development User](#developer-user-manual)
+2. [Manual for Developer Users](#manual-of-the-developer-user)
 3. [Database aspects](#database-aspects-of-the-project)
 4. [Project Prototype](#project-prototype) 
 
@@ -17,11 +17,12 @@ This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Fir
 
 
 
-# Manual of the Development User
+# Manual of the Developer User
 
 Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of requirements and steps to get this working, made as clear and brief as possible.
 
 #### Materials for Project Setup;
+
 * Visual Studio Code - Mainly used IDE (Integrated Development Environment) for development (other IDEs can be used).
 * NodeJS             - Features a server for local deployment, templates and structure used by ReactJS.
 * ReactJS            - Main development & frontend framework.
@@ -29,11 +30,12 @@ Project's setup is easy to follow, and variation of material versions used shoul
 
 
 #### Material's Download Page
+
 1. Download -> Visual Studio Code's Official Page - https://code.visualstudio.com/
 2. Download -> NodeJS's Official Page             - https://nodejs.org/en/
 ReactJS & Firebase do not require to download anything, check their official pages to see how they work;
 3. ReactJS' Official Page          - https://reactjs.org/
-4. Google Firebase's Official Page - https://firebase.google.com/ (google account required for database functionality)
+4. Google Firebase's Official Page - https://firebase.google.com/ (google account required for database management)
 
 
 #### Setup;
@@ -42,7 +44,7 @@ ReactJS & Firebase do not require to download anything, check their official pag
 2. (if downloading the ZIP source folder) Move the compressed file to the created folder & extract all files.
 3. Open the folder with any compatible Integrated Development Environment (IDE), such as Visual Studio Code.
 4. Open a new Git Bash terminal.
-5. (if pulling remotely from Github) use 'git pull (r
+5. (if pulling remotely from Github) use 'git clone https://github.com/jesper54321/National-React.git' to obtain the project files.
 6. On the Terminal, write 'npm install' to download project dependencies (around 500 megabytes of space required)
 7. On the Terminal, write 'npm start', a page with URL 'localhost:3000' should pop up.
 8. Enjoy the Application!
@@ -108,7 +110,7 @@ Image (Records for every place's gallery)
 * link     - Variable text (Contains the route of a static image saved within the project's public folder)
 
 
-Next table is born by the ManyToMany relationship between a user and a place (0..1 to 0..1)
+Next table is born by the ManyToMany relationship between a user and a place (0..N to 0..N)
 
 Visited (Tells which places an user has visited);
 * id_user  - Primary Key number (Identifies an user that visited the place indicated on id_place field of this table (Which value is that of a Place table record's id_place)
@@ -123,7 +125,7 @@ Between the files of this repository's root folder, a file of VP extension can b
 
 * The prototype's look and the final project's look might be different, as the prototype here serves as the 'main goal' the developers are going for.
 
-* Most imagery used here is free to use, excepting those like the map of the main screen and the background of the list view; We are not responsible of the wrong use of non-free-of-use imagery within the project's application.
+* Most imagery used here is supposed to be free for any use, excepting those like the map of the main screen and the background of the list view; We are not responsible of the wrong use of non-free-of-use imagery within the project's application.
 
 The project initially contains up to 9 different, related views, from most to least important views, these are;
 
