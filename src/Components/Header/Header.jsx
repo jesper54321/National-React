@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import style from './header.module.scss'
+import Home from '../Home/Home'
 
 
 export default function Header () {
@@ -10,7 +11,7 @@ export default function Header () {
             <FontAwesomeIcon className={style.iconcolor} icon={faUser} />
             <h4>ALiteralNameOh</h4>
             </div>
-            <button>Exit</button>
+            <button onClick={Home}>Exit</button>
         </header>
     )
 }
