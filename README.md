@@ -21,7 +21,7 @@ This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Fir
 
 Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of materials, requirements and steps to get this working, made as clear and brief as possible.
 
-## Materials for Project Definition and Project Setup (Respectively)
+### Materials for Project Definition and Project Setup (Respectively)
 
 * Justinmind      - User Interface Design tool used for the making of the Project's prototype.
 * DIA             - Diagram Design tool used for the making of the Database's structure
@@ -33,7 +33,7 @@ Project's setup is easy to follow, and variation of material versions used shoul
 * Google Firebase    - Global deployment and database management backend API.
 
 
-## Material's Official Page for downloading (Respectively)
+### Material's Official Page for downloading (Respectively)
 
 #### These three are totally optional, images made with these are provided through this readme documentation;
 * Justinmind      - https://github.com/jesper54321/National-React.git
@@ -47,7 +47,7 @@ Project's setup is easy to follow, and variation of material versions used shoul
 * Google Firebase's Official Page - https://firebase.google.com/ (registered google account required for database management)
 
 
-## Setup;
+### Setup;
 1. Create an empty folder to contain this Guthub Repository's project.
 2. (if downloading the ZIP source folder) Move the compressed file to the created folder & extract all files.
 3. Open the folder with any compatible Integrated Development Environment (IDE), such as Visual Studio Code.
