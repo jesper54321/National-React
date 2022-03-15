@@ -1,17 +1,58 @@
 # README's Content Table
 1. [Project Introduction; National-React](#national-react)
-2. [Project Prototype](#project-prototype) 
+2. [Manual - Development User](#developer-user-manual)
 3. [Database aspects](#database-aspects-of-the-project)
+4. [Project Prototype](#project-prototype) 
+
 
 
 # National-React
 ----------------
-Cross-country collaborative progressive web app project for educational purposes.
+Cross-country collaborative progressive web app project for educational purposes within the month of March, year 2022.
 
 The idea behind the project is to create a geographic app that looks appealing and easy to use for users at a new, unknown place (for the moment, only at Gran Canaria island)
 and helps them have somewhere well-known place to go.
 
 This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Firebase as a web hosting service.
+
+
+
+# Manual of the Development User
+
+Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of requirements and steps to get this working, made as clear and brief as possible.
+
+#### Materials for Project Setup;
+* Visual Studio Code - Mainly used IDE (Integrated Development Environment) for development (other IDEs can be used).
+* NodeJS             - Features a server for local deployment, templates and structure used by ReactJS.
+* ReactJS            - Main development & frontend framework.
+* Google Firebase    - Global deployment and database management backend API.
+
+
+#### Material's Download Page
+1. Download -> Visual Studio Code's Official Page - https://code.visualstudio.com/
+2. Download -> NodeJS's Official Page             - https://nodejs.org/en/
+ReactJS & Firebase do not require to download anything, check their official pages to see how they work;
+3. ReactJS' Official Page          - https://reactjs.org/
+4. Google Firebase's Official Page - https://firebase.google.com/ (google account required for database functionality)
+
+
+#### Setup;
+
+1. Create an empty folder to contain this Guthub Repository's project.
+2. (if downloading the ZIP source folder) Move the compressed file to the created folder & extract all files.
+3. Open the folder with any compatible Integrated Development Environment (IDE), such as Visual Studio Code.
+4. Open a new Git Bash terminal.
+5. (if pulling remotely from Github) use 'git pull (r
+6. On the Terminal, write 'npm install' to download project dependencies (around 500 megabytes of space required)
+7. On the Terminal, write 'npm start', a page with URL 'localhost:3000' should pop up.
+8. Enjoy the Application!
+
+Note: The firebase account this project is linked to (which also manages database data) might not work when this project is given a try. If this happens, consider changing the piece of code within the project's source that relates to said firebase account.
+
+
+
+
+
 
 
 
