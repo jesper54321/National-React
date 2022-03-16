@@ -1,18 +1,11 @@
 import React from "react";
 import { initializeApp } from "firebase/app";
-import {
-	getFirestore,
-	collection,
-	onSnapshot,
-	doc,
-	query,
-	orderBy,
-	limit,
-} from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import {getFirestore, collection, onSnapshot, doc, query, orderBy, limit } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { logDOM } from "@testing-library/react";
 
-const app = initializeApp({
+export const app = initializeApp({
 	apiKey: "AIzaSyCggZEKFDO1qfTaZYFIveKXA1VUzPxrBU0",
 	authDomain: "national-react-app.firebaseapp.com",
 	projectId: "national-react-app",
@@ -23,7 +16,9 @@ const app = initializeApp({
 
 const dbSettings = ["Users", "Visited", "Places", "Comments"];
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
+
+export const auth = getAuth();
 
 const unsubscribe = [];
 
@@ -54,6 +49,6 @@ export default function FirebaseMain() {
 			);
 		}
 	}, []);
-
-	return <div>{dbData.Users[0]?.display_name}</div>;
+	return dbData;
+	//return <div>{dbData.Users[0]?.display_name}</div>;
 }
