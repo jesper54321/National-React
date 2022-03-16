@@ -10,9 +10,8 @@ import {
 	limit,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { logDOM } from "@testing-library/react";
 
-const app = initializeApp({
+export const app = initializeApp({
 	apiKey: "AIzaSyCggZEKFDO1qfTaZYFIveKXA1VUzPxrBU0",
 	authDomain: "national-react-app.firebaseapp.com",
 	projectId: "national-react-app",
