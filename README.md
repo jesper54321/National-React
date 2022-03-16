@@ -132,7 +132,7 @@ This user difference has been drawn into the next diagram, made using Visual Par
 * Contact Screen            - As for the early version of the app we are making, an user should be logged in to make use of their Email & Username data.
 * Live Chat Screen          - This feature is not required for the application's purpose itself, so it's supposed to be locked for them.
 * Non-live Chat interaction - Seeing review comments made about each place can be understood as required, however, messaging on these isn't.
-* Database's visit status   - We require Users to be logged so we can keep track of places they visit by making use of mapping API's and our database. For ease of development, this feature was not thought for Guest Users (There are practices such as using device Cookies to get this to work, for example).
+* The User's visit status   - We require Users to be logged so we can keep track of places they visit by making use of mapping API's and our database. For ease of development, this feature was not thought for Guest Users (There are practices such as using device Cookies to get this to work, for example).
 
 
 
