@@ -23,6 +23,7 @@ Project's setup is easy to follow, and variation of material versions used shoul
 
 ### Materials for Project Definition and Project Setup (Respectively)
 
+* ZenHub          - Productivity Management tool used to distribute project work between all teammates (other team organization tools can be used)
 * Justinmind      - User Interface Design tool used for the making of the Project's prototype.
 * DIA             - Diagram Design tool used for the making of the Database's structure
 * Visual Paradigm - Diagram Design tool used for the making of User Cases.
@@ -35,12 +36,15 @@ Project's setup is easy to follow, and variation of material versions used shoul
 
 ### Material's Official Page for downloading (Respectively)
 
-#### These three are totally optional, images made with these are provided through this readme documentation;
+Optional software or not, you can check the Official Page we provide to you so you can visualize how they work.
+
+#### These four are totally optional;
+* ZenHub          - https://www.zenhub.com/
 * Justinmind      - https://github.com/jesper54321/National-React.git
 * DIA             - http://dia-installer.de/index.html.en
 * Visual Paradigm - https://www.visual-paradigm.com/
 
-#### Last two do not require any download, though you can check their official pages to learn their usage;
+#### Last two do not require any download;
 * Visual Studio Code              - https://code.visualstudio.com/
 * NodeJS                          - https://nodejs.org/en/
 * ReactJS' Official Page          - https://reactjs.org/         (JavaScript library)
