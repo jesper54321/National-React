@@ -120,8 +120,19 @@ Visited (Tells which places an user has visited);
 * id_place - Primary Key number (Identifies a place that was visited by the user indicated on id_user field of this table (Which value is that of an User table record's id_user))
 
 
-### Project's User Cases Diagram
+### Project's Use Cases Diagram
 
+From since the project was started, we decided to allow unregistered (guest) users to enter the app, but at the cost of few action permissions (allowing them only the basics of the app).
+
+This user difference has been drawn into the next diagram, made using Visual Paradigm's 30 days evaluation version. Below it, an explanation has been provided;
+
+![Riddlehunt project's Use Cases](https://user-images.githubusercontent.com/71889035/158565683-6f2378b0-f47d-44b7-8afa-93eb1c745d17.PNG)
+
+#### Guest and Logged users are allowed in almost every screen the app contains and aspects, excepting..;
+* Contact Screen            - As for the early version of the app we are making, an user should be logged in to make use of their Email & Username data.
+* Live Chat Screen          - This feature is not required for the application's purpose itself, so it's supposed to be locked for them.
+* Non-live Chat interaction - Seeing review comments made about each place can be understood as required, however, messaging on these isn't.
+* Database's visit status   - We require Users to be logged so we can keep track of places they visit by making use of mapping API's and our database. For ease of development, this feature was not thought for Guest Users (There are practices such as using device Cookies to get this to work, for example).
 
 
 
