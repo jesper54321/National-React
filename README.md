@@ -23,7 +23,7 @@ Project's setup is easy to follow, and variation of material versions used shoul
 
 ### Materials for Project Definition and Project Setup (Respectively)
 
-* ZenHub          - Productivity Management tool used to distribute project work between all teammates (other team organization tools can be used)
+* ZenHub          - Productivity Management tool used for project work distribution (other team organization tools can be used)
 * Justinmind      - User Interface Design tool used for the making of the Project's prototype.
 * DIA             - Diagram Design tool used for the making of the Database's structure
 * Visual Paradigm - Diagram Design tool used for the making of User Cases.
