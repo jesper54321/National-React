@@ -1,0 +1,16 @@
+
+
+.homeclass {
+    background-image: url(../assets/images/Background@1x.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    img {
+        margin: auto;
+        top: 25%;
+        left: 40%;
+        display: block;
+        position: absolute;
+        transform: translate(-30%, -30%);
+    }
+}
