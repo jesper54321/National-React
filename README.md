@@ -21,7 +21,7 @@ This projects makes use of ReactJS as frontend, NodeJS as Backend and Google Fir
 
 Project's setup is easy to follow, and variation of material versions used should be a big deal. The following are sets of materials, requirements and steps to get this working, made as clear and brief as possible.
 
-### Materials for Project Definition and Project Setup (Respectively)
+### Materials for Project Definition and Project Setup (first four and last four respectively)
 
 * ZenHub          - Productivity Management tool used for project work distribution (other team organization tools can be used)
 * Justinmind      - User Interface Design tool used for the making of the Project's prototype.
