@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
-import firebase, { initializeApp } from "firebase/app";
 import {
 	getFirestore,
 	collection,
@@ -28,6 +27,7 @@ export default function Chat() {
 				setTimeout(() => {
 					for (let index = 0; index < 50; index++) {
 						UserRefs.push(item.user_id);
+						console.log(item.id);
 					}
 					setUserRefs(UserRefs);
 				}, 3000);
@@ -38,13 +38,15 @@ export default function Chat() {
 	const updateUserData = () => {};
 
 	const sendChat = async () => {
-		const docRef = await addDoc(collection(db, "Chats"), {
-			content:
-				"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio 						provident temporibus corporis voluptatibus blanditiis est. Dolor 						soluta ipsam qui cumque provident cum, nulla quibusdam, nemo, ipsum 						voluptates impedit amet consectetur. Ex eaque assumenda veniam quam 						eum excepturi libero reiciendis ratione!",
-			createdAt: serverTimestamp(),
-			user_id: "L85fp20Yz0t4vFKbJY92",
-		});
-		console.log("Document written with ID: ", docRef.id);
+		const messageText = document.getElementById("message").value;
+		if (messageText != "" && messageText != " ") {
+			const docRef = await addDoc(collection(db, "Chats"), {
+				content: messageText,
+				createdAt: serverTimestamp(),
+				user_id: "L85fp20Yz0t4vFKbJY92",
+			});
+			console.log("Document written with ID: ", docRef.id);
+		}
 	};
 
 	useEffect(async () => {
@@ -57,9 +59,6 @@ export default function Chat() {
 			setChats([...chatArray]);
 		});
 	}, []);
-	console.log(UserRefs);
-
-	handleUserArrays();
 
 	return (
 		<>
@@ -75,6 +74,12 @@ export default function Chat() {
 							/>
 						);
 					})}
+					<textarea
+						name="message"
+						id="message"
+						placeholder="Write your message here..."
+						required
+					></textarea>
 					<button onClick={sendChat}>Send Message</button>
 				</ul>
 			</div>
