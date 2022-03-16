@@ -17,6 +17,20 @@ div
 
 body
 {
-    background-image: url("../asset/background.jpg.jpg");
-    position: relative;
+    @media (max-width:500px)
+     {
+        background-image: url("../asset/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    @media (min-width:500px) {
+        background-image: url("../asset/backgroundpc.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.messageSucess{
+    border-style: solid;
 }
