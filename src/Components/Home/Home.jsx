@@ -4,11 +4,16 @@ import { NavLink } from "react-router-dom";
 
 
 
+
 export default function Home() {
 	return <div className={style.homeclass}>
-		<img src={houseimg} alt="image_of_house" />
-		<h2>Feel at home!</h2>
-		<NavLink>Login</NavLink>
-		<NavLink>Register</NavLink>
+		<div className={style.imagecontainer}>
+			<img src={houseimg} alt="image_of_house" />
+			<h1>Feel at home!</h1>
+		</div>
+		<div className={style.linkcontainer}>
+			<NavLink to="/login">Log in</NavLink>
+			<NavLink to="/list">Guest</NavLink>
+		</div>
 	</div>;
 }
