@@ -1,47 +1,78 @@
 import React, {useState, useEffect} from "react";
 import './Login.scss';
-//import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useHistory,Link, useNavigate } from "react-router-dom";
+import { db } from "../../Logic/firebase";
+import { auth } from "../../Wrappers/AuthProvider";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Login (){
+
+export default function Login ()
+{
    const initialValues = {username:"", password:""};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [user, loading, error] = useAuthState(auth);
 
-const handleChange = (e) => {
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
    console.log (e.target);
    const { name, value } = e.target;
     setFormValues({...formValues, [name]: value});
 
     console.log(formValues);
-};
+    };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = (e) => 
+  {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-
-  
-    // const auth = getAuth();
-    //  signInWithEmailAndPassword(auth, e.email, e.password)
-    //     .then((userCredential) => {
-    //     // Signed in 
-    //   const user = userCredential.user;
-    //  // ...
-    // })
-    // .catch((error) => {
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
-    // });
+    
+     
+    signInWithEmailAndPassword(auth, e.email, e.password)
+    console.log(e.email)
+    .then((userCredential) => {
+    // Signed in 
+    
+    console.log("good");
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    });
     
 };
-
-useEffect (() => {
-    console.log(formErrors);
-    if(Object.keys(formErrors).length === 0 && isSubmit){
-        console.log(formValues);
+useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
     }
-},[formErrors]);
+    if (user) navigate("../Home/Home");
+  }, [user, loading]);
+
+
+//  const logInWithEmailAndPassword = async (email, password) => {
+//     try {
+//       await signInWithEmailAndPassword(auth, email, password);
+//     } catch (err) {
+//       console.error(err);
+//       alert(err.message);
+//     }
+
+ 
+    
+
+
+// useEffect (() => {
+//     console.log(formErrors);
+//     if(Object.keys(formErrors).length === 0 && isSubmit){
+//         console.log(formValues);
+//     }
+// },[formErrors]);
 
 const validate = (values)=>{
     const errors = {};
@@ -52,7 +83,7 @@ const validate = (values)=>{
     }
     if(!values.password){
         errors.password = "Password is required!";
-    }else if (values.password.length < 8)
+    }else if (values.password.length < 6)
     {
         errors.password = "Password must be more than 8 caracters";
     }
@@ -86,7 +117,7 @@ const validate = (values)=>{
             
             <div>
                 <h4>Don't have account yet ?</h4>
-                <button>Register</button>
+                <Link to ="../Register/Register"><button>Register</button></Link>
             </div>
 
             </form>
