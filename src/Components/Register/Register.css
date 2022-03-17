@@ -11,7 +11,7 @@
   form {
     box-sizing: border-box;
     width: 300px;
-    margin: 200px auto;
+    margin: 90px auto;
     padding: 60px;
     background-color: white;
     border-radius: 4px;
@@ -23,6 +23,19 @@
   }
   form h2 {
     text-align: center;
+  }
+
+  .photo {
+    margin: 10px auto;
+    padding: 10px;
+    margin-top: 10px;
+    width: 40%;
+    color: white;
+    background-color: rgb(194, 41, 194);
+    border: none;
+    border-radius: 4px;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: black;
   }
   
   

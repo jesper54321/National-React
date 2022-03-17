@@ -2,9 +2,17 @@ import React from "react";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
 export const auth = getAuth();
+export var email = ""; var password = ""; export var username = "";
+
+const userData = [];
+
+export function SetUser(usernameSet,emailSet){
+	username= usernameSet;
+	email= emailSet;
+}
+
 
 export default function AuthProvider(props) {
-	const email = ""; const password = "";
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in 
