@@ -11,7 +11,7 @@ import {
 	orderBy,
 	limit,
 } from "firebase/firestore";
-import { app, pullDocument, pullCollection } from "../../Logic/firebase.js";
+import { app, addDocument } from "../../Logic/firebase.js";
 
 const db = getFirestore(app);
 
@@ -23,7 +23,7 @@ export default function Chat() {
 	const [Users, setUsers] = useState([]);
 	const [UserRefs, setUserRefs] = useState([]);
 
-	/* 	const handleUserArrays = () => {
+	const handleUserArrays = () => {
 		for (const item of Chats) {
 			if (!UserRefs.includes(item.user_id)) {
 				setTimeout(() => {
@@ -43,8 +43,9 @@ export default function Chat() {
 		const messageText = document.getElementById("message").value;
 		if (messageText != "" && messageText != " ") {
 			document.getElementById("message").value = "";
-			const docRef = await addDoc(collection(db, "Chats"), {
-				content: messageText.value,
+
+			const docRef = await addDocument("Chats", {
+				content: messageText,
 				createdAt: serverTimestamp(),
 				user_id: "Wn3stJzJsNedzvyzEpov",
 			});
@@ -66,12 +67,12 @@ export default function Chat() {
 			chatArray.reverse();
 			setChats([...chatArray]);
 		});
-	}, []); */
+	}, []);
 
 	return (
 		<>
 			<div>
-				{/* <ul className={styles.messageList}>
+				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
 						return <Message data={item} key={index} styles={styles} />;
 					})}
@@ -81,16 +82,8 @@ export default function Chat() {
 						placeholder="Write your message here..."
 						required
 					></textarea>
+					<button onClick={sendChat}>Send Message</button>
 				</ul>
-					<button onClick={sendChat}>Send Message</button> */}
-				<button
-					onClick={async () => {
-						const data = await pullCollection("Chats");
-						console.log(data);
-					}}
-				>
-					Test Firebase
-				</button>
 			</div>
 		</>
 	);
