@@ -8,6 +8,10 @@ import {
 	query,
 	orderBy,
 	limit,
+	getDoc,
+	getDocs,
+	setDoc,
+	where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
@@ -56,3 +60,5 @@ export default function FirebaseMain() {
 
 	return <div>{dbData.Users[0]?.display_name}</div>;
 }
+
+export const getDoc = () => {};

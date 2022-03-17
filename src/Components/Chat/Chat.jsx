@@ -8,6 +8,8 @@ import {
 	query,
 	addDoc,
 	serverTimestamp,
+	orderBy,
+	limit,
 } from "firebase/firestore";
 import { app } from "../../Logic/firebase.js";
 
@@ -17,6 +19,7 @@ const incomingColor = "";
 const outgoingColor = "";
 
 export default function Chat() {
+	timer();
 	const [Chats, setChats] = useState([]);
 	const [Users, setUsers] = useState([]);
 	const [UserRefs, setUserRefs] = useState([]);
@@ -40,22 +43,28 @@ export default function Chat() {
 	const sendChat = async () => {
 		const messageText = document.getElementById("message").value;
 		if (messageText != "" && messageText != " ") {
+			document.getElementById("message").value = "";
 			const docRef = await addDoc(collection(db, "Chats"), {
-				content: messageText,
+				content: messageText.value,
 				createdAt: serverTimestamp(),
-				user_id: "L85fp20Yz0t4vFKbJY92",
+				user_id: "Wn3stJzJsNedzvyzEpov",
 			});
 			console.log("Document written with ID: ", docRef.id);
 		}
 	};
 
 	useEffect(async () => {
-		const q = await query(collection(db, "Chats"));
+		const q = await query(
+			collection(db, "Chats"),
+			orderBy("createdAt", "desc"),
+			limit(10)
+		);
 		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
 			const chatArray = [];
 			querySnapshot.forEach((doc) => {
 				chatArray.push(doc.data());
 			});
+			chatArray.reverse();
 			setChats([...chatArray]);
 		});
 	}, []);
@@ -65,14 +74,7 @@ export default function Chat() {
 			<div>
 				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
-						return (
-							<Message
-								data={item}
-								type="outgoing"
-								key={index}
-								styles={styles}
-							/>
-						);
+						return <Message data={item} key={index} styles={styles} />;
 					})}
 					<textarea
 						name="message"
