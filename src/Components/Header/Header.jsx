@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import style from './header.module.scss'
 import Register from '../Register/Register'
+import { NavLink } from 'react-router-dom'
 
 
 export default function Header() {
@@ -17,6 +18,7 @@ export default function Header() {
                     <button onClick={Register}>Exit</button>
                 </NavLink>
             </nav>
+            <NavLink to="/">Exit</NavLink>
         </header>
     )
 }
