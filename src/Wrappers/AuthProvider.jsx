@@ -1,33 +1,48 @@
 import React from "react";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from '../Logic/firebase'
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signOut,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useContext } from "react/cjs/react.production.min";
 
-export const auth = getAuth(app);
-export var email = ""; var password = ""; export var username = "";
+export const LoginContext = React.createContext({
+	Login: "",
+	setLogin: () => {},
+});
 
-const userData = [];
+export const auth = getAuth();
+export var email = "";
+var password = "";
+export var username = "";
 
-export function SetUser(usernameSet,emailSet){
-	username= usernameSet;
-	email= emailSet;
+export function SetUser(usernameSet, emailSet) {
+	username = usernameSet;
+	email = emailSet;
 }
-
 
 export default function AuthProvider(props) {
 	createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
-			// Signed in 
+			// Signed in
 			const user = userCredential.user;
+			setLogin({
+				username: username,
+				email: email,
+			});
 		})
 		.catch((error) => {
 			console.log(error.message);
 		});
 
-	signOut(auth).then(() => {
-		// Sign-out successful.
-	}).catch((error) => {
-		// An error happened.
-	});
+	signOut(auth)
+		.then(() => {
+			// Sign-out successful.
+		})
+		.catch((error) => {
+			// An error happened.
+		});
 
 	return <>{props.children}</>;
 }
