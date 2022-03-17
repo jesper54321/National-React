@@ -19,13 +19,13 @@ body
 {
     @media (max-width:500px)
      {
-        background-image: url("../asset/background.jpg");
+        background-image: url("../../asset/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     @media (min-width:500px) {
-        background-image: url("../asset/backgroundpc.jpg");
+        background-image: url("../../asset/backgroundpc.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     }

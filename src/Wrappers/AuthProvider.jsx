@@ -20,5 +20,7 @@ export default function AuthProvider(props) {
 		// An error happened.
 	});
 
+	
+
 	return <>{props.children}</>;
 }
