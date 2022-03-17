@@ -1,6 +1,10 @@
 import style from './home.module.scss'
 import houseimg from '../assets/images/Isometric-House.svg'
 import { NavLink } from "react-router-dom";
+import React from "react";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import { username,email } from "../../Wrappers/AuthProvider";
 
 
 
