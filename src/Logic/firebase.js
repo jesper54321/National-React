@@ -14,6 +14,7 @@ import {
 	where,
 	addDoc,
 } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export const app = initializeApp({
@@ -27,7 +28,9 @@ export const app = initializeApp({
 
 const dbSettings = ["Users", "Visited", "Places", "Comments"];
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
+
+export const auth = getAuth();
 
 const unsubscribe = [];
 
@@ -58,8 +61,8 @@ export default function FirebaseMain() {
 			);
 		}
 	}, []);
-
-	return <div>{dbData.Users[0]?.display_name}</div>;
+	return dbData;
+	//return <div>{dbData.Users[0]?.display_name}</div>;
 }
 
 //Function call, requires "collection", "document_id"
