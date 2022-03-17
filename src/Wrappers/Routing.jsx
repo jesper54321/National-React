@@ -34,7 +34,6 @@ export default function Routing() {
 				<Route path="/" element={<LoginWrapper />}>
 					<Route path="login" element={<Login />} />
 					<Route path="register" element={<Register />} />
-					<Route path="home" element={<Home />} />
 					<Route index element={<Home />} />
 				</Route>
 			</Routes>
