@@ -13,6 +13,8 @@ import {
 } from "firebase/firestore";
 import { app, addDocument } from "../../Logic/firebase.js";
 
+const { Login, setLogin } = useContext(LoginContext);
+
 const db = getFirestore(app);
 
 const incomingColor = "";
