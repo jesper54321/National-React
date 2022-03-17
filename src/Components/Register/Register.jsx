@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./Register.scss";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../Logic/firebase";
-import { auth } from "../../Wrappers/AuthProvider";
+import FirebaseMain,{ db }  from "../../Logic/firebase";
+import AuthProvider, { auth } from "../../Wrappers/AuthProvider";
 import { SetUser } from "../../Wrappers/AuthProvider";
-import FirebaseMain from "../../Logic/firebase";
 import { getFirestore, collection, onSnapshot, query, addDoc, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -109,7 +108,7 @@ export default function Register() {
 							const user = userCredential.user;
 							console.log(username + " " + email);
 							SetUser(username, email);
-							navigate("/home");
+							navigate("/");
 						})
 						.catch((error) => {
 							console.log(error.message);
