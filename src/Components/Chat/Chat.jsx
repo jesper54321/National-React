@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
 import {
@@ -12,8 +12,7 @@ import {
 	limit,
 } from "firebase/firestore";
 import { app, addDocument } from "../../Logic/firebase.js";
-
-const { Login, setLogin } = useContext(LoginContext);
+import { LoginContext } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
 
@@ -21,6 +20,7 @@ const incomingColor = "";
 const outgoingColor = "";
 
 export default function Chat() {
+	const { Login, setLogin } = useContext(LoginContext);
 	const [Chats, setChats] = useState([]);
 	const [Users, setUsers] = useState([]);
 	const [UserRefs, setUserRefs] = useState([]);
