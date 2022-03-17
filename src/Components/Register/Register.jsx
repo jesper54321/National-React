@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Register.css";
+import "./Register.scss";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../Logic/firebase";
@@ -51,7 +51,7 @@ export default function Register() {
 
 	var usersData = FirebaseMain();
 
-	var rightPassword = true; var rightEmail = true; var rightUser = true;
+	var rightPassword = false; var rightEmail = false; var rightUser = false;
 
 	for (var i = 0; i < usersData.Users.length; i++) {
 		usernames.push(usersData.Users[i].username);
@@ -100,10 +100,12 @@ export default function Register() {
 		<div className="container">
 			<form onSubmit={(event) => {
 				event.preventDefault();
+				checkErrors();
 				if (rightEmail && rightPassword && rightUser) {
 					createUserWithEmailAndPassword(auth, email, password)
 						.then((userCredential) => {
 							// Signed in 
+							createUser();
 							const user = userCredential.user;
 							console.log(username + " " + email);
 							SetUser(username, email);
@@ -112,7 +114,6 @@ export default function Register() {
 						.catch((error) => {
 							console.log(error.message);
 						});
-					createUser();
 					setUsername("");
 					setEmail("");
 					setPassword("");
@@ -138,7 +139,8 @@ export default function Register() {
 						id="emailIn"
 						type="email"
 						value={email}
-						onChange={(event) => setEmail(event.target.value)}
+						onChange={(event) => setEmail(event.target.value) + checkErrors()}
+						onClick={(event) => checkErrors()}
 					/>
 					<div className="error"></div>
 				</div>
@@ -148,7 +150,8 @@ export default function Register() {
 						id="passwordIn"
 						type="password"
 						value={password}
-						onChange={(event) => setPassword(event.target.value)}
+						onChange={(event) => setPassword(event.target.value) + checkErrors()}
+						onClick={(event) => checkErrors()}
 					/>
 					<div className="error"></div>
 				</div>
