@@ -11,7 +11,7 @@ import {
 	orderBy,
 	limit,
 } from "firebase/firestore";
-import { app } from "../../Logic/firebase.js";
+import { app, pullDocument, pullCollection } from "../../Logic/firebase.js";
 
 const db = getFirestore(app);
 
@@ -19,12 +19,11 @@ const incomingColor = "";
 const outgoingColor = "";
 
 export default function Chat() {
-	timer();
 	const [Chats, setChats] = useState([]);
 	const [Users, setUsers] = useState([]);
 	const [UserRefs, setUserRefs] = useState([]);
 
-	const handleUserArrays = () => {
+	/* 	const handleUserArrays = () => {
 		for (const item of Chats) {
 			if (!UserRefs.includes(item.user_id)) {
 				setTimeout(() => {
@@ -67,12 +66,12 @@ export default function Chat() {
 			chatArray.reverse();
 			setChats([...chatArray]);
 		});
-	}, []);
+	}, []); */
 
 	return (
 		<>
 			<div>
-				<ul className={styles.messageList}>
+				{/* <ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
 						return <Message data={item} key={index} styles={styles} />;
 					})}
@@ -82,8 +81,16 @@ export default function Chat() {
 						placeholder="Write your message here..."
 						required
 					></textarea>
-					<button onClick={sendChat}>Send Message</button>
 				</ul>
+					<button onClick={sendChat}>Send Message</button> */}
+				<button
+					onClick={async () => {
+						const data = await pullCollection("Chats");
+						console.log(data);
+					}}
+				>
+					Test Firebase
+				</button>
 			</div>
 		</>
 	);

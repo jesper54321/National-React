@@ -12,6 +12,7 @@ import {
 	getDocs,
 	setDoc,
 	where,
+	addDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
@@ -61,4 +62,38 @@ export default function FirebaseMain() {
 	return <div>{dbData.Users[0]?.display_name}</div>;
 }
 
-export const getDoc = () => {};
+//Function call, requires "collection", "document_id"
+//pullDocument("Comments", "UoD9y5gCJEpiuhrZPivG");
+export const pullDocument = async (database, document) => {
+	const docSnap = await getDoc(doc(db, database, document));
+
+	if (docSnap.exists()) {
+		return docSnap.data();
+	} else {
+		console.log("No such document!");
+		return null;
+	}
+};
+
+//Function call, requires "collection"
+//pullCollection("Users")
+export const pullCollection = async (database) => {
+	const q = query(collection(db, database));
+	const documentArray = [];
+
+	const querySnapshot = await getDocs(q);
+	querySnapshot.forEach((doc) => {
+		const tempData = doc.data();
+		tempData.id = doc.id;
+		documentArray.push(tempData);
+	});
+	return documentArray;
+};
+
+//Function call, requires "collection", data as an object with the field names
+//addDocument("Comments", {content: "testing add document", createdAt: serverTimestamp()});
+export const addDocument = async (database, data) => {
+	const docRef = await addDoc(collection(db, database), data);
+	console.log("Document written with ID: ", docRef.id);
+	return docRef.id;
+};
