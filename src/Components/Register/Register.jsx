@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Register.css";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../Logic/firebase";
@@ -8,6 +7,7 @@ import { SetUser } from "../../Wrappers/AuthProvider";
 import FirebaseMain from "../../Logic/firebase";
 import { getFirestore, collection, onSnapshot, query, addDoc, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import style from './register.module.scss'
 
 export default function Register() {
 	const [username, setUsername] = useState("");
@@ -97,7 +97,7 @@ export default function Register() {
 
 
 	return (
-		<div className="container">
+		<div className={style.formclass}>
 			<form onSubmit={(event) => {
 				event.preventDefault();
 				if (rightEmail && rightPassword && rightUser) {

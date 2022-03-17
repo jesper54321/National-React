@@ -1,7 +1,8 @@
 import React from "react";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from '../Logic/firebase'
 
-export const auth = getAuth();
+export const auth = getAuth(app);
 export var email = ""; var password = ""; export var username = "";
 
 const userData = [];
