@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import { initializeApp } from "firebase/app";
-=======
 import firebase, { initializeApp } from "firebase/app";
->>>>>>> b4ac48a96703b5a1f97a871758ed793122bea4b7
 import {
 	getFirestore,
 	collection,
@@ -12,13 +8,6 @@ import {
 	query,
 	orderBy,
 	limit,
-<<<<<<< HEAD
-} from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { logDOM } from "@testing-library/react";
-
-const app = initializeApp({
-=======
 	getDoc,
 	getDocs,
 	setDoc,
@@ -29,7 +18,6 @@ import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPas
 import { useEffect, useState } from "react";
 
 export const app = initializeApp({
->>>>>>> b4ac48a96703b5a1f97a871758ed793122bea4b7
 	apiKey: "AIzaSyCggZEKFDO1qfTaZYFIveKXA1VUzPxrBU0",
 	authDomain: "national-react-app.firebaseapp.com",
 	projectId: "national-react-app",
@@ -40,13 +28,9 @@ export const app = initializeApp({
 
 const dbSettings = ["Users", "Visited", "Places", "Comments"];
 
-<<<<<<< HEAD
-const db = getFirestore(app);
-=======
 export const db = getFirestore(app);
 
 export const auth = getAuth();
->>>>>>> b4ac48a96703b5a1f97a871758ed793122bea4b7
 
 const unsubscribe = [];
 
@@ -77,11 +61,6 @@ export default function FirebaseMain() {
 			);
 		}
 	}, []);
-<<<<<<< HEAD
-
-	return <div>{dbData.Users[0]?.display_name}</div>;
-}
-=======
 	return dbData;
 	//return <div>{dbData.Users[0]?.display_name}</div>;
 }
@@ -121,4 +100,3 @@ export const addDocument = async (database, data) => {
 	console.log("Document written with ID: ", docRef.id);
 	return docRef.id;
 };
->>>>>>> b4ac48a96703b5a1f97a871758ed793122bea4b7

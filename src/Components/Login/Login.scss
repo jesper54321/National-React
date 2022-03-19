@@ -1,7 +1,7 @@
-div
-{
-    margin:50px;
-}
+// div
+// {
+//     margin:50px;
+// }
 
 .contour
 {
@@ -15,17 +15,17 @@ div
 
 } 
 
-body
+#login
 {
     @media (max-width:500px)
      {
-        background-image: url("../asset/background.jpg");
+        background-image: url("../../asset/background/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     }
 
     @media (min-width:500px) {
-        background-image: url("../asset/backgroundpc.jpg");
+        background-image: url("../../asset/background/backgroundpc.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     }

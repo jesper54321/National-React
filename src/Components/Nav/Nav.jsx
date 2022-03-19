@@ -10,16 +10,16 @@ export default function Nav () {
             <NavLink to="/home">
             <FontAwesomeIcon className={style.iconcolor} icon={faHouse} />
             </NavLink>
-            <NavLink to="/chat">
+            <NavLink to="/activities/chat">
             <FontAwesomeIcon className={style.iconcolor} icon={faCommentDots} />
             </NavLink>
-            <NavLink to="/list">
+            <NavLink to="/activities/list">
             <FontAwesomeIcon className={style.iconcolor} icon={faListUl} />
             </NavLink>
-            <NavLink to="/info">
+            <NavLink to="/activities/info">
             <FontAwesomeIcon className={style.iconcolor} icon={faInfo} />
             </NavLink>
-            <NavLink to="/contact">
+            <NavLink to="/activities/contact">
             <FontAwesomeIcon className={style.iconcolor} icon={faAddressCard} />
             </NavLink>
         </nav>

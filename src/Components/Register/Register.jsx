@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Register.css";
+import "./Register.scss";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../Logic/firebase";

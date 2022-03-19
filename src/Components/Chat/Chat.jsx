@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-export default function Chat() {
-	return <div>Chat</div>;
-=======
 import React, { useEffect, useState } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
@@ -93,5 +87,4 @@ export default function Chat() {
 			</div>
 		</>
 	);
->>>>>>> b4ac48a96703b5a1f97a871758ed793122bea4b7
 }
