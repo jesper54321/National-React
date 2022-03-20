@@ -5,14 +5,14 @@ import {
 	signOut,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useContext } from "react/cjs/react.production.min";
+import { app } from "../Logic/firebase";
 
 export const LoginContext = React.createContext({
 	Login: "",
 	setLogin: () => {},
 });
 
-export const auth = getAuth();
+export const auth = getAuth(app);
 export var email = "";
 var password = "";
 export var username = "";

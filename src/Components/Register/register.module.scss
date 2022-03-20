@@ -1,4 +1,40 @@
 
-.formclass {
-    margin: auto;
+.registerclass {
+    background-image: url(../assets/images/Background@1x.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    h1 {
+        margin: auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #70A9E5;
+        text-shadow: 2px 2px black;
+    }
+    button {
+        width: 40%;
+        margin: auto;
+    }
+    h2 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #70A9E5;
+        font-weight: 600;
+        text-shadow: 3px 3px black;
+    }
+    form {
+        top: 50%;
+        left: 50%;
+        transform: translate(0%, 30%);
+        display: grid;
+        gap: 1rem;
+        justify-content: center;
+        div {
+            margin: auto;
+            width: 80%;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            input {
+                width: 100%;
+            }
+        }
+    }
 }
