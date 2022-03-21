@@ -9,7 +9,7 @@ import { app } from "../Logic/firebase";
 
 export const LoginContext = React.createContext({
 	Login: "",
-	setLogin: () => {},
+	setLogin: () => { },
 });
 
 export const auth = getAuth(app);
@@ -23,7 +23,7 @@ export function SetUser(usernameSet, emailSet) {
 }
 
 export default function AuthProvider(props) {
-	createUserWithEmailAndPassword(auth, email, password)
+	/*createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
@@ -43,7 +43,7 @@ export default function AuthProvider(props) {
 		.catch((error) => {
 			// An error happened.
 		});
-
+	*/
 	return <>{props.children}</>;
 }
 
