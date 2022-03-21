@@ -193,3 +193,4 @@ export default function Register() {
 				<button>Log in!</button>
 			</form>
 		</div>
+)}
