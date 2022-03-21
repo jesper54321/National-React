@@ -15,7 +15,7 @@ export default function Home() {
 		</div>
 		<div className={style.linkcontainer}>
 			<NavLink to="/login">Log in</NavLink>
-			<NavLink to="/list">Guest</NavLink>
+			<NavLink to="/register">Register</NavLink>
 		</div>
 	</div>;
 }
