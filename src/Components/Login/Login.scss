@@ -1,0 +1,36 @@
+// div
+// {
+//     margin:50px;
+// }
+
+.contour
+{
+    //background-color: rgb(160, 126, 160);
+
+    border: 3px, solid, black;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+} 
+
+#login
+{
+    @media (max-width:500px)
+     {
+        background-image: url("../../asset/background/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    @media (min-width:500px) {
+        background-image: url("../../asset/background/backgroundpc.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.messageSucess{
+    border-style: solid;
+}
