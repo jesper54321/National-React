@@ -5,7 +5,14 @@ import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
 import { SetUser } from "../../Wrappers/AuthProvider";
-import { getFirestore, collection, onSnapshot, query, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+	getFirestore,
+	collection,
+	onSnapshot,
+	query,
+	addDoc,
+	serverTimestamp,
+} from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
 
@@ -23,26 +30,25 @@ export default function Register() {
 
 	const navigate = useNavigate();
 
-
 	const [loading, setLoading] = useState(true);
 	const [posts, setPosts] = useState([]);
 
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector('.error');
+		const errorDisplay = inputControl.querySelector(".error");
 
 		errorDisplay.innerText = message;
-		inputControl.classList.add('error');
-		inputControl.classList.remove('success')
-	}
+		inputControl.classList.add("error");
+		inputControl.classList.remove("success");
+	};
 
-	const setSuccess = element => {
+	const setSuccess = (element) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector('.error');
+		const errorDisplay = inputControl.querySelector(".error");
 
-		errorDisplay.innerText = '';
-		inputControl.classList.add('success');
-		inputControl.classList.remove('error');
+		errorDisplay.innerText = "";
+		inputControl.classList.add("success");
+		inputControl.classList.remove("error");
 	};
 
 	const createUser = async () => {
@@ -54,11 +60,14 @@ export default function Register() {
 		});
 	};
 
-	const usernames = []; const emails = [];
+	const usernames = [];
+	const emails = [];
 
 	var usersData = FirebaseMain();
 
-	var rightPassword = false; var rightEmail = false; var rightUser = false;
+	var rightPassword = false;
+	var rightEmail = false;
+	var rightUser = false;
 
 	for (var i = 0; i < usersData.Users.length; i++) {
 		usernames.push(usersData.Users[i].username);
@@ -66,7 +75,6 @@ export default function Register() {
 	}
 
 	function checkErrors() {
-
 		if (username !== "") {
 			if (usernames.includes(username)) {
 				setError(document.getElementById("usernameIn"), "Username is taken");
@@ -92,47 +100,50 @@ export default function Register() {
 		}
 
 		if (password.length < 6) {
-			setError(document.getElementById("passwordIn"), "Password is less than 6 chars");
+			setError(
+				document.getElementById("passwordIn"),
+				"Password is less than 6 chars"
+			);
 			rightPassword = false;
 		} else {
-			setSuccess(document.getElementById("passwordIn"))
+			setSuccess(document.getElementById("passwordIn"));
 			rightPassword = true;
 		}
 
-		if(photo !== ""){
+		if (photo !== "") {
 			setSuccess(document.getElementById("photoIn"));
-		}else{
+		} else {
 			setError(document.getElementById("photoIn"), "Choose a photo");
 		}
 	}
 
-
-
+	const [photoImage, setPhotoImage] = useState("");
 
 	return (
 		<div className="container">
-			<form onSubmit={(event) => {
-				event.preventDefault();
-				checkErrors();
-				if (rightEmail && rightPassword && rightUser && (photo !== "")) {
-					createUserWithEmailAndPassword(auth, email, password)
-						.then((userCredential) => {
-							// Signed in 
-							createUser();
-							const user = userCredential.user;
-							console.log(username + " " + email);
-							SetUser(username, email);
-							navigate("/");
-						})
-						.catch((error) => {
-							console.log(error.message);
-						});
-					setUsername("");
-					setEmail("");
-					setPassword("");
-				}
-			}
-			}
+			<input type="hidden" name="dkjnasfds" value={photoImage} />
+			<form
+				onSubmit={(event) => {
+					event.preventDefault();
+					checkErrors();
+					if (rightEmail && rightPassword && rightUser && photo !== "") {
+						createUserWithEmailAndPassword(auth, email, password)
+							.then((userCredential) => {
+								// Signed in
+								createUser();
+								const user = userCredential.user;
+								console.log(username + " " + email);
+								SetUser(username, email);
+								navigate("/");
+							})
+							.catch((error) => {
+								console.log(error.message);
+							});
+						setUsername("");
+						setEmail("");
+						setPassword("");
+					}
+				}}
 			>
 				<h1>Registration</h1>
 				<div className="input-control">
@@ -141,7 +152,9 @@ export default function Register() {
 						id="usernameIn"
 						type="username"
 						value={username}
-						onChange={(event) => setUsername(event.target.value) + checkErrors()}
+						onChange={(event) =>
+							setUsername(event.target.value) + checkErrors()
+						}
 						onClick={(event) => checkErrors()}
 					/>
 					<div className="error"></div>
@@ -163,51 +176,97 @@ export default function Register() {
 						id="passwordIn"
 						type="password"
 						value={password}
-						onChange={(event) => setPassword(event.target.value) + checkErrors()}
+						onChange={(event) =>
+							setPassword(event.target.value) + checkErrors()
+						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div><br></br>
+					<div className="error"></div>
+					<br></br>
 				</div>
 				<div className="input-control">
 					<label>Profile photo</label>
-					<img src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/image-icon-png-6.jpg?alt=media&token=6d98349b-cb4f-424e-807c-ae1956d07ad3"
-						width="40" height="50" onClick={(e) => setVisibility(!visibility)} />
+					<img
+						src={
+							photoImage ||
+							"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/image-icon-png-6.jpg?alt=media&token=6d98349b-cb4f-424e-807c-ae1956d07ad3"
+						}
+						style={{
+							width: "75px",
+							height: "75px",
+							borderRadius: "50%",
+							display: "block",
+							marginInline: "auto",
+						}}
+						onClick={(e) => setVisibility(!visibility)}
+					/>
 					<input
 						id="photoIn"
 						type="photo"
 						value={photo}
-						style={{ backgroundColor: "#f0f0f098", width: '70%', display: 'inline-block' }}
+						style={{
+							display: "none",
+						}}
 						readOnly
 					/>
-					
+
 					<CustomPopup
 						onClose={popupCloseHandler}
 						show={visibility}
 						title="Choose a profile photo:"
 					>
-						<img src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
-						width="150" height="170" onClick={(e) => setVisibility(!visibility) + 
-							setPhoto("https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e")
-							+ checkErrors() + setSuccess(document.getElementById("photoIn"))}/>
-						<img src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
-						width="150" height="170" onClick={(e) => setVisibility(!visibility) + 
-							setPhoto("https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db")
-							+ checkErrors() + setSuccess(document.getElementById("photoIn"))}/>
-						<img src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
-						width="150" height="170" onClick={(e) =>  setVisibility(!visibility) +
-						setPhoto("https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22")
-						+ checkErrors() + setSuccess(document.getElementById("photoIn"))}/>
+						<img
+							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
+							width="150"
+							height="170"
+							onClick={(e) => {
+								setVisibility(!visibility) +
+									setPhoto(
+										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
+									) +
+									checkErrors() +
+									setSuccess(document.getElementById("photoIn"));
+								setPhotoImage(e.target.src);
+							}}
+						/>
+						<img
+							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
+							width="150"
+							height="170"
+							onClick={(e) => {
+								setVisibility(!visibility) +
+									setPhoto(
+										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
+									) +
+									checkErrors() +
+									setSuccess(document.getElementById("photoIn"));
+								setPhotoImage(e.target.src);
+							}}
+						/>
+						<img
+							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
+							width="150"
+							height="170"
+							onClick={(e) => {
+								setVisibility(!visibility) +
+									setPhoto(
+										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
+									) +
+									checkErrors() +
+									setSuccess(document.getElementById("photoIn"));
+								setPhotoImage(e.target.src);
+							}}
+						/>
 					</CustomPopup>
 
 					<div className="error"></div>
 				</div>
 				<button type="submit">Sign up</button>
-				<br></br><br></br>
+				<br></br>
+				<br></br>
 				<h2>Already have an account?</h2>
 				<button>Log in</button>
-
 			</form>
 		</div>
 	);
-};
-
+}
