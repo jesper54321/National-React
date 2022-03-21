@@ -18,8 +18,10 @@ var password = "";
 export var username = "";
 
 export function SetUser(usernameSet, emailSet) {
-	username = usernameSet;
-	email = emailSet;
+	setLogin({
+		username: usernameSet,
+		email: emailSet,
+	});
 }
 
 export default function AuthProvider(props) {

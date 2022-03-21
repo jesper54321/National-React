@@ -1,14 +1,22 @@
-.messageList {
+//main div container
+.chatContainer {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	//ul with messages
+	.messageList {
+		position: relative;
+		overflow-y: scroll;
+		height: 90%;
+	}
+	//div with send message components
+	.messageContainer {
+		position: fixed;
+		bottom: 0px;
+		height: 10%;
+	}
 }
 
-.incomingMessage {
-	background-color: red;
-}
-
-.outgoingMessage {
-	background-color: blue;
-}
-
-.flex {
-	background-color: purple;
+body {
+	overflow: hidden;
 }

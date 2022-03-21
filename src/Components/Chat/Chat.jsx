@@ -73,18 +73,22 @@ export default function Chat() {
 
 	return (
 		<>
-			<div>
+			<div className={styles.chatContainer}>
 				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
 						return <Message data={item} key={index} styles={styles} />;
 					})}
-					<textarea
-						name="message"
-						id="message"
-						placeholder="Write your message here..."
-						required
-					></textarea>
-					<button onClick={sendChat}>Send Message</button>
+					<div className={styles.messageContainer}>
+						<textarea
+							name="message"
+							id={styles.message}
+							placeholder="Write your message here..."
+							required
+						></textarea>
+						<button onClick={sendChat} className={styles.sendChat}>
+							Send Message
+						</button>
+					</div>
 				</ul>
 			</div>
 		</>
