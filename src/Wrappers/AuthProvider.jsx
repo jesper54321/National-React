@@ -6,6 +6,7 @@ import {
 	signInWithEmailAndPassword,
 } from "firebase/auth";
 import { app } from "../Logic/firebase";
+import { createContext } from "react";
 
 export const LoginContext = React.createContext({
 	Login: "",
@@ -18,8 +19,10 @@ var password = "";
 export var username = "";
 
 export function SetUser(usernameSet, emailSet) {
-	username = usernameSet;
-	email = emailSet;
+	setLogin({
+		username: usernameSet,
+		email: emailSet,
+	});
 }
 
 export default function AuthProvider(props) {
