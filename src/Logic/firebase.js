@@ -14,7 +14,12 @@ import {
 	where,
 	addDoc,
 } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signOut,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export const app = initializeApp({
