@@ -3,18 +3,26 @@ import './Login.scss';
 import { useHistory,Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../Logic/firebase";
-import { auth } from "../../Wrappers/AuthProvider";
+import { auth, username } from "../../Wrappers/AuthProvider";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import FirebaseMain from "../../Logic/firebase";
+import { SetUser } from "../../Wrappers/AuthProvider";
+
 
 
 export default function Login ()
 {
-   const initialValues = {email:"", password:""};
+    var emailLogin;
+    var usernameLogin;
+
+   const initialValues = {email:"", password:"", username:""};
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const [user, loading, error] = useAuthState(auth);
+
+   
 
     const navigate = useNavigate();
 
@@ -26,6 +34,8 @@ export default function Login ()
     console.log(formValues);
     };
 
+    var usersData = FirebaseMain();
+
 
   const handleSubmit = (e) => 
   {
@@ -33,49 +43,61 @@ export default function Login ()
     setFormErrors(validate(formValues));
     setIsSubmit(true);
     
-     
+    for (var i = 0; i < usersData.Users.length; i++) {
+        if(usersData.Users[i].email === formValues.email)
+        	{
+                emailLogin = formValues.email;
+                usernameLogin = usersData.Users[i].username;
+
+                //SetUser(usersData.Users[i].username, usersData.Users[i].email) ;
+            }
+        if(usersData.Users[i].username === formValues.email)
+            {
+
+                //SetUser(usersData.Users[i].username, usersData.Users[i].email);
+                formValues.email=usersData.Users[i].email;
+
+                emailLogin = usersData.Users[i].email;
+                usernameLogin = usersData.Users[i].username;
+
+            }
+    }
+
     signInWithEmailAndPassword(auth, formValues.email, formValues.password)
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log("good");
+   
+    console.log("login successfuly");
+
+    SetUser(usernameLogin, emailLogin );
+
     navigate("/");
     })
     .catch((error) => {
+        document.getElementById("wrong").innerHTML=  "Wrong data!";
     const errorCode = error.code;
     const errorMessage = error.message;
     });
     
 };
-//useEffect(() => {
-  //  if (loading) {
-      // maybe trigger a loading screen
-    //  return;
-    //}
-    //if (user) navigate("../Home/Home");
-  //}, [user, loading]);
 
-
-// useEffect (() => {
-//     console.log(formErrors);
-//     if(Object.keys(formErrors).length === 0 && isSubmit){
-//         console.log(formValues);
-//     }
-// },[formErrors]);
 
 const validate = (values)=>{
     const errors = {};
    //const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
 
     if(!values.email){
-        errors.email = "Email is required!";
+        errors.email = "Email or username ares required!";
     }
     if(!values.password){
         errors.password = "Password is required!";
-    }else if (values.password.length < 2)
+    }else if (values.password.length < 6)
     {
-        errors.password = "Password must be more than 8 caracters";
+        errors.password = "Password must be more than 6 caracters";
     }
+
+
 
     return errors;
 };
@@ -88,7 +110,7 @@ const validate = (values)=>{
             
             <div>
                 <p>{ formErrors.email}</p>
-                <input type="text" placeholder="enter your email, please"  name ="email" value={formValues.email} onChange={handleChange}/>
+                <input type="text" placeholder="enter your email or your username, please"  name ="email" value={formValues.email} onChange={handleChange}/>
             </div>
             
             <div>
@@ -107,7 +129,7 @@ const validate = (values)=>{
             </div>
 
             </form>
-            
+            <div id="wrong"></div>
              
         </div>
     
