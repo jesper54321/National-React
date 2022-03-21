@@ -200,8 +200,10 @@ export default function Register() {
 							width: "75px",
 							height: "75px",
 							borderRadius: "50%",
+							border: "2px solid #111",
 							display: "block",
 							marginInline: "auto",
+
 						}}
 						onClick={(e) => setVisibility(!visibility)}
 					/>
