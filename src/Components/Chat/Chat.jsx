@@ -14,12 +14,85 @@ import {
 import { app, addDocument } from "../../Logic/firebase.js";
 import { LoginContext } from "../../Wrappers/AuthProvider";
 
+const chatdb = [
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+	{
+		content: "",
+		createdAt: "",
+		user_id: "",
+	},
+];
+
 const db = getFirestore(app);
 
 const incomingColor = "";
 const outgoingColor = "";
 
-export default function Chat() {
+/* export default function Chat() {
 	const { Login, setLogin } = useContext(LoginContext);
 	const [Chats, setChats] = useState([]);
 	const [Users, setUsers] = useState([]);
@@ -85,6 +158,49 @@ export default function Chat() {
 						required
 					></textarea>
 					<button onClick={sendChat}>Send Message</button>
+				</ul>
+			</div>
+		</>
+	);
+} */
+
+export default function Chat() {
+	const { Login, setLogin } = useContext(LoginContext);
+	const [Chats, setChats] = useState([]);
+	const [Users, setUsers] = useState([]);
+	const [UserRefs, setUserRefs] = useState([]);
+
+	// setChats(chatdb);
+
+	return (
+		<>
+			<div>
+				<ul className={styles.messageList}>
+					{Chats?.map((item, index) => {
+						return (
+							<>
+								<li>
+									<article className="flex">
+										<div className="infoSpot">
+											<img src="" alt="" className="profileImg" />
+											<h5 className="name"></h5>
+											{/* <h6 className="createdAt">{time.toUTCString()}</h6> */}
+										</div>
+										<div className="messageView">
+											{/* <p>{data.content}</p> */}
+										</div>
+									</article>
+								</li>
+							</>
+						);
+					})}
+					<textarea
+						name="message"
+						id="message"
+						placeholder="Write your message here..."
+						required
+					></textarea>
+					{/* <button onClick={sendChat}>Send Message</button> */}
 				</ul>
 			</div>
 		</>

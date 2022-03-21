@@ -107,7 +107,7 @@ export default function Register() {
 	return (
 		<div className={style.registerclass}>
 			<form
-				autocomplete="off"
+				autoComplete="off"
 				onSubmit={(event) => {
 					event.preventDefault();
 					if (rightEmail && rightPassword && rightUser) {
@@ -137,7 +137,7 @@ export default function Register() {
 				<h1>Register!</h1>
 				<div className="input-control">
 					<input
-						autocomplete="false"
+						autoComplete="false"
 						placeholder="Username"
 						id="usernameIn"
 						type="username"
@@ -151,7 +151,7 @@ export default function Register() {
 				</div>
 				<div className="input-control">
 					<input
-						autocomplete="false"
+						autoComplete="false"
 						placeholder="Password"
 						id="passwordIn"
 						type="password"
@@ -176,7 +176,7 @@ export default function Register() {
 
 				<div className="input-control">
 					<input
-						autocomplete="false"
+						autoComplete="false"
 						placeholder="Email"
 						id="emailIn"
 						type="email"

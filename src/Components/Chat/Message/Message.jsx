@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 export default function Message({ data, styles }) {
 	const user = "L85fp20Yz0t4vFKbJY92";
 	const type = user == data.user_id ? "outgoing" : "incoming";
@@ -7,7 +9,7 @@ export default function Message({ data, styles }) {
 	return (
 		<>
 			<li>
-				<article className="flex">
+				<article className="">
 					<div className="infoSpot">
 						<img src="" alt="" className="profileImg" />
 						<h5 className="name"></h5>
