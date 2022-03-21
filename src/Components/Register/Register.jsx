@@ -14,6 +14,8 @@ import {
 	query,
 	addDoc,
 	serverTimestamp,
+	doc,
+	setDoc,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
@@ -44,13 +46,19 @@ export default function Register() {
 		inputControl.classList.remove("error");
 	};
 	const createUser = async () => {
-		const docRef = await addDoc(collection(db, "Users"), {
+		const docRef = doc(db, "Users", email.toLowerCase());
+		await setDoc(docRef, {
 			username: username.toLowerCase(),
 			email: email.toLowerCase(),
 			date: serverTimestamp(),
 			photo: photo,
 		});
-		user_id = await docRef.id;
+		/* const docRef = await addDoc(collection(db, "Users"), {
+			username: username.toLowerCase(),
+			email: email.toLowerCase(),
+			date: serverTimestamp(),
+			photo: photo,
+		}); */
 	};
 	const usernames = [];
 	const emails = [];
