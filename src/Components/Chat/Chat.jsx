@@ -12,7 +12,7 @@ import {
 	limit,
 } from "firebase/firestore";
 import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
-import { LoginContext } from "../../Wrappers/AuthProvider";
+import { LoginContext, email, username } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
 

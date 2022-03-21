@@ -23,6 +23,7 @@ export default function Register() {
 	const [password, setPassword] = useState("");
 	const [photo, setPhoto] = useState("");
 	const [visibility, setVisibility] = useState(false);
+	let user_id;
 	const popupCloseHandler = (e) => {
 		setVisibility(e);
 	};
@@ -49,6 +50,7 @@ export default function Register() {
 			date: serverTimestamp(),
 			photo: photo,
 		});
+		user_id = await docRef.id;
 	};
 	const usernames = [];
 	const emails = [];
@@ -118,7 +120,7 @@ export default function Register() {
 								createUser();
 								const user = userCredential.user;
 								console.log(username + " " + email);
-								SetUser(username, email);
+								SetUser(username, email, user_id);
 								navigate("/activities/map");
 							})
 							.catch((error) => {
@@ -170,8 +172,9 @@ export default function Register() {
 					<br></br>
 				</div>
 				<div className="input-control">
-					<label style={{display: "block",
-							marginInline: "auto",}}>Profile photo</label>
+					<label style={{ display: "block", marginInline: "auto" }}>
+						Profile photo
+					</label>
 					<img
 						src={
 							photo ||
@@ -184,7 +187,6 @@ export default function Register() {
 							border: "2px solid #111",
 							display: "block",
 							marginInline: "auto",
-
 						}}
 						onClick={(e) => setVisibility(!visibility)}
 					/>
@@ -202,12 +204,13 @@ export default function Register() {
 						show={visibility}
 						title="Choose a profile photo:"
 					>
-						<br></br><div></div>
+						<br></br>
+						<div></div>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
 							width="150"
 							height="170"
-							onClick={(e) => (
+							onClick={(e) =>
 								setVisibility(!visibility) +
 								setPhoto(
 									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
@@ -215,13 +218,13 @@ export default function Register() {
 								checkErrors() +
 								setSuccess(document.getElementById("photoIn")) +
 								setPhoto(e.target.src)
-							)}
+							}
 						/>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
 							width="150"
 							height="170"
-							onClick={(e) => (
+							onClick={(e) =>
 								setVisibility(!visibility) +
 								setPhoto(
 									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
@@ -229,13 +232,13 @@ export default function Register() {
 								checkErrors() +
 								setSuccess(document.getElementById("photoIn")) +
 								setPhoto(e.target.src)
-							)}
+							}
 						/>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
 							width="150"
 							height="170"
-							onClick={(e) => (
+							onClick={(e) =>
 								setVisibility(!visibility) +
 								setPhoto(
 									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
@@ -243,14 +246,19 @@ export default function Register() {
 								checkErrors() +
 								setSuccess(document.getElementById("photoIn")) +
 								setPhoto(e.target.src)
-							)}
+							}
 						/>
-					</CustomPopup><br></br>
-					<div className="error" style={{display: "block",
-							marginInline: "auto",}}></div>
+					</CustomPopup>
+					<br></br>
+					<div
+						className="error"
+						style={{ display: "block", marginInline: "auto" }}
+					></div>
 				</div>
 				<button type="submit">Sign up</button>
-				<br></br><br></br><br></br>
+				<br></br>
+				<br></br>
+				<br></br>
 				<h2>Already have an account?</h2>
 				<nav>
 					<NavLink to="/login">

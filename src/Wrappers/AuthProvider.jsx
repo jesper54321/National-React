@@ -10,7 +10,7 @@ import { createContext } from "react";
 
 export const LoginContext = React.createContext({
 	Login: "",
-	setLogin: () => { },
+	setLogin: () => {},
 });
 
 export const auth = getAuth(app);
@@ -18,10 +18,11 @@ export var email = "";
 var password = "";
 export var username = "";
 
-export function SetUser(usernameSet, emailSet) {
+export function SetUser(usernameSet, emailSet, setUserId) {
 	setLogin({
 		username: usernameSet,
 		email: emailSet,
+		user_id: setUserId,
 	});
 }
 
@@ -49,4 +50,3 @@ export default function AuthProvider(props) {
 	*/
 	return <>{props.children}</>;
 }
-
