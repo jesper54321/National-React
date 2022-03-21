@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
 import {
@@ -12,8 +12,7 @@ import {
 	limit,
 } from "firebase/firestore";
 import { app, addDocument } from "../../Logic/firebase.js";
-
-const { Login, setLogin } = useContext(LoginContext);
+import { LoginContext } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
 
@@ -21,6 +20,7 @@ const incomingColor = "";
 const outgoingColor = "";
 
 export default function Chat() {
+	const { Login, setLogin } = useContext(LoginContext);
 	const [Chats, setChats] = useState([]);
 	const [Users, setUsers] = useState([]);
 	const [UserRefs, setUserRefs] = useState([]);
@@ -59,7 +59,7 @@ export default function Chat() {
 		const q = await query(
 			collection(db, "Chats"),
 			orderBy("createdAt", "desc"),
-			limit(10)
+			limit(2)
 		);
 		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
 			const chatArray = [];
@@ -73,11 +73,31 @@ export default function Chat() {
 
 	return (
 		<>
-			<div>
+			<div className={styles.chatcontainer}>
 				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
 						return <Message data={item} key={index} styles={styles} />;
 					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+				</ul>
+					<div className={styles.messageclass}>
 					<textarea
 						name="message"
 						id="message"
@@ -85,7 +105,7 @@ export default function Chat() {
 						required
 					></textarea>
 					<button onClick={sendChat}>Send Message</button>
-				</ul>
+					</div>
 			</div>
 		</>
 	);

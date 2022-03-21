@@ -7,13 +7,13 @@ export default function Message({ data, styles }) {
 	return (
 		<>
 			<li>
-				<article className="flex">
+				<article className={styles.flex}>
 					<div className="infoSpot">
 						<img src="" alt="" className="profileImg" />
 						<h5 className="name"></h5>
 						<h6 className="createdAt">{time.toUTCString()}</h6>
 					</div>
-					<div className="messageView">
+					<div className={styles.messageview}>
 						<p>{data.content}</p>
 					</div>
 				</article>
