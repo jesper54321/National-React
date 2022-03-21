@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="218.83659610403072" height="195.12501560884968" viewBox="83.00000000000011 178.82990691331023 218.83659610403072 195.12501560884968" preserveAspectRatio="none">
+  <g>
+    <defs>
+      <path id="s-Polygon_1-d1224" d="M301.83659756719146 327.1969008933572 L211.51024411598522 373.9549311688565 L90.63858279836677 311.38530771362605 L180.96519478078415 264.62727054462084 Z "></path>
+      <path id="s-Polygon_2-d1224" d="M255.14078592108376 319.30731547480616 L252.95897471525348 320.4367474856006 L252.95846726365676 282.4889142033373 L255.14033997877152 281.3594821925428 Z "></path>
+      <path id="s-Polygon_3-d1224" d="M287.6948444710509 252.81629761667583 L220.49449037059867 287.6010388116281 L220.49550527379205 364.4002027302487 L287.6958439969231 329.61500656390547 Z "></path>
+      <path id="s-Polygon_4-d1224" d="M220.49449037059867 286.75853838362514 L249.2335656052428 230.17859950478132 L287.52160357141497 252.0637850150213 Z "></path>
+      <path id="s-Polygon_5-d1224" d="M112.59950834367078 230.37956950013236 L138.14134250591246 179.9819645610153 L177.46248656927378 197.78023168087657 Z "></path>
+      <path id="s-Polygon_6-d1224" d="M287.2583745886372 310.88691451240527 L220.49449037059867 345.4457693051985 L220.49449037059867 363.9679993108365 L287.2586206257749 329.40868954665206 Z "></path>
+      <path id="s-Path_1-d1224" d="M262.2544071039845 245.92656340870795 C261.7175690262057 250.91436091346156 257.8540381808229 256.56992372031254 253.1604083667541 258.99928740901566 C249.07718371689174 261.1129968151349 245.6188765780342 260.1371223881109 244.43469839229675 256.9296710210149 C244.3926240745211 257.3199123645161 244.36506161549437 257.70726236698124 244.36506161549437 258.08733883207924 C244.36506161549437 263.32709010080396 248.46823978112218 265.45051310303813 253.52869751245834 262.830953277416 C258.58970882735457 260.21143912127053 262.69238338571586 253.84008697244963 262.69238338571586 248.60056146604396 C262.69238396386714 247.58872555740643 262.5378418867019 246.69444482073442 262.2544071039845 245.92656340870795 Z "></path>
+      <path id="s-Path_2-d1224" d="M244.36506161549437 254.49409832360627 C244.36506161549437 255.5059339091107 244.5195524699621 256.4002182002467 244.80298723766253 257.1680963809422 C245.33982531544132 252.18029887618866 249.20360844499862 246.52518759397572 253.89698597489303 244.0953723806346 C257.9804624283888 241.98188895225638 261.43851776361316 242.95735666243084 262.62269594935066 246.16498876863525 C262.6647702671262 245.7747474251341 262.692332726153 245.38739742266895 262.692332726153 245.00732095757098 "></path>
+      <path id="s-Path_3-d1224" d="M253.09077158995183 259.23771286423596 C257.7844014040207 256.8083498217991 261.6479326698771 251.15278679952598 262.18477032718226 246.1649888639283 C261.0005923817153 242.9573567577238 257.54253680622037 241.98188883212734 253.4590603527247 244.09537247592758 C248.76568282283034 246.52518725842464 244.90189927279943 252.18029854063758 244.36506161549437 257.1680964762353 C245.54924124285577 260.37554805875334 249.00753925142885 261.3514203315567 253.09077158995183 259.23771286423596 Z "></path>
+      <path id="s-Polygon_7-d1224" d="M237.68179374119865 327.97445538592376 L265.1727533305498 313.74406702130466 L237.68130166692322 303.012932560442 Z "></path>
+      <linearGradient id="s-Polygon_7-d1224-gradient" x1="189.58107967510603" y1="360.7096056121662" x2="229.44148716817784" y2="330.64786727983403" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_8-d1224" d="M270.2231392585047 277.4224912165612 L252.95846726365676 286.3591426824901 L270.22340067296363 292.90654635575964 Z "></path>
+      <linearGradient id="s-Polygon_8-d1224-gradient" x1="183.8845788023466" y1="360.7675698111715" x2="223.74498629541816" y2="330.70579011780393" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_9-d1224" d="M241.89617925147724 292.18620737649235 L241.93725207616473 292.2243836123064 L237.68130166692322 294.42721721773484 L237.68130166692322 298.02441405367716 L270.84563161624084 310.9722656409018 L270.84563161624084 303.39183563720246 Z "></path>
+      <linearGradient id="s-Polygon_9-d1224-gradient" x1="182.6527738279335" y1="364.1945018666587" x2="230.83679453114516" y2="327.8552888725724" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Line_1-d1224" d="M241.50059306610683 292.15353988295556 L252.84610360035083 286.2807209125199 "></path>
+      <linearGradient id="s-Line_1-d1224-gradient" x1="191.92979172448375" y1="329.27566213198577" x2="205.03082336871964" y2="329.27566213198577" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_10-d1224" d="M270.45004543087026 303.47496525619806 L270.44979939373246 292.82812458578945 L253.18486598442547 286.2807209125199 L241.54166589079426 292.30751323130204 L241.50059306610683 292.26933699548795 Z "></path>
+      <linearGradient id="s-Polygon_10-d1224-gradient" x1="181.46845408813928" y1="362.8879696261811" x2="226.47316751969402" y2="328.9465110110659" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polyline_1-d1224" d="M270.2378108007929 310.94451664791677 L270.0892197468976 310.88691451240527 L270.0892197468976 311.0574598489962 L264.4163414612067 313.9937624848721 "></path>
+      <linearGradient id="s-Polyline_1-d1224-gradient" x1="218.4241733545107" y1="363.00301877739423" x2="225.14644616477767" y2="363.00301877739423" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Line_2-d1224" d="M237.68130166692322 303.51273311307693 L237.68130166692322 298.0916938404648 "></path>
+      <path id="s-Polygon_11-d1224" d="M237.68130166692322 303.41525893929355 L265.17275333054994 314.1463934001563 L270.84563161624084 311.2100907642803 L270.84563161624084 311.03954542768946 L237.68130166692322 298.0916938404648 Z "></path>
+      <linearGradient id="s-Polygon_11-d1224-gradient" x1="183.8958534005628" y1="365.20814972088965" x2="234.78919662165606" y2="326.82561884848536" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_12-d1224" d="M270.45004543087026 303.47496525619806 L270.44979939373246 292.82812458578945 L253.18486598442547 286.2807209125199 L241.54166589079426 292.30751323130204 L241.50059306610683 292.26933699548795 Z "></path>
+      <path id="s-Polygon_13-d1224" d="M237.68130166692322 303.41525893929355 L265.17275333054994 314.1463934001563 L270.84563161624084 311.2100907642803 L270.84563161624084 311.03954542768946 L237.68130166692322 298.0916938404648 Z "></path>
+      <path id="s-Polygon_14-d1224" d="M237.68179374119865 327.97445538592376 L265.1727533305498 313.74406702130466 L237.68130166692322 303.012932560442 Z "></path>
+      <path id="s-Polygon_15-d1224" d="M270.2231392585047 277.4224912165612 L252.95846726365676 286.3591426824901 L270.22340067296363 292.90654635575964 Z "></path>
+      <path id="s-Polygon_16-d1224" d="M241.89617925147724 292.18620737649235 L241.93725207616473 292.2243836123064 L237.68130166692322 294.42721721773484 L237.68130166692322 298.02441405367716 L270.84563161624084 310.9722656409018 L270.84563161624084 303.39183563720246 Z "></path>
+      <path id="s-Line_3-d1224" d="M241.50059306610683 292.15353988295556 L252.84610360035083 286.2807209125199 "></path>
+      <path id="s-Polygon_17-d1224" d="M270.45004543087026 303.47496525619806 L270.44979939373246 292.82812458578945 L253.18486598442547 286.2807209125199 L241.54166589079426 292.30751323130204 L241.50059306610683 292.26933699548795 Z "></path>
+      <path id="s-Polyline_2-d1224" d="M270.2378108007929 310.94451664791677 L270.0892197468976 310.88691451240527 L270.0892197468976 311.0574598489962 L264.4163414612067 313.9937624848721 "></path>
+      <path id="s-Line_4-d1224" d="M237.68130166692322 303.51273311307693 L237.68130166692322 298.0916938404648 "></path>
+      <path id="s-Polygon_18-d1224" d="M237.68130166692322 303.41525893929355 L265.17275333054994 314.1463934001563 L270.84563161624084 311.2100907642803 L270.84563161624084 311.03954542768946 L237.68130166692322 298.0916938404648 Z "></path>
+      <path id="s-Polygon_19-d1224" d="M270.45004543087026 303.47496525619806 L270.44979939373246 292.82812458578945 L253.18486598442547 286.2807209125199 L241.54166589079426 292.30751323130204 L241.50059306610683 292.26933699548795 Z "></path>
+      <path id="s-Polygon_20-d1224" d="M237.68130166692322 303.41525893929355 L265.17275333054994 314.1463934001563 L270.84563161624084 311.2100907642803 L270.84563161624084 311.03954542768946 L237.68130166692322 298.0916938404648 Z "></path>
+      <path id="s-Polygon_21-d1224" d="M255.14078592108376 319.25946006413704 L252.95897471525348 320.38889207493156 L252.95846726365676 287.41015292331434 L255.14033997877152 286.2807209125199 Z "></path>
+      <linearGradient id="s-Polygon_21-d1224-gradient" x1="205.07567290368598" y1="346.6687841216072" x2="207.5956467780677" y2="346.6687841216072" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#BDBCBC" offset="0.0%" stop-opacity="1.0"></stop>
+        <stop stop-color="#E4E4E4" offset="43.4799998998642%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_22-d1224" d="M270.845139541965 293.17045512048776 L270.845139541965 294.9775463377589 L237.68130166692322 312.1437961538748 L237.68130166692322 310.3369255287933 Z "></path>
+      <linearGradient id="s-Polygon_22-d1224-gradient" x1="197.36382636980954" y1="150.10060990367012" x2="199.38046976958685" y2="150.10060990367012" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#BDBCBC" offset="0.0%" stop-opacity="1.0"></stop>
+        <stop stop-color="#E4E4E4" offset="43.4799998998642%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_23-d1224" d="M270.84564699356184 310.3203421081587 L237.68156308138214 327.4870331086537 L237.68130166692322 293.60498272760225 L270.8451395419652 276.4382434725658 Z "></path>
+      <path id="s-Polygon_24-d1224" d="M287.69484447105106 259.1408893914292 L220.49473640773647 293.92563058638143 L220.49449037059867 287.60103881162803 L287.69484447105106 252.81629761667583 Z "></path>
+      <path id="s-Polygon_25-d1224" d="M219.83136685048362 286.6643386251567 L111.64468549387482 230.17859950478143 L111.96404554303776 306.81231928119587 L220.1504770181785 363.29784470288746 Z "></path>
+      <path id="s-Polygon_26-d1224" d="M220.7864434260779 345.71915501033993 L112.59950834367078 289.2334641445061 L112.67700619773979 307.7157531768131 L220.86343767288054 364.20127859850476 Z "></path>
+      <path id="s-Polygon_27-d1224" d="M163.30796290643943 306.1022258204746 L190.68055556653877 320.39392502679283 L163.20511938284926 281.3594821925428 Z "></path>
+      <linearGradient id="s-Polygon_27-d1224-gradient" x1="167.55283395582043" y1="298.3025961153639" x2="207.41066574760615" y2="268.2427534971613" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_28-d1224" d="M196.6274689199575 289.35065499179996 L179.4371078293783 280.3752344485474 L196.69216130987132 304.965721211108 Z "></path>
+      <linearGradient id="s-Polygon_28-d1224-gradient" x1="162.91822821975194" y1="297.6788994117773" x2="202.77641368992283" y2="267.61880173385543" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_29-d1224" d="M167.4022669161624 273.73172965573826 L167.44283228925312 273.7295168403362 L163.20511938284926 271.5170047525887 L163.22083500502472 275.271008167813 L196.36648150919223 322.5604588150906 L196.33498875555702 314.99724878919255 Z "></path>
+      <linearGradient id="s-Polygon_29-d1224-gradient" x1="160.57539756769864" y1="300.74092705528267" x2="208.75024569886727" y2="264.4086282476393" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Line_5-d1224" d="M167.9792336318285 274.46974798457495 L179.27580584163667 280.36773514514374 "></path>
+      <linearGradient id="s-Line_5-d1224-gradient" x1="170.8671944890562" y1="266.40768250888954" x2="183.96772637035582" y2="266.40768250888954" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_30-d1224" d="M196.91195547122308 315.7374799334313 L196.8676610977629 305.1130845183153 L179.61260761726976 280.52259775575465 L168.01979900491924 274.46974798457495 L167.9792336318285 274.47196079997696 Z "></path>
+      <linearGradient id="s-Polygon_30-d1224-gradient" x1="160.54755117808858" y1="299.99450471168" x2="205.34183365890004" y2="266.211748389976" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polyline_3-d1224" d="M196.6913632671218 322.81709725383735 L196.5430182503642 322.6878440177387 L196.54327197616257 322.69403438605957 L190.89498202692812 319.74514420836397 "></path>
+      <linearGradient id="s-Polyline_3-d1224-gradient" x1="197.32051098305612" y1="299.75519028215433" x2="204.04227634172642" y2="299.75519028215433" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Line_6-d1224" d="M163.22753951702904 280.86357110082866 L163.20511938284926 275.45399572857036 "></path>
+      <linearGradient id="s-Line_6-d1224-gradient" x1="167.530009519568" y1="272.3785545690989" x2="167.53011633109145" y2="272.3785545690989" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_31-d1224" d="M163.22729347989127 280.76630373222315 L190.70272966358067 319.8007465664732 L196.35101961281507 322.74963674416864 L196.35076588701676 322.7434463758478 L163.20511938284926 275.45399572857036 Z "></path>
+      <linearGradient id="s-Polygon_31-d1224-gradient" x1="161.80165435103254" y1="301.8715510885734" x2="212.68728584558818" y2="263.494852122182" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1BCFFC" offset="1.5799999237060547%" stop-opacity="1.0"></stop>
+        <stop stop-color="#42C3D8" offset="42.289999127388%" stop-opacity="1.0"></stop>
+        <stop stop-color="#158BCC" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_32-d1224" d="M196.91195547122308 315.7374799334313 L196.8676610977629 305.1130845183153 L179.61260761726976 280.52259775575465 L168.01979900491924 274.46974798457495 L167.9792336318285 274.47196079997696 Z "></path>
+      <path id="s-Polygon_33-d1224" d="M163.22729347989127 280.76630373222315 L190.70272966358067 319.8007465664732 L196.35101961281507 322.74963674416864 L196.35076588701676 322.7434463758478 L163.20511938284926 275.45399572857036 Z "></path>
+      <path id="s-Polygon_34-d1224" d="M180.79183559188166 314.41744854626614 L178.61934304264454 313.28295670212253 L178.48228497958246 280.3752344485474 L180.6550312546179 281.50972629269097 Z "></path>
+      <linearGradient id="s-Polygon_34-d1224-gradient" x1="183.1010863464192" y1="283.1343464081205" x2="185.62161380436095" y2="283.1343464081205" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FAFAFA" offset="38.74000012874603%" stop-opacity="1.0"></stop>
+        <stop stop-color="#E4E4E4" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_35-d1224" d="M196.22554836121023 304.50512374965575 L196.23315244649962 306.3086854918932 L163.21277728876254 289.0685372922586 L163.20511938284926 287.2649686565153 Z "></path>
+      <linearGradient id="s-Polygon_35-d1224-gradient" x1="267.3301812257569" y1="130.19955890767054" x2="269.34774726480083" y2="130.19955890767054" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FAFAFA" offset="38.74000012874603%" stop-opacity="1.0"></stop>
+        <stop stop-color="#E4E4E4" offset="100.0%" stop-opacity="1.0"></stop>
+      </linearGradient>
+      <path id="s-Polygon_36-d1224" d="M196.36673523499076 322.56643548472766 L163.34610635145523 305.325832313702 L163.20511938284926 271.5170047525887 L196.22600199218317 288.7576079236144 Z "></path>
+      <path id="s-Polygon_37-d1224" d="M219.85770820154667 292.9752467906484 L111.6712382831032 236.48995574815825 L111.64468549387482 230.17859950478137 L219.8313668504836 286.6643386251566 Z "></path>
+      <path id="s-Polygon_38-d1224" d="M152.54018160861148 327.28179840368244 L112.68980397323439 306.9341266680003 L112.59950834367078 285.29647316852447 L152.57242785098117 306.1669346065664 Z "></path>
+      <path id="s-Polygon_39-d1224" d="M118.32844544244563 250.84780212868506 L139.61775064939297 261.96299448516174 L139.77546429903737 299.8291879767521 L118.4861129601267 288.7139956202755 Z "></path>
+      <path id="s-Polygon_40-d1224" d="M135.23325276886365 276.7144344190972 L122.19842433634095 269.9087448658199 L122.1477368416289 257.73753633665285 L135.18256142982136 264.54326725096564 Z "></path>
+      <path id="s-Polygon_41-d1224" d="M134.44433353663865 275.438687606532 L123.14780745879376 269.54052121480925 L123.10255969142474 258.7217840806484 L134.39908576926962 264.6197643477111 Z "></path>
+      <path id="s-Polygon_42-d1224" d="M136.1880256423658 293.44664606701934 L123.15324718613681 286.64095651374214 L123.10255969142474 274.46974798457495 L136.1373842796171 281.27547889888774 Z "></path>
+      <path id="s-Polygon_43-d1224" d="M135.9740233087948 293.31694309094974 L123.10255969142474 286.72874364961433 L123.96762626784358 286.2807209125199 L135.10109507695802 291.96140408580675 Z "></path>
+      <path id="s-Polygon_44-d1224" d="M135.3535303302634 276.759212971502 L122.1477368416289 269.99653200169234 L123.01280341804771 269.5485092645979 L134.48055212213296 275.40366707285307 Z "></path>
+      <path id="s-Polygon_45-d1224" d="M135.2425752697874 265.3728247219984 L122.1477368416289 258.7217840806484 L123.02046516829128 260.0768750079062 L134.37725496757025 265.8208474590929 Z "></path>
+      <path id="s-Polygon_46-d1224" d="M134.44438351293232 292.17089236094813 L123.14760755361934 286.27291209388534 L123.10255969142474 275.45399572857036 L134.39913574556329 281.35197599563315 Z "></path>
+      <path id="s-Polygon_47-d1224" d="M136.22591920591364 281.4537036010795 L123.10255969142474 274.46974798457495 L123.97523804179349 275.8248389118328 L135.36059890369648 281.90149885247837 Z "></path>
+      <path id="s-Polygon_48-d1224" d="M137.5021561271884 313.4197478325176 L137.5166684739869 323.65628703025476 L123.10255969142474 331.71587084380707 L123.10255969142474 342.55796317604273 L137.5026597344548 335.1041668761904 L151.90270980119126 327.65037057633805 L151.90270980119126 316.8091330388371 L151.90270980119126 305.9656757924282 Z "></path>
+      <path id="s-Polygon_49-d1224" d="M98.35441880501848 292.7505038475782 L98.35487243599125 303.59259617981394 L83.95482284979596 311.04643384070175 L83.95482284979596 321.8887605521389 L98.35487243599125 314.4349091042391 L112.7549705568563 306.98111280438684 L112.7549705568563 296.13993041493336 L112.7549705568563 285.29647316852447 Z "></path>
+      <path id="s-Polyline_4-d1224" d="M138.29680471909802 323.51781759225554 L100.1578691027481 303.012932560442 L83.95482284979596 311.27653657535814 L123.88269593653578 331.5774014058078 L138.29680471909802 323.51781759225554 "></path>
+      <path id="s-Polyline_5-d1224" d="M152.60559283801706 305.72987943739906 L112.67771734857104 285.29647316852447 L98.27716559673331 292.8832796652046 L138.21955151081266 313.0301711473076 L151.83056816536356 306.27056468114074 "></path>
+      <path id="s-Polygon_50-d1224" d="M138.08400811388003 323.70766613050864 L98.27716559673331 304.0125474527234 L98.27716559673331 293.17045512048776 L138.08400811388003 313.31734660259076 Z "></path>
+      <path id="s-Polygon_51-d1224" d="M123.00537046026736 343.0141194190861 L83.00000000000011 322.71348896783786 L83.00000000000011 311.8711622564007 L123.31072561422846 332.2448087224093 Z "></path>
+      <path id="s-Polygon_52-d1224" d="M137.42838185121042 179.9819645610153 L248.76977829868932 230.37956950013233 L219.8313668504837 286.86530862050756 L111.64468549387482 230.37956950013233 Z "></path>
+    </defs>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_1-d1224" fill="#4DAF4C" fill-opacity="1.0"></use>
+    </g>
+    <g id="s-Group_3-d1224">
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_2-d1224" fill="#FFFFFF" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_3-d1224" fill="#F2D719" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_4-d1224" fill="#CE5F49" fill-opacity="1.0" stroke-width="1.0" stroke="#CE5F49" stroke-linecap="butt"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_5-d1224" fill="#DD694A" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_6-d1224" fill="#E0B014" fill-opacity="1.0"></use>
+      </g>
+      <g id="s-Group_4-d1224">
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Path_1-d1224" fill="#E0B014" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Path_2-d1224" fill="#A8840F" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Path_3-d1224" fill="#A8840F" fill-opacity="1.0"></use>
+        </g>
+      </g>
+      <g id="s-Group_5-d1224">
+        <g id="s-Group_6-d1224">
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_7-d1224" fill="url(#s-Polygon_7-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_8-d1224" fill="url(#s-Polygon_8-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_9-d1224" fill="url(#s-Polygon_9-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_1-d1224" fill="url(#s-Line_1-d1224-gradient)" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_10-d1224" fill="url(#s-Polygon_10-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polyline_1-d1224" fill="url(#s-Polyline_1-d1224-gradient)" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_2-d1224" fill="none" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_11-d1224" fill="url(#s-Polygon_11-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_12-d1224" fill="#FDFEFF" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_13-d1224" fill="#FDFEFF" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+        </g>
+        <g id="s-Group_7-d1224">
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_14-d1224" fill="#808080" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_15-d1224" fill="#808080" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_16-d1224" fill="#808080" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_3-d1224" fill="#808080" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_17-d1224" fill="#808080" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polyline_2-d1224" fill="#808080" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_4-d1224" fill="#808080" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_18-d1224" fill="#808080" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_19-d1224" fill="#808080" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_20-d1224" fill="#808080" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_21-d1224" fill="url(#s-Polygon_21-d1224-gradient)" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_22-d1224" fill="url(#s-Polygon_22-d1224-gradient)" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_23-d1224" fill="none" stroke-width="1.0" stroke="#404040" stroke-linecap="square"></use>
+        </g>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_24-d1224" fill="#F1A620" fill-opacity="1.0"></use>
+      </g>
+    </g>
+    <g id="s-Group_8-d1224">
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_25-d1224" fill="#FDE937" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_26-d1224" fill="#F2C72E" fill-opacity="1.0"></use>
+      </g>
+      <g id="s-Group_9-d1224">
+        <g id="s-Group_10-d1224">
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_27-d1224" fill="url(#s-Polygon_27-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_28-d1224" fill="url(#s-Polygon_28-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_29-d1224" fill="url(#s-Polygon_29-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_5-d1224" fill="url(#s-Line_5-d1224-gradient)" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_30-d1224" fill="url(#s-Polygon_30-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polyline_3-d1224" fill="url(#s-Polyline_3-d1224-gradient)" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Line_6-d1224" fill="url(#s-Line_6-d1224-gradient)" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_31-d1224" fill="url(#s-Polygon_31-d1224-gradient)" fill-opacity="1.0"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_32-d1224" fill="#FDFEFF" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+          <g style="mix-blend-mode:normal">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_33-d1224" fill="#FDFEFF" fill-opacity="1.0" opacity="0.5"></use>
+          </g>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_34-d1224" fill="url(#s-Polygon_34-d1224-gradient)" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_35-d1224" fill="url(#s-Polygon_35-d1224-gradient)" fill-opacity="1.0"></use>
+        </g>
+        <g style="mix-blend-mode:normal">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_36-d1224" fill="none" stroke-width="1.0" stroke="#404040" stroke-linecap="square"></use>
+        </g>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_37-d1224" fill="#F1A620" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_38-d1224" fill="#7A5649" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_39-d1224" fill="#FFFFFF" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_40-d1224" fill="#CCCCCC" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_41-d1224" fill="#FFFFFF" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_42-d1224" fill="#CCCCCC" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_43-d1224" fill="#F5F6F6" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_44-d1224" fill="#F5F6F6" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_45-d1224" fill="#B3B3B3" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_46-d1224" fill="#FFFFFF" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_47-d1224" fill="#B3B3B3" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_48-d1224" fill="#453129" fill-opacity="1.0"></use>
+      </g>
+    </g>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_49-d1224" fill="#5C4137" fill-opacity="1.0"></use>
+    </g>
+    <g id="s-Group_11-d1224">
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polyline_4-d1224" fill="#5C4137" fill-opacity="1.0"></use>
+      </g>
+      <g style="mix-blend-mode:normal">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polyline_5-d1224" fill="#5C4137" fill-opacity="1.0"></use>
+      </g>
+    </g>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_50-d1224" fill="#7D675F" fill-opacity="1.0"></use>
+    </g>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_51-d1224" fill="#7D675F" fill-opacity="1.0"></use>
+    </g>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Polygon_52-d1224" fill="#DD694A" fill-opacity="1.0" stroke-width="1.0" stroke="#DD694A" stroke-linecap="butt"></use>
+    </g>
+  </g>
+</svg>

@@ -14,9 +14,10 @@ export default function Header() {
             </div>
             <nav className={style.navclass}>
                 <NavLink to="/register">
-                    <button onClick={Register}>Exit</button>
+                    <button>Exit</button>
                 </NavLink>
             </nav>
+            <NavLink to="/">Exit</NavLink>
         </header>
     )
 }

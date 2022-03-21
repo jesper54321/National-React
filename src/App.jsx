@@ -4,13 +4,23 @@ import Routes from "./Wrappers/Routing";
 import PageControl from "./Wrappers/PageControl";
 import AuthProvider from "./Wrappers/AuthProvider";
 
+export const LoginContext = React.createContext({
+	Login: "",
+	setLogin: () => {},
+});
+
 function App() {
+	const [Login, setLogin] = useState("");
+	const value = { Login, setLogin };
+
 	return (
-		<AuthProvider>
-			<PageControl>
-				<Routes />
-			</PageControl>
-		</AuthProvider>
+		<LoginContext.Provider value={value}>
+			<AuthProvider>
+				<PageControl>
+					<Routes />
+				</PageControl>
+			</AuthProvider>
+		</LoginContext.Provider>
 	);
 }
 // import React from 'react';
