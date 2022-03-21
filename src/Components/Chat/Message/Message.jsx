@@ -1,12 +1,13 @@
 import React from "react";
+import { username, email, photo } from "../../../Wrappers/AuthProvider";
 
 export default function Message({ data, styles, user }) {
 	//console.log(user);
-	const type = user == data.user_id ? "outgoing" : "incoming";
+	const type = email === data.user_id ? "outgoing" : "incoming";
 	const time = new Date(data?.createdAt?.seconds * 1000 || Date.now());
 	return (
 		<>
-			<li>
+			<li className={styles[type]}>
 				<article className={styles.flex}>
 					<div className="infoSpot">
 						<img src={user.photo} alt="" className="profileImg" />

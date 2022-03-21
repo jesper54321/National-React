@@ -1,12 +1,11 @@
-
-
 .flex {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	.messageview {
 		border: 1px solid black;
 		border-radius: 10px;
-		padding: 4px;
-		width: 85%;
+		padding: 0.6rem 1rem;
+		width: fit-content;
+
 		background-color: lightgreen;
 		color: black;
 	}
@@ -18,10 +17,20 @@
 	.messageList {
 		list-style: none;
 		overflow: scroll;
+		padding: 40px;
+		scroll-snap-type: proximity;
+		scroll-snap-align: end;
+		.outgoing {
+			background-color: red;
+			text-align: right;
+			.flex {
+				.messageview {
+					margin-left: auto;
+				}
+			}
+		}
 	}
 	.messageclass {
-		
-		
 		bottom: 5%;
 		position: fixed;
 		height: auto;
@@ -38,7 +47,7 @@
 			margin: 4px;
 			border-radius: 10px;
 			padding-bottom: 10px;
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 		}
 		button {
 			height: 6vh;
@@ -46,9 +55,13 @@
 			width: 40%;
 			border-radius: 10px;
 			border: none;
-            background: linear-gradient(0deg, rgba(36,14,0,1) 0%, rgba(109,152,188,1) 0%, rgba(255,255,255,1) 100%);
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(
+				0deg,
+				rgba(36, 14, 0, 1) 0%,
+				rgba(109, 152, 188, 1) 0%,
+				rgba(255, 255, 255, 1) 100%
+			);
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 		}
 	}
 }
-

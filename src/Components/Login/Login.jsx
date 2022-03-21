@@ -20,6 +20,11 @@ export default function Login() {
 
 	var usersData = FirebaseMain();
 
+	const updateNNavigate = async (email) => {
+		await SetUser(email);
+		navigate("/activities/");
+	};
+
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
 		const errorDisplay = inputControl.querySelector(".error");
@@ -81,9 +86,7 @@ export default function Login() {
 
 					//console.log("login successfuly");
 
-					SetUser(usernameLogin, emailLogin, "");
-
-					navigate("/activities/map");
+					updateNNavigate(email);
 				})
 				.catch((error) => {
 					document.getElementById("wrong").innerHTML =

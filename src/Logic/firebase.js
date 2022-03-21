@@ -1,5 +1,5 @@
 import React from "react";
-import firebase, { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
 	getFirestore,
 	collection,

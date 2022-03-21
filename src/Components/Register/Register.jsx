@@ -31,6 +31,11 @@ export default function Register() {
 	};
 	const navigate = useNavigate();
 
+	const updateNNavigate = async () => {
+		await SetUser(username, email);
+		navigate("/activities/	");
+	};
+
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
 		const errorDisplay = inputControl.querySelector(".error");
@@ -118,7 +123,7 @@ export default function Register() {
 		<div className="container">
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
-				onSubmit={(event) => {
+				onSubmit={async (event) => {
 					event.preventDefault();
 					checkErrors();
 					if (rightEmail && rightPassword && rightUser && photo !== "") {
@@ -128,8 +133,7 @@ export default function Register() {
 								createUser();
 								const user = userCredential.user;
 								console.log(username + " " + email);
-								SetUser(username, email, user_id);
-								navigate("/activities/map");
+								updateNNavigate();
 							})
 							.catch((error) => {
 								console.log(error.message);
