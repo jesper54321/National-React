@@ -11,7 +11,7 @@ import {
 	orderBy,
 	limit,
 } from "firebase/firestore";
-import { app, addDocument } from "../../Logic/firebase.js";
+import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
 import { LoginContext } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
@@ -22,24 +22,29 @@ const outgoingColor = "";
 export default function Chat() {
 	const { Login, setLogin } = useContext(LoginContext);
 	const [Chats, setChats] = useState([]);
-	const [Users, setUsers] = useState([]);
-	const [UserRefs, setUserRefs] = useState([]);
+	const [Users, setUsers] = useState({});
 
-	const handleUserArrays = () => {
+	useEffect(async () => {
+		const tempObj = {};
+		for (const key in Users) {
+			tempObj[key] = Users[key];
+		}
+		Users.Length = 0;
 		for (const item of Chats) {
-			if (!UserRefs.includes(item.user_id)) {
-				setTimeout(() => {
-					for (let index = 0; index < 50; index++) {
-						UserRefs.push(item.user_id);
-						console.log(item.id);
-					}
-					setUserRefs(UserRefs);
-				}, 3000);
+			if (!tempObj[item.user_id]) {
+				tempObj[item.user_id] = "";
 			}
 		}
-	};
 
-	const updateUserData = () => {};
+		for (const key in tempObj) {
+			if (tempObj[key] === "") {
+				tempObj[key] = await pullDocument("Users", key);
+				console.log("user = " + tempObj[key]);
+			}
+		}
+		setUsers(tempObj);
+		console.log(tempObj);
+	}, [Chats]);
 
 	const sendChat = async () => {
 		const messageText = document.getElementById("message").value;
@@ -49,7 +54,7 @@ export default function Chat() {
 			const docRef = await addDocument("Chats", {
 				content: messageText,
 				createdAt: serverTimestamp(),
-				user_id: "Wn3stJzJsNedzvyzEpov",
+				user_id: "msy6foxquLONDY76Ptqa",
 			});
 			console.log("Document written with ID: ", docRef.id);
 		}
@@ -59,7 +64,7 @@ export default function Chat() {
 		const q = await query(
 			collection(db, "Chats"),
 			orderBy("createdAt", "desc"),
-			limit(2)
+			limit(10)
 		);
 		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
 			const chatArray = [];
@@ -76,28 +81,19 @@ export default function Chat() {
 			<div className={styles.chatcontainer}>
 				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
+						return Users[item.user_id] ? (
+							<Message
+								data={item}
+								key={index}
+								styles={styles}
+								user={Users[item.user_id]}
+							/>
+						) : (
+							""
+						);
 					})}
 				</ul>
-					<div className={styles.messageclass}>
+				<div className={styles.messageclass}>
 					<textarea
 						name="message"
 						id="message"
@@ -105,7 +101,7 @@ export default function Chat() {
 						required
 					></textarea>
 					<button onClick={sendChat}>Send Message</button>
-					</div>
+				</div>
 			</div>
 		</>
 	);
