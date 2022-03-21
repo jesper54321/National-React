@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Register.scss";
+import { NavLink } from "react-router-dom";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
@@ -92,8 +93,13 @@ export default function Register() {
 				setError(document.getElementById("emailIn"), "Email is taken");
 				rightEmail = false;
 			} else {
-				setSuccess(document.getElementById("emailIn"));
-				rightEmail = true;
+				if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+					setError(document.getElementById("emailIn"), "Enter a valid email");
+					rightEmail = false;
+				} else {
+					setSuccess(document.getElementById("emailIn"));
+					rightEmail = true;
+				}
 			}
 		} else {
 			setError(document.getElementById("emailIn"), "Email is required");
@@ -117,11 +123,10 @@ export default function Register() {
 		}
 	}
 
-	const [photoImage, setPhotoImage] = useState("");
 
 	return (
 		<div className="container">
-			<input type="hidden" name="dkjnasfds" value={photoImage} />
+			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
@@ -188,7 +193,7 @@ export default function Register() {
 					<label>Profile photo</label>
 					<img
 						src={
-							photoImage ||
+							photo ||
 							"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/image-icon-png-6.jpg?alt=media&token=6d98349b-cb4f-424e-807c-ae1956d07ad3"
 						}
 						style={{
@@ -219,43 +224,43 @@ export default function Register() {
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
 							width="150"
 							height="170"
-							onClick={(e) => {
+							onClick={(e) => (
 								setVisibility(!visibility) +
-									setPhoto(
-										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
-									) +
-									checkErrors() +
-									setSuccess(document.getElementById("photoIn"));
-								setPhotoImage(e.target.src);
-							}}
+								setPhoto(
+									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
+								) +
+								checkErrors() +
+								setSuccess(document.getElementById("photoIn")) +
+								setPhoto(e.target.src)
+							)}
 						/>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
 							width="150"
 							height="170"
-							onClick={(e) => {
+							onClick={(e) => (
 								setVisibility(!visibility) +
-									setPhoto(
-										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
-									) +
-									checkErrors() +
-									setSuccess(document.getElementById("photoIn"));
-								setPhotoImage(e.target.src);
-							}}
+								setPhoto(
+									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile2.PNG?alt=media&token=c96ee1b7-7cc0-415c-9c42-4dc19a7d32db"
+								) +
+								checkErrors() +
+								setSuccess(document.getElementById("photoIn")) +
+								setPhoto(e.target.src)
+							)}
 						/>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
 							width="150"
 							height="170"
-							onClick={(e) => {
+							onClick={(e) => (
 								setVisibility(!visibility) +
-									setPhoto(
-										"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
-									) +
-									checkErrors() +
-									setSuccess(document.getElementById("photoIn"));
-								setPhotoImage(e.target.src);
-							}}
+								setPhoto(
+									"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile3.PNG?alt=media&token=da64a5a6-3edb-4824-9c6a-4f3ac48c1c22"
+								) +
+								checkErrors() +
+								setSuccess(document.getElementById("photoIn")) +
+								setPhoto(e.target.src)
+							)}
 						/>
 					</CustomPopup>
 
@@ -265,7 +270,12 @@ export default function Register() {
 				<br></br>
 				<br></br>
 				<h2>Already have an account?</h2>
-				<button>Log in</button>
+				<nav>
+					<NavLink to="/login">
+						<button>Log in</button>
+					</NavLink>
+				</nav>
+
 			</form>
 		</div>
 	);
