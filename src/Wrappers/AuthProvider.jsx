@@ -5,6 +5,7 @@ import {
 	signOut,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
+import { app } from "../Logic/firebase";
 import { createContext } from "react";
 
 export const LoginContext = React.createContext({
@@ -12,7 +13,7 @@ export const LoginContext = React.createContext({
 	setLogin: () => {},
 });
 
-export const auth = getAuth();
+export const auth = getAuth(app);
 export var email = "";
 var password = "";
 export var username = "";
@@ -48,3 +49,4 @@ export default function AuthProvider(props) {
 
 	return <>{props.children}</>;
 }
+

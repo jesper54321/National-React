@@ -35,8 +35,6 @@ const dbSettings = ["Users", "Visited", "Places", "Comments"];
 
 export const db = getFirestore(app);
 
-export const auth = getAuth();
-
 const unsubscribe = [];
 
 export default function FirebaseMain() {

@@ -1,0 +1,39 @@
+
+
+.homeclass {
+    background-image: url(../assets/images/Background@1x.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .imagecontainer {
+        display: grid;
+        gap: 1rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(20%, 25%);
+        h1 {
+            color: #70A9E5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+    }
+    .linkcontainer {
+        display: grid;
+        gap: 3rem;
+        transform: translate(0%, 150%);
+        a {
+            background: rgb(36,14,0);
+            background: linear-gradient(0deg, rgba(36,14,0,1) 0%, rgba(109,152,188,1) 0%, rgba(255,255,255,1) 100%);
+            font-size: 16px;
+            font-weight: 600;
+            padding: 5px;
+            width: 150px;
+            border: 0.5px solid white;
+            margin: auto;
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: black;
+            text-align: center;
+        }
+    }
+}

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import "./Register.css";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../Logic/firebase";
@@ -16,6 +15,7 @@ import {
 	serverTimestamp,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import style from './register.module.scss'
 
 export default function Register() {
 	const [username, setUsername] = useState("");
@@ -105,8 +105,9 @@ export default function Register() {
 	}
 
 	return (
-		<div className="container">
+		<div className={style.registerclass}>
 			<form
+				autoComplete="off"
 				onSubmit={(event) => {
 					event.preventDefault();
 					if (rightEmail && rightPassword && rightUser) {
@@ -133,10 +134,11 @@ export default function Register() {
 					}
 				}}
 			>
-				<h1>Registration</h1>
+				<h1>Register!</h1>
 				<div className="input-control">
-					<label>Username</label>
 					<input
+						autoComplete="false"
+						placeholder="Username"
 						id="usernameIn"
 						type="username"
 						value={username}
@@ -148,8 +150,34 @@ export default function Register() {
 					<div className="error"></div>
 				</div>
 				<div className="input-control">
-					<label>Email</label>
 					<input
+						autoComplete="false"
+						placeholder="Password"
+						id="passwordIn"
+						type="password"
+						value={password}
+						onChange={(event) => setPassword(event.target.value)}
+					/>
+					<div className="error"></div>
+				</div>
+				{/* Confirm password goes here */}
+				<div className="input-control">
+					<input
+						id="photodIn"
+						type="username"
+						value={password}
+						onChange={(event) => setPassword(event.target.value)}
+						style={{backgroundColor:"#f0f0f098"}}
+						readOnly
+					/>
+
+					<div className="error"></div>
+				</div>
+
+				<div className="input-control">
+					<input
+						autoComplete="false"
+						placeholder="Email"
 						id="emailIn"
 						type="email"
 						value={email}
@@ -160,34 +188,9 @@ export default function Register() {
 					/>
 					<div className="error"></div>
 				</div>
-				<div className="input-control">
-					<label>Password</label>
-					<input
-						id="passwordIn"
-						type="password"
-						value={password}
-						onChange={(event) => setPassword(event.target.value)}
-					/>
-					<div className="error"></div>
-				</div>
-				<div className="input-control">
-					<input
-						id="photodIn"
-						type="username"
-						value={password}
-						onChange={(event) => setPassword(event.target.value)}
-						style={{ backgroundColor: "#f0f0f098" }}
-						readOnly
-					/>
-
-					<div className="error"></div>
-				</div>
-				<button type="submit">Sign up</button>
-				<br></br>
-				<br></br>
+				<button type="submit">Confirm</button>
 				<h2>Already have an account?</h2>
-				<button>Log in</button>
+				<button>Log in!</button>
 			</form>
 		</div>
-	);
-}
+)}

@@ -59,7 +59,7 @@ export default function Chat() {
 		const q = await query(
 			collection(db, "Chats"),
 			orderBy("createdAt", "desc"),
-			limit(10)
+			limit(2)
 		);
 		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
 			const chatArray = [];
@@ -73,23 +73,39 @@ export default function Chat() {
 
 	return (
 		<>
-			<div className={styles.chatContainer}>
+			<div className={styles.chatcontainer}>
 				<ul className={styles.messageList}>
 					{Chats?.map((item, index) => {
 						return <Message data={item} key={index} styles={styles} />;
 					})}
-					<div className={styles.messageContainer}>
-						<textarea
-							name="message"
-							id={styles.message}
-							placeholder="Write your message here..."
-							required
-						></textarea>
-						<button onClick={sendChat} className={styles.sendChat}>
-							Send Message
-						</button>
-					</div>
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
+						{Chats?.map((item, index) => {
+						return <Message data={item} key={index} styles={styles} />;
+					})}
 				</ul>
+					<div className={styles.messageclass}>
+					<textarea
+						name="message"
+						id="message"
+						placeholder="Write your message here..."
+						required
+					></textarea>
+					<button onClick={sendChat}>Send Message</button>
+					</div>
 			</div>
 		</>
 	);

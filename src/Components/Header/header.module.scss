@@ -5,6 +5,8 @@
     gap: 1rem;
     background-color: #799ea8;
     align-items: center;
+    padding: 10px;
+    width: 100%;
     div {
         display: flex;
         gap: 1rem;
@@ -17,7 +19,7 @@
         padding-left: 10px;
         color: black;
     }
-    button {
+    a {
         border-radius: 15px;
         background-color: #fec9c9;
         font-size: 12px;
@@ -25,5 +27,9 @@
         width: 60px;
         border: none;
         margin: auto;
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+        text-align: center;
     }
 }
