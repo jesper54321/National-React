@@ -14,7 +14,6 @@ import {
 	where,
 	addDoc,
 } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export const app = initializeApp({
@@ -29,8 +28,6 @@ export const app = initializeApp({
 const dbSettings = ["Users", "Visited", "Places", "Comments"];
 
 export const db = getFirestore(app);
-
-export const auth = getAuth();
 
 const unsubscribe = [];
 
