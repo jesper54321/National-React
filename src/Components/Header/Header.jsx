@@ -4,6 +4,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import style from './header.module.scss'
 
 
+
 export default function Header() {
     return (
         <header className={style.headerclass}>
