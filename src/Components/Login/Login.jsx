@@ -4,12 +4,45 @@ import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseMain from "../../Logic/firebase";
 import { SetUser } from "../../Wrappers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+	const notify = () => toast.error('You got some errors', {
+		theme: "colored",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
+	const notify2 = () => toast.error('Wrong password, email or username', {
+		theme: "colored",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
 	var emailLogin;
 	var usernameLogin;
 
@@ -89,11 +122,13 @@ export default function Login() {
 					updateNNavigate(email);
 				})
 				.catch((error) => {
-					document.getElementById("wrong").innerHTML =
-						"Wrong username or password";
+					//document.getElementById("wrong").innerHTML ="Wrong username or password";
+					notify2();
 					//const errorCode = error.code;
 					//const errorMessage = error.message;
 				});
+		}else{
+			notify();
 		}
 	};
 
@@ -113,7 +148,9 @@ export default function Login() {
 		return errors;
 	};
 	return (
+		
 		<div className="container" /*{styles.loginWrapper}*/>
+			<ToastContainer limit={2} />
 			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
 				<h1>Log in </h1>
 

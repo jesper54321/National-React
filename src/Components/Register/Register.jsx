@@ -10,7 +10,27 @@ import { SetUser } from "../../Wrappers/AuthProvider";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Register() {
+
+	const notify = () => toast.error('You got some errors', {
+		theme: "colored",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -49,12 +69,6 @@ export default function Register() {
 			photo: photo,
 		});
 		return true;
-		/* const docRef = await addDoc(collection(db, "Users"), {
-			username: username.toLowerCase(),
-			email: email.toLowerCase(),
-			date: serverTimestamp(),
-			photo: photo,
-		}); */
 	};
 	const usernames = [];
 	const emails = [];
@@ -112,6 +126,7 @@ export default function Register() {
 	}
 	return (
 		<div className="container">
+			<ToastContainer limit={2} />
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
 				onSubmit={async (event) => {
@@ -132,6 +147,8 @@ export default function Register() {
 						setUsername("");
 						setEmail("");
 						setPassword("");
+					}else{
+						notify();
 					}
 				}}
 			>
