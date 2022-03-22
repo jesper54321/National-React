@@ -5,30 +5,30 @@ import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
 import styles from "./register.module.scss";
-import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
+import { SetUser, SetEntry } from "../../Wrappers/AuthProvider";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
-
-	const notify = () => toast.warning('You got some errors', {
-		theme: "dark",
-		position: "top-right",
-		autoClose: 2000,
-		hideProgressBar: false,
-		closeOnClick: true,
-		pauseOnHover: true,
-		draggable: true,
-		progress: undefined,
-		newestOnTop:false,
-		rtl:false,
-		pauseOnFocusLoss:true,
-		draggable:true,
-		pauseOnHover:true,
-	}) + toast.clearWaitingQueue();
+	const notify = () =>
+		toast.warning("You got some errors", {
+			theme: "dark",
+			position: "top-right",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			newestOnTop: false,
+			rtl: false,
+			pauseOnFocusLoss: true,
+			draggable: true,
+			pauseOnHover: true,
+		}) + toast.clearWaitingQueue();
 
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -124,7 +124,7 @@ export default function Register() {
 		}
 	}
 	return (
-		<div className={styles.container}
+		<div className={styles.container}>
 			<ToastContainer limit={2} />
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
@@ -147,7 +147,7 @@ export default function Register() {
 						setUsername("");
 						setEmail("");
 						setPassword("");
-					}else{
+					} else {
 						notify();
 					}
 				}}
