@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 export default function Contact() {
-	return  <div className="contact-background"><Header/>
+	return  <div className="contact-background">
 		<div className="contact-panel">
 			<h1 className="contact-welcome">Welcome to our Contact page!</h1>
 			<h6 className="contact-subtitle">Any question sent will be answered as soon as possible through one of the following ways of contact. Press on one to contact us and let us try to fix all your problems! (Those related to the App though ;D)</h6>
@@ -37,6 +37,6 @@ export default function Contact() {
 			<span className="contact-end-note">We would kindly appreciate patience, thank you very much ;D</span>
 
 		</div>
-		<Footer/>
+		
 	</div>;
 }

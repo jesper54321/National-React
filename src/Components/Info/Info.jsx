@@ -19,6 +19,6 @@ export default function Info() {
 			
 		  </div>
 
-		<Footer/>
+		
 	</div>);
 }
