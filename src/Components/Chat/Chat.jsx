@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
 import {
@@ -6,107 +6,115 @@ import {
 	collection,
 	onSnapshot,
 	query,
-	addDoc,
 	serverTimestamp,
-	orderBy,
 	limit,
 } from "firebase/firestore";
-import { app, addDocument } from "../../Logic/firebase.js";
-import { LoginContext } from "../../Wrappers/AuthProvider";
+import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
+import { useNavigate } from "react-router-dom";
+import { username, email } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
-
-const incomingColor = "";
-const outgoingColor = "";
+const startTime = new Date;
 
 export default function Chat() {
-	const { Login, setLogin } = useContext(LoginContext);
-	const [Chats, setChats] = useState([]);
-	const [Users, setUsers] = useState([]);
-	const [UserRefs, setUserRefs] = useState([]);
+	let navigate = useNavigate();
 
-	const handleUserArrays = () => {
-		for (const item of Chats) {
-			if (!UserRefs.includes(item.user_id)) {
-				setTimeout(() => {
-					for (let index = 0; index < 50; index++) {
-						UserRefs.push(item.user_id);
-						console.log(item.id);
-					}
-					setUserRefs(UserRefs);
-				}, 3000);
+	if (!username || !email) {
+		useEffect(() => {
+			navigate("/");
+		}, []);
+
+		return <></>;
+	} else {
+		const [Chats, setChats] = useState([]);
+		const [Users, setUsers] = useState({});
+		const messagesEndRef = useRef(null);
+
+		const scrollToBottom = () => {
+			messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+		};
+
+		useEffect(async () => {
+			const tempObj = {};
+			for (const key in Users) {
+				tempObj[key] = Users[key];
 			}
-		}
-	};
+			Users.Length = 0;
+			for (const item of Chats) {
+				if (!tempObj[item.user_id]) {
+					tempObj[item.user_id] = "";
+				}
+			}
 
-	const updateUserData = () => {};
+			for (const key in tempObj) {
+				if (tempObj[key] === "") {
+					tempObj[key] = await pullDocument("Users", key);
+				}
+			}
+			setUsers(tempObj);
+			scrollToBottom();
+		}, [Chats]);
 
-	const sendChat = async () => {
-		const messageText = document.getElementById("message").value;
-		if (messageText != "" && messageText != " ") {
-			document.getElementById("message").value = "";
+		const sendChat = async () => {
+			const messageText = document.getElementById("message").value;
+			if (messageText != "" && messageText != " ") {
+				document.getElementById("message").value = "";
 
-			const docRef = await addDocument("Chats", {
-				content: messageText,
-				createdAt: serverTimestamp(),
-				user_id: "Wn3stJzJsNedzvyzEpov",
+				const docRef = await addDocument("Chats", {
+					content: messageText,
+					createdAt: serverTimestamp(),
+					user_id: email,
+				});
+			}
+		};
+
+		useEffect(async () => {
+			const q = query(
+				collection(db, "Chats"),
+				/* where("createdAt", ">", Timestamp.fromDate(startTime) ), */
+				limit(10),
+			);
+			const unsubscribe = onSnapshot(q, (querySnapshot) => {
+				const chatArray = [];
+				querySnapshot.forEach((doc) => {
+					const tempData = doc.data();
+					tempData.id = doc.id;
+					chatArray.push(tempData);
+				});
+				chatArray.reverse();
+				setChats([...chatArray]);
 			});
-			console.log("Document written with ID: ", docRef.id);
-		}
-	};
+		}, []);
 
-	useEffect(async () => {
-		const q = await query(
-			collection(db, "Chats"),
-			orderBy("createdAt", "desc"),
-			limit(2)
-		);
-		const unsubscribe = await onSnapshot(q, (querySnapshot) => {
-			const chatArray = [];
-			querySnapshot.forEach((doc) => {
-				chatArray.push(doc.data());
-			});
-			chatArray.reverse();
-			setChats([...chatArray]);
-		});
-	}, []);
-
-	return (
-		<>
-			<div className={styles.chatcontainer}>
-				<ul className={styles.messageList}>
-					{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
+		return (
+			<>
+				<div className={styles.chatcontainer}>
+					<ul className={styles.messageList} id="messageList">
 						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-						{Chats?.map((item, index) => {
-						return <Message data={item} key={index} styles={styles} />;
-					})}
-				</ul>
+							return Users[item.user_id] ? (
+								<Message
+									data={item}
+									key={item.id}
+									styles={styles}
+									user={Users[item.user_id]}
+								/>
+							) : (
+								""
+							);
+						})}
+						<div ref={messagesEndRef} />
+					</ul>
 					<div className={styles.messageclass}>
-					<textarea
-						name="message"
-						id="message"
-						placeholder="Write your message here..."
-						required
-					></textarea>
-					<button onClick={sendChat}>Send Message</button>
+						<textarea
+							name="message"
+							id="message"
+							placeholder="Write your message here..."
+							required
+						></textarea>
+						<button onClick={sendChat}>Send Message</button>
 					</div>
-			</div>
-		</>
-	);
+				</div>
+			</>
+		);
+	}
 }
