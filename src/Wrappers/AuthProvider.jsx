@@ -5,25 +5,24 @@ import {
 	signOut,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
-import { app } from "../Logic/firebase";
-
-export const LoginContext = React.createContext({
-	Login: "",
-	setLogin: () => {},
-});
+import { app, pullDocument } from "../Logic/firebase";
 
 export const auth = getAuth(app);
 export var email = "";
-var password = "";
 export var username = "";
+export var photo = "";
 
-export function SetUser(usernameSet, emailSet) {
-	username = usernameSet;
-	email = emailSet;
+export async function SetUser(emailSet) {
+	const tempData = await pullDocument("Users", emailSet);
+	username = tempData.username;
+	email = tempData.email;
+	photo = tempData.photo;
+	console.log(username, email, photo);
+	return true;
 }
 
 export default function AuthProvider(props) {
-	createUserWithEmailAndPassword(auth, email, password)
+	/*createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
 			const user = userCredential.user;
@@ -43,7 +42,6 @@ export default function AuthProvider(props) {
 		.catch((error) => {
 			// An error happened.
 		});
-
+	*/
 	return <>{props.children}</>;
 }
-
