@@ -1,5 +1,17 @@
 .flex {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	div {
+		display: grid;
+		grid-template-columns: 10% 15% 65%;
+		gap: 1rem;
+		padding: 4vw;
+		img {
+			width: 10vw;
+		}
+		h5 {
+			font-size: 1rem;
+		}
+	}
 	.messageview {
 		border: 1px solid black;
 		border-radius: 10px;
@@ -17,7 +29,7 @@
 	.messageList {
 		list-style: none;
 		overflow: scroll;
-		padding: 40px;
+		padding: 10px;
 		scroll-snap-type: proximity;
 		scroll-snap-align: end;
 		.outgoing {
