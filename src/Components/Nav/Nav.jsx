@@ -23,7 +23,10 @@ export default function Nav() {
 			) : (
 				""
 			)}
-			<NavLink to="/activities/">
+			{/* <NavLink to="/activities/">
+				<FontAwesomeIcon className={style.iconcolor} icon={faListUl} />
+			</NavLink> */}
+			<NavLink to="/activities/details/1">
 				<FontAwesomeIcon className={style.iconcolor} icon={faListUl} />
 			</NavLink>
 			<NavLink to="/activities/info">

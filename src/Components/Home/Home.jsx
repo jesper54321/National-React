@@ -1,5 +1,5 @@
 import style from "./home.module.scss";
-import houseimg from "../assets/images/Isometric-House.svg";
+import houseimg from "../../asset/images/Isometric-House.svg";
 import { NavLink } from "react-router-dom";
 import React from "react";
 import { username, email, photo } from "../../Wrappers/AuthProvider";

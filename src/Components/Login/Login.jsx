@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import styles from "./Login.module.scss";
-//import "../Register/Register.scss";
+import styles from "./Login.module.scss";
 import { useHistory, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
@@ -61,17 +60,17 @@ export default function Login() {
 
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles["error"]);
 		errorDisplay.innerText = message;
-		inputControl.classList.add("error");
-		inputControl.classList.remove("success");
+		inputControl.classList.add(styles["error"]);
+		inputControl.classList.remove(styles["success"]);
 	};
 	const setSuccess = (element) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles["error"]);
 		errorDisplay.innerText = "";
-		inputControl.classList.add("success");
-		inputControl.classList.remove("error");
+		inputControl.classList.add(styles["success"]);
+		inputControl.classList.remove(styles["error"]);
 	};
 
 	var rightPassword = false;
@@ -131,13 +130,12 @@ export default function Login() {
 	};
 
 	return (
-		
-		<div className="container" /*{styles.loginWrapper}*/>
+		<div className={styles["container"]} /*{styles.loginWrapper}*/>
 			<ToastContainer limit={2} />
 			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
 				<h1>Log in </h1>
 
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Username or email</label>
 					<input
 						id="emailIn"
@@ -147,10 +145,10 @@ export default function Login() {
 						onChange={(event) => setEmail(event.target.value) + checkErrors()}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 				</div>
 
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Password</label>
 					<input
 						id="passwordIn"
@@ -162,7 +160,7 @@ export default function Login() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 				</div>
 				<div id="wrong" style={{ color: "red" }}></div>
 				<div>
