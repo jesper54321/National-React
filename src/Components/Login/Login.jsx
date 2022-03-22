@@ -20,6 +20,11 @@ export default function Login() {
 
 	var usersData = FirebaseMain();
 
+	const updateNNavigate = async (email) => {
+		await SetUser(email);
+		navigate("/activities/");
+	};
+
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
 		const errorDisplay = inputControl.querySelector(".error");
@@ -81,12 +86,11 @@ export default function Login() {
 
 					//console.log("login successfuly");
 
-					SetUser(usernameLogin, emailLogin);
-
-					navigate("/activities/map");
+					updateNNavigate(email);
 				})
 				.catch((error) => {
-					document.getElementById("wrong").innerHTML = "Wrong username or password";
+					document.getElementById("wrong").innerHTML =
+						"Wrong username or password";
 					//const errorCode = error.code;
 					//const errorMessage = error.message;
 				});
@@ -109,8 +113,8 @@ export default function Login() {
 		return errors;
 	};
 	return (
-		<div className="container"/*{styles.loginWrapper}*/>
-			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/ >
+		<div className="container" /*{styles.loginWrapper}*/>
+			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
 				<h1>Log in </h1>
 
 				<div className="input-control">
@@ -133,16 +137,20 @@ export default function Login() {
 						type="password"
 						name="password"
 						value={password}
-						onChange={(event) => setPassword(event.target.value) + checkErrors()}
+						onChange={(event) =>
+							setPassword(event.target.value) + checkErrors()
+						}
 						onClick={(event) => checkErrors()}
 					/>
 					<div className="error"></div>
 				</div>
-				<div id="wrong" style={{ color: 'red' }}></div>
+				<div id="wrong" style={{ color: "red" }}></div>
 				<div>
 					<button>Log in</button>
 				</div>
-				<br></br><br></br><br></br>
+				<br></br>
+				<br></br>
+				<br></br>
 				<div>
 					<h2>Don't have an account yet ?</h2>
 					<Link to="../Register">
