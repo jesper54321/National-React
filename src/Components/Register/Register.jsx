@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Register.scss";
 import { NavLink } from "react-router-dom";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
 import { SetUser } from "../../Wrappers/AuthProvider";
-//import style from './register.module.scss'
+import styles from "./register.module.scss";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
@@ -28,17 +27,17 @@ export default function Register() {
 
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles.error);
 		errorDisplay.innerText = message;
-		inputControl.classList.add("error");
-		inputControl.classList.remove("success");
+		inputControl.classList.add(styles.error);
+		inputControl.classList.remove(styles.success);
 	};
 	const setSuccess = (element) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles.error);
 		errorDisplay.innerText = "";
-		inputControl.classList.add("success");
-		inputControl.classList.remove("error");
+		inputControl.classList.add(styles.success);
+		inputControl.classList.remove(styles.error);
 	};
 	const createUser = async () => {
 		const docRef = doc(db, "Users", email.toLowerCase());
@@ -111,7 +110,7 @@ export default function Register() {
 		}
 	}
 	return (
-		<div className="container">
+		<div className={styles.container}>
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
 				onSubmit={async (event) => {
@@ -136,7 +135,7 @@ export default function Register() {
 				}}
 			>
 				<h1>Register</h1>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Username</label>
 					<input
 						id="usernameIn"
@@ -147,9 +146,9 @@ export default function Register() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles.error}></div>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Email</label>
 					<input
 						id="emailIn"
@@ -158,9 +157,9 @@ export default function Register() {
 						onChange={(event) => setEmail(event.target.value) + checkErrors()}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles.error}></div>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Password</label>
 					<input
 						id="passwordIn"
@@ -171,10 +170,10 @@ export default function Register() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 					<br></br>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label style={{ display: "block", marginInline: "auto" }}>
 						Profile photo
 					</label>
@@ -254,7 +253,7 @@ export default function Register() {
 					</CustomPopup>
 					<br></br>
 					<div
-						className="error"
+						className={styles["error"]}
 						style={{ display: "block", marginInline: "auto" }}
 					></div>
 				</div>
