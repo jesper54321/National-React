@@ -11,10 +11,10 @@ export default function Header() {
 			{username && email ? (
 				<>
 					<div>
-						<img src={photo} alt="" />
+						<img src={photo} alt="" style={{height:"18%",width:"18%"}}/>
 						<h4>{username}</h4>
 					</div>
-					<NavLink to="/activities">Home</NavLink>
+					<NavLink to="/">Out</NavLink>
 				</>
 			) : (
 				<>
@@ -22,7 +22,7 @@ export default function Header() {
 						<FontAwesomeIcon className={style.iconcolor} icon={faUser} />
 						<h4>Guest</h4>
 					</div>
-					<NavLink to="/">Home</NavLink>
+					<NavLink to="/">Out</NavLink>
 				</>
 			)}
 		</header>
