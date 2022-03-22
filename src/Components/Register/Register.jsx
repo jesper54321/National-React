@@ -7,16 +7,7 @@ import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
 import { SetUser } from "../../Wrappers/AuthProvider";
 //import style from './register.module.scss'
-import {
-	getFirestore,
-	collection,
-	onSnapshot,
-	query,
-	addDoc,
-	serverTimestamp,
-	doc,
-	setDoc,
-} from "firebase/firestore";
+import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
 export default function Register() {
@@ -25,14 +16,13 @@ export default function Register() {
 	const [password, setPassword] = useState("");
 	const [photo, setPhoto] = useState("");
 	const [visibility, setVisibility] = useState(false);
-	let user_id;
 	const popupCloseHandler = (e) => {
 		setVisibility(e);
 	};
 	const navigate = useNavigate();
 
 	const updateNNavigate = async () => {
-		await SetUser(username, email);
+		await SetUser(email);
 		navigate("/activities/	");
 	};
 
@@ -58,6 +48,7 @@ export default function Register() {
 			date: serverTimestamp(),
 			photo: photo,
 		});
+		return true;
 		/* const docRef = await addDoc(collection(db, "Users"), {
 			username: username.toLowerCase(),
 			email: email.toLowerCase(),
@@ -128,14 +119,14 @@ export default function Register() {
 					checkErrors();
 					if (rightEmail && rightPassword && rightUser && photo !== "") {
 						createUserWithEmailAndPassword(auth, email, password)
-							.then((userCredential) => {
+							.then(async (userCredential) => {
 								// Signed in
-								createUser();
-								const user = userCredential.user;
+								await createUser();
 								console.log(username + " " + email);
 								updateNNavigate();
 							})
 							.catch((error) => {
+								console.log("this is error 1");
 								console.log(error.message);
 							});
 						setUsername("");
