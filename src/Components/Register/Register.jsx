@@ -1,16 +1,35 @@
 import React, { useEffect, useState } from "react";
-import "./Register.scss";
 import { NavLink } from "react-router-dom";
 //import { auth } from "../../Wrappers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
-import { SetUser } from "../../Wrappers/AuthProvider";
-//import style from './register.module.scss'
+import styles from "./register.module.scss";
+import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Register() {
+
+	const notify = () => toast.warning('You got some errors', {
+		theme: "dark",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -23,22 +42,22 @@ export default function Register() {
 
 	const updateNNavigate = async () => {
 		await SetUser(email);
-		navigate("/activities/	");
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles.error);
 		errorDisplay.innerText = message;
-		inputControl.classList.add("error");
-		inputControl.classList.remove("success");
+		inputControl.classList.add(styles.error);
+		inputControl.classList.remove(styles.success);
 	};
 	const setSuccess = (element) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles.error);
 		errorDisplay.innerText = "";
-		inputControl.classList.add("success");
-		inputControl.classList.remove("error");
+		inputControl.classList.add(styles.success);
+		inputControl.classList.remove(styles.error);
 	};
 	const createUser = async () => {
 		const docRef = doc(db, "Users", email.toLowerCase());
@@ -49,12 +68,6 @@ export default function Register() {
 			photo: photo,
 		});
 		return true;
-		/* const docRef = await addDoc(collection(db, "Users"), {
-			username: username.toLowerCase(),
-			email: email.toLowerCase(),
-			date: serverTimestamp(),
-			photo: photo,
-		}); */
 	};
 	const usernames = [];
 	const emails = [];
@@ -111,7 +124,8 @@ export default function Register() {
 		}
 	}
 	return (
-		<div className="container">
+		<div className={styles.container}
+			<ToastContainer limit={2} />
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
 				onSubmit={async (event) => {
@@ -122,7 +136,8 @@ export default function Register() {
 							.then(async (userCredential) => {
 								// Signed in
 								await createUser();
-								console.log(username + " " + email);
+								//console.log(username + " " + email);
+								SetEntry(1);
 								updateNNavigate();
 							})
 							.catch((error) => {
@@ -132,11 +147,13 @@ export default function Register() {
 						setUsername("");
 						setEmail("");
 						setPassword("");
+					}else{
+						notify();
 					}
 				}}
 			>
 				<h1>Register</h1>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Username</label>
 					<input
 						id="usernameIn"
@@ -147,9 +164,9 @@ export default function Register() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles.error}></div>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Email</label>
 					<input
 						id="emailIn"
@@ -158,9 +175,9 @@ export default function Register() {
 						onChange={(event) => setEmail(event.target.value) + checkErrors()}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles.error}></div>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Password</label>
 					<input
 						id="passwordIn"
@@ -171,10 +188,10 @@ export default function Register() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 					<br></br>
 				</div>
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label style={{ display: "block", marginInline: "auto" }}>
 						Profile photo
 					</label>
@@ -254,7 +271,7 @@ export default function Register() {
 					</CustomPopup>
 					<br></br>
 					<div
-						className="error"
+						className={styles["error"]}
 						style={{ display: "block", marginInline: "auto" }}
 					></div>
 				</div>
