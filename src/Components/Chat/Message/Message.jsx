@@ -1,5 +1,5 @@
 import React from "react";
-import { username, email, photo } from "../../../Wrappers/AuthProvider";
+import { email } from "../../../Wrappers/AuthProvider";
 
 export default function Message({ data, styles, user }) {
 	//console.log(user);
