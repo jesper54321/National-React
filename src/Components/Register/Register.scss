@@ -2,7 +2,7 @@
     font-family: 'Poppins', sans-serif;
     position: absolute;
     width: 100%;
-    height:100%;
+    height:100vh;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/Astro_Astronomy_aurora.jpg?alt=media&token=42558e08-7d08-4fbe-88fa-8ea61c04c731");
     background-size: cover;
   }
@@ -22,9 +22,9 @@
   
   form {
     box-sizing: border-box;
-    width: 300px;
-    margin: 50px auto;
-    padding: 60px;
+    width: 80%;
+    margin: 40px;
+    padding: 20px;
     background-color: white;
     border-radius: 4px;
     font-size: 12px;
