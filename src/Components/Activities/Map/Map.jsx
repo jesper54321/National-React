@@ -6,7 +6,7 @@ import SetEntry from "../../../Wrappers/AuthProvider";
 
 export default function Map() {
 	const notifyRegister = () => toast.success('You registered successfully', {
-		theme: "colored",
+		theme: "dark",
 		position: "top-right",
 		autoClose: 2000,
 		hideProgressBar: false,
@@ -17,7 +17,7 @@ export default function Map() {
 	}) + toast.clearWaitingQueue();
 
 	const notifyLogin = () => toast.success('You logged in correctly', {
-		theme: "colored",
+		theme: "dark",
 		position: "top-right",
 		autoClose: 2000,
 		hideProgressBar: false,

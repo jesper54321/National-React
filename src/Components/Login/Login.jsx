@@ -11,8 +11,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
-	const notify = () => toast.error('You got some errors', {
-		theme: "colored",
+	const notify = () => toast.warning('You got some errors', {
+		theme: "dark",
 		position: "top-right",
 		autoClose: 2000,
 		hideProgressBar: false,
@@ -28,7 +28,7 @@ export default function Login() {
 	}) + toast.clearWaitingQueue();
 
 	const notify2 = () => toast.error('Wrong password, email or username', {
-		theme: "colored",
+		theme: "dark",
 		position: "top-right",
 		autoClose: 2000,
 		hideProgressBar: false,

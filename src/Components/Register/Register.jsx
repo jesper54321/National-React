@@ -15,8 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
 
-	const notify = () => toast.error('You got some errors', {
-		theme: "colored",
+	const notify = () => toast.warning('You got some errors', {
+		theme: "dark",
 		position: "top-right",
 		autoClose: 2000,
 		hideProgressBar: false,
