@@ -4,12 +4,32 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
-import { SetUser } from "../../Wrappers/AuthProvider";
 import styles from "./register.module.scss";
+import { SetUser, SetEntry } from "../../Wrappers/AuthProvider";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Register() {
+	const notify = () =>
+		toast.warning("You got some errors", {
+			theme: "dark",
+			position: "top-right",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			newestOnTop: false,
+			rtl: false,
+			pauseOnFocusLoss: true,
+			draggable: true,
+			pauseOnHover: true,
+		}) + toast.clearWaitingQueue();
+
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -22,7 +42,7 @@ export default function Register() {
 
 	const updateNNavigate = async () => {
 		await SetUser(email);
-		navigate("/activities/	");
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
@@ -48,12 +68,6 @@ export default function Register() {
 			photo: photo,
 		});
 		return true;
-		/* const docRef = await addDoc(collection(db, "Users"), {
-			username: username.toLowerCase(),
-			email: email.toLowerCase(),
-			date: serverTimestamp(),
-			photo: photo,
-		}); */
 	};
 	const usernames = [];
 	const emails = [];
@@ -111,6 +125,7 @@ export default function Register() {
 	}
 	return (
 		<div className={styles.container}>
+			<ToastContainer limit={2} />
 			<input type="hidden" name="dkjnasfds" value={photo} />
 			<form
 				onSubmit={async (event) => {
@@ -121,7 +136,8 @@ export default function Register() {
 							.then(async (userCredential) => {
 								// Signed in
 								await createUser();
-								console.log(username + " " + email);
+								//console.log(username + " " + email);
+								SetEntry(1);
 								updateNNavigate();
 							})
 							.catch((error) => {
@@ -131,6 +147,8 @@ export default function Register() {
 						setUsername("");
 						setEmail("");
 						setPassword("");
+					} else {
+						notify();
 					}
 				}}
 			>

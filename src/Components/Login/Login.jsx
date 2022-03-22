@@ -3,12 +3,45 @@ import styles from "./Login.module.scss";
 import { useHistory, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseMain from "../../Logic/firebase";
-import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+	const notify = () => toast.warning('You got some errors', {
+		theme: "dark",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
+	const notify2 = () => toast.error('Wrong password, email or username', {
+		theme: "dark",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
 	var emailLogin;
 	var usernameLogin;
 
@@ -21,7 +54,8 @@ export default function Login() {
 
 	const updateNNavigate = async (email) => {
 		await SetUser(email);
-		navigate("/activities/");
+		await SetEntry(2);
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
@@ -82,37 +116,22 @@ export default function Login() {
 				.then((userCredential) => {
 					// Signed in
 					const user = userCredential.user;
-
-					//console.log("login successfuly");
-
 					updateNNavigate(email);
 				})
 				.catch((error) => {
-					document.getElementById("wrong").innerHTML =
-						"Wrong username or password";
+					//document.getElementById("wrong").innerHTML ="Wrong username or password";
+					notify2();
 					//const errorCode = error.code;
 					//const errorMessage = error.message;
 				});
+		}else{
+			notify();
 		}
 	};
 
-	const validate = (values) => {
-		const errors = {};
-		//const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-
-		if (!values.email) {
-			errors.email = "Email or username are required!";
-		}
-		if (!values.password) {
-			errors.password = "Password is required!";
-		} else if (values.password.length < 6) {
-			errors.password = "Password must be more than 6 caracters";
-		}
-
-		return errors;
-	};
 	return (
 		<div className={styles["container"]} /*{styles.loginWrapper}*/>
+			<ToastContainer limit={2} />
 			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
 				<h1>Log in </h1>
 
