@@ -17,7 +17,7 @@ export default function Home() {
 				) : (
 					<>
 						<NavLink to="/login">Log in</NavLink>
-						<NavLink to="/activities">Continue as guest</NavLink>
+						<NavLink to="/activities/map">Continue as guest</NavLink>
 					</>
 				)}
 			</div>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseMain from "../../Logic/firebase";
-import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -55,7 +55,8 @@ export default function Login() {
 
 	const updateNNavigate = async (email) => {
 		await SetUser(email);
-		navigate("/activities/");
+		await SetEntry(2);
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
@@ -116,9 +117,6 @@ export default function Login() {
 				.then((userCredential) => {
 					// Signed in
 					const user = userCredential.user;
-
-					//console.log("login successfuly");
-
 					updateNNavigate(email);
 				})
 				.catch((error) => {
@@ -132,21 +130,6 @@ export default function Login() {
 		}
 	};
 
-	const validate = (values) => {
-		const errors = {};
-		//const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-
-		if (!values.email) {
-			errors.email = "Email or username are required!";
-		}
-		if (!values.password) {
-			errors.password = "Password is required!";
-		} else if (values.password.length < 6) {
-			errors.password = "Password must be more than 6 caracters";
-		}
-
-		return errors;
-	};
 	return (
 		
 		<div className="container" /*{styles.loginWrapper}*/>

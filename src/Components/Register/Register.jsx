@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
-import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
 //import style from './register.module.scss'
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -43,7 +43,7 @@ export default function Register() {
 
 	const updateNNavigate = async () => {
 		await SetUser(email);
-		navigate("/activities/	");
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
@@ -137,7 +137,8 @@ export default function Register() {
 							.then(async (userCredential) => {
 								// Signed in
 								await createUser();
-								console.log(username + " " + email);
+								//console.log(username + " " + email);
+								SetEntry(1);
 								updateNNavigate();
 							})
 							.catch((error) => {
