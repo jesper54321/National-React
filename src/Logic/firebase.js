@@ -1,5 +1,5 @@
 import React from "react";
-import firebase, { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
 	getFirestore,
 	collection,
@@ -14,6 +14,12 @@ import {
 	where,
 	addDoc,
 } from "firebase/firestore";
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signOut,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 
 export const app = initializeApp({
