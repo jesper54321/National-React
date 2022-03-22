@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Message from "./Message/Message";
 import styles from "./Chat.module.scss";
 import {
@@ -6,16 +6,12 @@ import {
 	collection,
 	onSnapshot,
 	query,
-	addDoc,
 	serverTimestamp,
-	orderBy,
 	limit,
-	where,
-	Timestamp
 } from "firebase/firestore";
 import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
 import { useNavigate } from "react-router-dom";
-import { username, email, photo } from "../../Wrappers/AuthProvider";
+import { username, email } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
 const startTime = new Date;
