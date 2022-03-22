@@ -75,7 +75,8 @@ export default function Chat() {
 		useEffect(async () => {
 			const q = query(
 				collection(db, "Chats"),
-				where("createdAt", ">", Timestamp.fromDate(startTime) ),
+				/* where("createdAt", ">", Timestamp.fromDate(startTime) ), */
+				limit(10),
 			);
 			const unsubscribe = onSnapshot(q, (querySnapshot) => {
 				const chatArray = [];
