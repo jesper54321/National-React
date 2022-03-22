@@ -7,9 +7,9 @@
 		display: grid;
 		gap: 1rem;
 		position: absolute;
-		top: 30%;
+		top: 5%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translateX(-50%);
 		h1 {
 			color: #70a9e5;
 			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -21,8 +21,8 @@
 		gap: 3rem;
 		position: absolute;
 		left: 50%;
-		top: 60%;
-		transform: translate(-50%, -50%);
+		bottom: 5%;
+		transform: translateX(-50%);
 		a {
 			background: rgb(36, 14, 0);
 			background: linear-gradient(

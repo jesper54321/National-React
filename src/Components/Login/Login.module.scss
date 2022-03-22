@@ -1,36 +1,156 @@
-// div
-// {
-//     margin:50px;
-// }
-
-.contour
-{
-    //background-color: rgb(160, 126, 160);
-
-    border: 3px, solid, black;
-
-    padding: 10px;
-
-    border-radius: 6px;
-
-} 
-
-#login
-{
-    @media (max-width:500px)
-     {
-        background-image: url("../../asset/background/background.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (min-width:500px) {
-        background-image: url("../../asset/background/backgroundpc.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+/* .registerclass {
+	background-image: url(../assets/images/Background@1x.png);
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	h1 {
+		margin: auto;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		color: #70a9e5;
+		text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.8);
+	}
+	button {
+		width: 40%;
+		margin: auto;
+		padding: 8px;
+		font-size: 1rem;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		font-weight: 600;
+		background: linear-gradient(
+			0deg,
+			rgba(36, 14, 0, 1) 0%,
+			rgba(109, 152, 188, 1) 0%,
+			rgba(255, 255, 255, 1) 100%
+		);
+		border: none;
+	}
+	h2 {
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		color: #70a9e5;
+		font-weight: 600;
+		text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.8);
+	}
+	form {
+		top: 50%;
+		left: 50%;
+		transform: translate(0%, 30%);
+		display: grid;
+		gap: 1rem;
+		justify-content: center;
+		div {
+			margin: auto;
+			width: 80%;
+			color: white;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			input {
+				width: 100%;
+				padding: 4px;
+				font-size: 1rem;
+			}
+		}
+	}
+} */
+.container {
+	font-family: "Poppins", sans-serif;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/Astro_Astronomy_aurora.jpg?alt=media&token=42558e08-7d08-4fbe-88fa-8ea61c04c731");
+	background-size: cover;
 }
 
-.messageSucess{
-    border-style: solid;
+.btn-group button:not(:last-child) {
+	border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+form {
+	box-sizing: border-box;
+	width: 300px;
+	margin: 50px auto;
+	padding: 60px;
+	background-color: white;
+	border-radius: 4px;
+	font-size: 12px;
+}
+
+form h1 {
+	text-align: center;
+}
+form h2 {
+	text-align: center;
+}
+
+.photo {
+	margin: 10px auto;
+	padding: 10px;
+	margin-top: 10px;
+	width: 40%;
+	color: white;
+	background-color: rgb(194, 41, 194);
+	border: none;
+	border-radius: 4px;
+	-webkit-text-stroke-width: 0.2px;
+	-webkit-text-stroke-color: black;
+}
+
+form button {
+	padding: 10px;
+	margin-top: 10px;
+	width: 100%;
+	color: white;
+	background-color: rgb(41, 57, 194);
+	border: none;
+	border-radius: 4px;
+	-webkit-text-stroke-width: 0.2px;
+	-webkit-text-stroke-color: black;
+}
+
+button {
+	margin-top: 5px;
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.input-control {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-control input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+	outline: 0;
+}
+
+.input-control.success input {
+	border-color: #09c372;
+}
+
+.input-control.error input {
+	border-color: #ff3860;
+}
+
+.input-control .error {
+	color: #ff3860;
+	font-size: 12px;
+	height: 13px;
+	font-weight: bold;
 }
