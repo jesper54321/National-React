@@ -11,6 +11,11 @@ export const auth = getAuth(app);
 export var email = "";
 export var username = "";
 export var photo = "";
+export var justEntered = 0;
+
+export function SetEntry(number){
+	justEntered = number;
+}
 
 export async function SetUser(emailSet) {
 	const tempData = await pullDocument("Users", emailSet.toLowerCase());
