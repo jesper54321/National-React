@@ -13,7 +13,7 @@ export var username = "";
 export var photo = "";
 export var justEntered = 0;
 
-export function SetEntry(number){
+export function SetEntry(number) {
 	justEntered = number;
 }
 
@@ -22,7 +22,6 @@ export async function SetUser(emailSet) {
 	username = tempData.username;
 	email = tempData.email;
 	photo = tempData.photo;
-	console.log(username, email, photo);
 	return true;
 }
 

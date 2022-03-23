@@ -3,12 +3,24 @@ import styles from "./Details.module.scss";
 import Comments from "./Comments/Comments";
 import { username, email } from "../../../Wrappers/AuthProvider";
 import { collection } from "firebase/firestore";
-import "./DetailAnimations.scss";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { useParams } from "react-router-dom";
 
-export default function Details() {
+const url = "https://picsum.photos/v2/list?limit=10";
+
+export default function Details(props) {
+	let { id } = useParams();
+
 	const [Place, setPlace] = useState({});
+	const [images, setimages] = useState([]);
 	useEffect(async () => {
 		const placeTemp = (await JSON.parse(sessionStorage.getItem("PLACES")))[0];
+		setimages(
+			await fetch(url).then((response) => {
+				return response.json();
+			})
+		);
 
 		setPlace(placeTemp);
 	}, []);
@@ -16,22 +28,17 @@ export default function Details() {
 	return (
 		<>
 			<section className={styles.details}>
-				<div className={styles.slider}>
-					<div className={styles.images + " slideAnim"}>
-						<img src="https://picsum.photos/seed/picsum/1600/900" alt="" />
-					</div>
-					<div className={styles.pagination}>
-						<div className={styles.dot}></div>
-						<div className={styles.dot}></div>
-						<div className={styles.dot}></div>
-						<div className={styles.dot}></div>
-						<div className={styles.dot}></div>
-					</div>
-					<div className={styles.arrows}>
-						<div className={styles.left}>&lt;</div>
-						<div className={styles.right}>&gt;</div>
-					</div>
-				</div>
+				<AliceCarousel autoPlay infinite autoPlayInterval="2500">
+					{images?.map((item, index) => {
+						return (
+							<img
+								src={item.download_url}
+								className={styles["sliderimg"]}
+								key={index}
+							/>
+						);
+					})}
+				</AliceCarousel>
 				<article className={styles.sustainable}>
 					<h3>Sustainable Goals</h3>
 					<p>
