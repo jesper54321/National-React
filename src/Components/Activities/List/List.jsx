@@ -16,12 +16,6 @@ export default function List() {
 		setPlaces(await pullCollection("Places"));
 	}, [])
 		
-
-		
-	
-	
-	
-
 	return (
 		<div className={styles.listBackground}>
 
