@@ -2,7 +2,6 @@ import React from "react";
 import { email } from "../../../Wrappers/AuthProvider";
 
 export default function Message({ data, styles, user }) {
-	//console.log(user);
 	const type = email === data.user_id ? "outgoing" : "incoming";
 	const time = new Date(data?.createdAt?.seconds * 1000 || Date.now());
 	return (
