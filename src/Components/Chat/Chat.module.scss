@@ -1,7 +1,8 @@
 .flex {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	
 	div {
-		display: grid;
+		//display: grid;
 		grid-template-columns: 10% 15% 65%;
 		gap: 1rem;
 		padding: 4vw;
