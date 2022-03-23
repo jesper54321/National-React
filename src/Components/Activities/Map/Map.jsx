@@ -7,38 +7,27 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const notifyRegister = () => toast.success('You registered successfully', {
-	theme: "colored",
+	theme: "dark",
 	position: "top-right",
 	autoClose: 2000,
 	hideProgressBar: false,
 	closeOnClick: true,
 	progress: undefined,
-	newestOnTop:false,
-	rtl:false,
+	newestOnTop: false,
+	rtl: false,
 }) + toast.clearWaitingQueue();
 
 const notifyLogin = () => toast.success('You logged in correctly', {
-	theme: "colored",
+	theme: "dark",
 	position: "top-right",
 	autoClose: 2000,
 	hideProgressBar: false,
 	closeOnClick: true,
 	progress: undefined,
-	newestOnTop:false,
-	rtl:false,
+	newestOnTop: false,
+	rtl: false,
 }) + toast.clearWaitingQueue();
 
-var entry=0
-
-if(entry===1){
-	entry=0;
-	console.log(entry);
-	setTimeout(() => {  notifyRegister(); }, 1000);
-}else if(entry===2){
-	entry=0;
-	console.log(entry);
-	setTimeout(() => {  notifyLogin(); }, 1000);
-}
 
 const center = [28.140705, -15.428731];
 
@@ -186,31 +175,44 @@ const LocationButton = () => {
 	return null;
 };
 
+var entry = 0;
+
 const MapWrapper = () => {
 	const [map, setMap] = useState(null);
-	return (
-		<div className="grid" style={{ width: "100%", height: "100%", margin: "0", padding: "0"}}>
-			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-			<main style={{position:"absolute", bottom:"0%"}}>
-			<MapContainer
-				whenCreated={setMap}
-				center={center}
-				tap={false}
-				//dragging={true}
-				draggable={true}
-				zoom={17}
-				scrollWheelZoom={false}
-				style={{ width: "100%", height: "100%", margin: "auto", }}
-			>
-				<TileLayer {...tileLayer} />
 
-				<LocationButton map={map} />
-			</MapContainer>
+	console.log(entry);
+	if (entry === 1) {
+		entry = 0;
+		setTimeout(() => { notifyRegister(); }, 1000);
+	} else if (entry === 2) {
+		entry = 0;
+		setTimeout(() => { notifyLogin(); }, 1000);
+	}
+
+	return (
+		<div className="grid" style={{ width: "100%", height: "100%", margin: "0", padding: "0" }}>
+			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+			<ToastContainer limit={1} />
+			<main style={{ position: "absolute", bottom: "0%" }}>
+				<MapContainer
+					whenCreated={setMap}
+					center={center}
+					tap={false}
+					//dragging={true}
+					draggable={true}
+					zoom={17}
+					scrollWheelZoom={false}
+					style={{ width: "100%", height: "100%", margin: "auto", }}
+				>
+					<TileLayer {...tileLayer} />
+
+					<LocationButton map={map} />
+				</MapContainer>
 			</main>
 		</div>
 
 	);
-	
+
 };
 
 export default MapWrapper;

@@ -118,6 +118,7 @@ export default function Login() {
 					// Signed in
 					const user = userCredential.user;
 					updateNNavigate(email);
+					
 				})
 				.catch((error) => {
 					//document.getElementById("wrong").innerHTML ="Wrong username or password";
