@@ -40,7 +40,7 @@ export default function Details(props) {
 							{place.images?.map((item, index) => {
 								return (
 									<img
-										src={item}
+										src={item.url}
 										className={styles["sliderimg"]}
 										style={{ width: "100%" }}
 										key={item}

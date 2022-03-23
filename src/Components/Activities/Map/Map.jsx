@@ -6,7 +6,6 @@ import styles from "./Map.module.scss";
 import 'leaflet/dist/leaflet.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "react-tabs/style/react-tabs.css";
 import { NavLink } from "react-router-dom";
 
 const notifyRegister = () => toast.success('You registered successfully', {
@@ -35,7 +34,7 @@ const notifyLogin = () => toast.success('You logged in correctly', {
 var entry = 0;
 
 
-const center = [28.140705, -15.428731];
+const center = [28.13667, -15.43717];
 
 const HomeButton = ({ map }) => {
 	useMapEvent({
@@ -68,7 +67,7 @@ const HomeButton = ({ map }) => {
 			'<img src=\'https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/home-start-top-icon-image-flat-home-icon-logo-symbol-sphere-building-transparent-png-400306.png?alt=media&token=3b4f2141-accc-49e9-b4e2-31b088278151\'width=\'25px\' height=\'25px\'>';
   
 		  btn.onclick = function () {
-			map.flyToBounds([center],12);
+			map.flyTo(center,13);
 			document.body.classList.remove("show-button-home");
 		  };
   
@@ -98,7 +97,6 @@ const HomeButton = ({ map }) => {
 
 const content1 = [
 	{
-		title: "Sukiennice",
 		image:
 			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg/1920px-A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg",
 		style: { width: "200px" },
@@ -108,11 +106,10 @@ const content1 = [
 
 const content2 = [
 	{
-		title: "Sukiennice",
 		image:
-			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg/1920px-A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg",
+			"https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/image001.webp?alt=media&token=80ef2399-2626-4d50-9b93-0a268ed30c99",
 		style: { width: "200px" },
-		text: "Place 2",
+		text: "Fat Frank",
 	},
 ];
 
@@ -144,10 +141,10 @@ const MapWrapper = () => {
 		<div  className={styles["grid"]} style={{ width: "100%", height: "100%", margin: "0", padding: "0" }}>
 			<ToastContainer limit={1} />
 			<main style={{ position: "absolute", bottom: "0%" }}>
-				<MapContainer center={center} zoom={18} scrollWheelZoom={false} draggable={true} whenCreated={setMap}
+				<MapContainer center={center} zoom={13} scrollWheelZoom={false} draggable={true} whenCreated={setMap}
 					style={{ width: "100%", height: "100%", margin: "auto" }}>
 					<TileLayer {...tileLayer} />
-					<Marker position={center}>
+					<Marker position={[28.110588, -15.426521]}>
 						<Popup maxWidth={200}>
 							{content1.map((item, index) => (
 								<div key={index}>
@@ -163,7 +160,7 @@ const MapWrapper = () => {
 
 						</Popup>
 					</Marker>
-					<Marker position={[28.14200, -15.428731]}>
+					<Marker position={[28.137233, -15.43541]}>
 						<Popup maxWidth={200}>
 							{content2.map((item, index) => (
 								<div key={index}>

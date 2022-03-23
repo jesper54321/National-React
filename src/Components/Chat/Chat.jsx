@@ -91,7 +91,7 @@ export default function Chat() {
 			<>
 				<div className={styles.chatcontainer}>
 					<ul className={styles.messageList} id="messageList">
-						{Chats?.map((item, index) => {
+						{Chats?.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1).map((item, index) => {
 							return Users[item.user_id] ? (
 								<Message
 									data={item}
