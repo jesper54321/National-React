@@ -11,7 +11,6 @@ export const auth = getAuth(app);
 export var email = "";
 export var username = "";
 export var photo = "";
-export var justEntered = 0;
 
 export function SetEntry(number) {
 	justEntered = number;
