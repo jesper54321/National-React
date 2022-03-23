@@ -1,179 +1,189 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
-import styles from "./location-button.module.css";
-import L from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from "react-leaflet";
 import tileLayer from "../../../util/tileLayer";
+import styles from "./Map.module.scss";
+import 'leaflet/dist/leaflet.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "react-tabs/style/react-tabs.css";
+import { NavLink } from "react-router-dom";
+
+const notifyRegister = () => toast.success('You registered successfully', {
+	theme: "dark",
+	position: "top-right",
+	autoClose: 2000,
+	hideProgressBar: false,
+	closeOnClick: true,
+	progress: undefined,
+	newestOnTop: false,
+	rtl: false,
+}) + toast.clearWaitingQueue();
+
+const notifyLogin = () => toast.success('You logged in correctly', {
+	theme: "dark",
+	position: "top-right",
+	autoClose: 2000,
+	hideProgressBar: false,
+	closeOnClick: true,
+	progress: undefined,
+	newestOnTop: false,
+	rtl: false,
+}) + toast.clearWaitingQueue();
+
+
+var entry = 0;
+
 
 const center = [28.140705, -15.428731];
 
-const LocationButton = () => {
-	const map = useMap();
-
+const HomeButton = ({ map }) => {
+	useMapEvent({
+	  dragend() {
+		const { lat: latD, lng: lngD } = map.getCenter();
+		const { lat, lng } = map.getCenter();
+  
+		const checkEqualArrays =
+		  [lat, lng] !== [latD.toFixed(5) * 1, lngD.toFixed(5) * 1];
+  
+		document.body.classList[checkEqualArrays ? "add" : "remove"](
+		  "show-button-home"
+		);
+	  },
+	});
+  
 	useEffect(() => {
-		// create custom button
-		const customControl = L.Control.extend({
-			// button position
-			options: {
-				position: "topleft",
-				className: `${styles.locateButton} leaflet-bar`,
-				html: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>',
-				style:
-					"width: 34px; height: 34px; left: 0; margin-top: 0; display: flex; cursor: pointer; justify-content: center; font-size: 2rem;",
-			},
+	  if (!map) return;
+  
+	  const customControler = L.Control.extend({
+		options: {
+		  position: "topleft",
+		},
+  
+		onAdd: function () {
+		  const btn = L.DomUtil.create("button", "back-to-home");
+		  btn.title = "pop rotation";
 
-			// method
-			onAdd: function (map) {
-				this._map = map;
-				const button = L.DomUtil.create("div");
-				L.DomEvent.disableClickPropagation(button);
-
-				button.title = "locate";
-				button.innerHTML = this.options.html;
-				button.className = this.options.className;
-				button.setAttribute("style", this.options.style);
-
-				L.DomEvent.on(button, "click", this._clicked, this);
-
-				return button;
-			},
-			_clicked: function (e) {
-				L.DomEvent.stopPropagation(e);
-
-				// this.removeLocate();
-
-				this._checkLocate();
-
-				return;
-			},
-			_checkLocate: function () {
-				return this._locateMap();
-			},
-
-			_locateMap: function () {
-				const locateActive = document.querySelector(`.${styles.locateButton}`);
-				const locate = locateActive.classList.contains(styles.locateActive);
-				// add/remove class from locate button
-				locateActive.classList[locate ? "remove" : "add"](styles.locateActive);
-
-				// remove class from button
-				// and stop watching location
-				if (locate) {
-					this.removeLocate();
-					this._map.stopLocate();
-					return;
-				}
-
-				// location on found
-				this._map.on("locationfound", this.onLocationFound, this);
-				// locataion on error
-				this._map.on("locationerror", this.onLocationError, this);
-
-				// start locate
-				this._map.locate({ setView: true, enableHighAccuracy: true });
-			},
-			onLocationFound: function (e) {
-				// add circle
-				this.addCircle(e).addTo(this.featureGroup()).addTo(map);
-
-				// add marker
-				this.addMarker(e).addTo(this.featureGroup()).addTo(map);
-
-				// add legend
-			},
-			// on location error
-			onLocationError: function (e) {
-				this.addLegend("Location access denied.");
-			},
-			// feature group
-			featureGroup: function () {
-				return new L.FeatureGroup();
-			},
-			// add legend
-			addLegend: function (text) {
-				const checkIfDescriotnExist = document.querySelector(".description");
-
-				if (checkIfDescriotnExist) {
-					checkIfDescriotnExist.textContent = text;
-					return;
-				}
-
-				const legend = L.control({ position: "bottomleft" });
-
-				legend.onAdd = function () {
-					let div = L.DomUtil.create("div", "description");
-					L.DomEvent.disableClickPropagation(div);
-					const textInfo = text;
-					div.insertAdjacentHTML("beforeend", textInfo);
-					return div;
-				};
-				legend.addTo(this._map);
-			},
-			addCircle: function ({ accuracy, latitude, longitude }) {
-				return L.circle([latitude, longitude], accuracy / 2, {
-					className: "circle-test",
-					weight: 2,
-					stroke: false,
-					fillColor: "#136aec",
-					fillOpacity: 0.15,
-				});
-			},
-			addMarker: function ({ latitude, longitude }) {
-				return L.marker([latitude, longitude], {
-					icon: L.divIcon({
-						className: styles.locatedAnimation,
-						iconSize: L.point(17, 17),
-						popupAnchor: [0, -15],
-					}),
-				}).bindPopup("Your are here :)");
-			},
-			removeLocate: function () {
-				this._map.eachLayer(function (layer) {
-					if (layer instanceof L.Marker) {
-						const { icon } = layer.options;
-						if (icon?.options.className === styles.locatedAnimation) {
-							map.removeLayer(layer);
-						}
-					}
-					if (layer instanceof L.Circle) {
-						if (layer.options.className === "circle-test") {
-							map.removeLayer(layer);
-						}
-					}
-				});
-			},
-		});
-
-		// adding new button to map controll
-		map.addControl(new customControl());
+		  btn.innerHTML =
+			'<img src=\'https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/home-start-top-icon-image-flat-home-icon-logo-symbol-sphere-building-transparent-png-400306.png?alt=media&token=3b4f2141-accc-49e9-b4e2-31b088278151\'width=\'25px\' height=\'25px\'>';
+  
+		  btn.onclick = function () {
+			map.flyToBounds([center]);
+			document.body.classList.remove("show-button-home");
+		  };
+  
+		  return btn;
+		},
+	  });
+  
+	  map.addControl(new customControler());
+  
+	  const info = L.Control.extend({
+		options: {
+		  position: "bottomleft",
+		},
+  
+		onAdd: function () {
+		  const info = L.DomUtil.create("div", "legend");
+		  info.textContent = "move the map";
+		  return info;
+		},
+	  });
+  
+	  map.addControl(new info());
 	}, [map]);
-
+  
 	return null;
-};
+  };
+
+const content1 = [
+	{
+		title: "Sukiennice",
+		image:
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg/1920px-A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg",
+		style: { width: "200px" },
+		text: "Place 1",
+	},
+];
+
+const content2 = [
+	{
+		title: "Sukiennice",
+		image:
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg/1920px-A-10_Sukiennice_w_Krakowie_Krak%C3%B3w%2C_Rynek_G%C5%82%C3%B3wny_MM.jpg",
+		style: { width: "200px" },
+		text: "Place 2",
+	},
+];
 
 const MapWrapper = () => {
 	const [map, setMap] = useState(null);
+
+	React.useEffect(() => {
+		const L = require("leaflet");
+
+		delete L.Icon.Default.prototype._getIconUrl;
+
+		L.Icon.Default.mergeOptions({
+			iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+			iconUrl: require("leaflet/dist/images/marker-icon.png"),
+			shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+		});
+	}, []);
+
+	if (entry === 1) {
+		entry = 0;
+		setTimeout(() => { notifyRegister(); }, 1000);
+	} else if (entry === 2) {
+		entry = 0;
+		setTimeout(() => { notifyLogin(); }, 1000);
+	}
+
 	return (
-		<div className="grid" style={{ width: "100%", height: "100%", margin: "0", padding: "0"}}>
-			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-			<main style={{position:"absolute", bottom:"2%"}}>
-			<MapContainer
-				whenCreated={setMap}
-				center={center}
-				tap={false}
-				//dragging={true}
-				zoom={17}
-				scrollWheelZoom={false}
-				style={{ width: "90%", height: "90%", margin: "auto", }}
-			>
-				<TileLayer {...tileLayer} />
+		<div className={styles[MapContainer]} style={{ width: "100%", height: "100%", margin: "0", padding: "0"}}>
+		<div  className={styles["grid"]} style={{ width: "100%", height: "100%", margin: "0", padding: "0" }}>
+			<ToastContainer limit={1} />
+			<main style={{ position: "absolute", bottom: "0%" }}>
+				<MapContainer center={center} zoom={17.2} scrollWheelZoom={false} draggable={true} whenCreated={setMap}
+					style={{ width: "100%", height: "100%", margin: "auto", borderStyle: "solid", borderWidth: "2px" }}>
+					<TileLayer {...tileLayer} />
+					<Marker position={center}>
+						<Popup maxWidth={200}>
+							{content1.map((item, index) => (
+								<div key={index}>
+									<figure>
+										<img src={item.image} alt={item.title} style={item.style} />
+									</figure>
+									<div>
+										{item.text}<br></br>
+										<NavLink to="/activities/details/0">Show more</NavLink>
+									</div>
+								</div>
+							))}
 
-				<LocationButton map={map} />
-			</MapContainer>
+						</Popup>
+					</Marker>
+					<Marker position={[28.14200, -15.428731]}>
+						<Popup maxWidth={200}>
+							{content2.map((item, index) => (
+								<div key={index}>
+									<figure>
+										<img src={item.image} alt={item.title} style={item.style} />
+									</figure>
+									<div>
+										{item.text}<br></br>
+										<NavLink to="/activities/details/1">Show more</NavLink>
+									</div>
+								</div>
+							))}
+
+						</Popup>
+					</Marker>
+					<HomeButton map={map} />
+				</MapContainer>
 			</main>
-		</div>
-
+		</div></div>
 	);
-	
 };
 
 export default MapWrapper;
