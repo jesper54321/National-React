@@ -1,0 +1,75 @@
+.contact-background {
+	font-family: "Poppins", sans-serif;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: 500px) {
+		background-image: url("../../asset/background/wallpaperflare.com_wallpaper-mobile.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	@media (min-width: 500px) {
+		background-image: url("../../asset/background/wallpaperflare.com_wallpaper.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+.contact-panel {
+	box-sizing: border-box;
+
+	@media (max-width: 500px) {
+		width: 310px;
+	}
+	@media (min-width: 500px) {
+		width: 450px;
+	}
+
+	margin: 40px auto;
+	padding: 30px;
+	background-color: rgba(142, 207, 199, 0.575);
+	border-radius: 4px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.contact-welcome {
+	text-decoration: underline;
+}
+
+.contact-subtitle {
+	text-align: justify;
+	font-size: medium;
+}
+.contact-end-note {
+	font-size: medium;
+}
+
+// Made this from here; https://www.w3schools.com/csS/css3_buttons.asp?msclkid=9045e573a5f111eca980bf08c3f4ee6d
+.contact-button {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: white;
+	color: rgb(51, 51, 51);
+	border: 2px solid #c2c2c2;
+	border-radius: 8px;
+	height: 40px;
+	width: 240px;
+	// padding: 10px 40px;
+	transition-duration: 0.3s;
+}
+.contact-button-text {
+	text-decoration: underline;
+	color: #63b2f3;
+}
+.contact-button:hover {
+	background-color: #808080;
+}
+.contact-button:active {
+	background-color: #ffffff;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}

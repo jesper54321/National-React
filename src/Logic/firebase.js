@@ -76,7 +76,6 @@ export const pullDocument = async (database, document) => {
 	if (docSnap.exists()) {
 		return docSnap.data();
 	} else {
-		console.log("No such document!");
 		return null;
 	}
 };
@@ -100,6 +99,5 @@ export const pullCollection = async (database) => {
 //addDocument("Comments", {content: "testing add document", createdAt: serverTimestamp()});
 export const addDocument = async (database, data) => {
 	const docRef = await addDoc(collection(db, database), data);
-	console.log("Document written with ID: ", docRef.id);
 	return docRef.id;
 };

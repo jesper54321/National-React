@@ -14,7 +14,7 @@ export default function Header() {
 						<img src={photo} alt="" />
 						<h4>{username}</h4>
 					</div>
-					<NavLink to="/activities">Home</NavLink>
+					<NavLink to="/">Out</NavLink>
 				</>
 			) : (
 				<>
@@ -22,7 +22,7 @@ export default function Header() {
 						<FontAwesomeIcon className={style.iconcolor} icon={faUser} />
 						<h4>Guest</h4>
 					</div>
-					<NavLink to="/">Home</NavLink>
+					<NavLink to="/">Out</NavLink>
 				</>
 			)}
 		</header>

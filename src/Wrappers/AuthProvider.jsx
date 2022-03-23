@@ -12,12 +12,15 @@ export var email = "";
 export var username = "";
 export var photo = "";
 
+export function SetEntry(number) {
+	justEntered = number;
+}
+
 export async function SetUser(emailSet) {
-	const tempData = await pullDocument("Users", emailSet);
+	const tempData = await pullDocument("Users", emailSet.toLowerCase());
 	username = tempData.username;
 	email = tempData.email;
 	photo = tempData.photo;
-	console.log(username, email, photo);
 	return true;
 }
 

@@ -1,15 +1,48 @@
 import React, { useState, useEffect } from "react";
-//import styles from "./Login.module.scss";
-//import "../Register/Register.scss";
+import styles from "./Login.module.scss";
 import { useHistory, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseMain from "../../Logic/firebase";
 import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetEntry } from "../Activities/Map/Map";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+	const notify = () => toast.warning('You got some errors', {
+		theme: "dark",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
+	const notify2 = () => toast.error('Wrong password, email or username', {
+		theme: "dark",
+		position: "top-right",
+		autoClose: 2000,
+		hideProgressBar: false,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		newestOnTop:false,
+		rtl:false,
+		pauseOnFocusLoss:true,
+		draggable:true,
+		pauseOnHover:true,
+	}) + toast.clearWaitingQueue();
+
 	var emailLogin;
 	var usernameLogin;
 
@@ -22,22 +55,23 @@ export default function Login() {
 
 	const updateNNavigate = async (email) => {
 		await SetUser(email);
-		navigate("/activities/");
+		await SetEntry(2);
+		navigate("/activities/map");
 	};
 
 	const setError = (element, message) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles["error"]);
 		errorDisplay.innerText = message;
-		inputControl.classList.add("error");
-		inputControl.classList.remove("success");
+		inputControl.classList.add(styles["error"]);
+		inputControl.classList.remove(styles["success"]);
 	};
 	const setSuccess = (element) => {
 		const inputControl = element.parentElement;
-		const errorDisplay = inputControl.querySelector(".error");
+		const errorDisplay = inputControl.querySelector("." + styles["error"]);
 		errorDisplay.innerText = "";
-		inputControl.classList.add("success");
-		inputControl.classList.remove("error");
+		inputControl.classList.add(styles["success"]);
+		inputControl.classList.remove(styles["error"]);
 	};
 
 	var rightPassword = false;
@@ -83,41 +117,26 @@ export default function Login() {
 				.then((userCredential) => {
 					// Signed in
 					const user = userCredential.user;
-
-					//console.log("login successfuly");
-
 					updateNNavigate(email);
 				})
 				.catch((error) => {
-					document.getElementById("wrong").innerHTML =
-						"Wrong username or password";
+					//document.getElementById("wrong").innerHTML ="Wrong username or password";
+					notify2();
 					//const errorCode = error.code;
 					//const errorMessage = error.message;
 				});
+		}else{
+			notify();
 		}
 	};
 
-	const validate = (values) => {
-		const errors = {};
-		//const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
-
-		if (!values.email) {
-			errors.email = "Email or username are required!";
-		}
-		if (!values.password) {
-			errors.password = "Password is required!";
-		} else if (values.password.length < 6) {
-			errors.password = "Password must be more than 6 caracters";
-		}
-
-		return errors;
-	};
 	return (
-		<div className="container" /*{styles.loginWrapper}*/>
+		<div className={styles["container"]} /*{styles.loginWrapper}*/>
+			<ToastContainer limit={2} />
 			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
 				<h1>Log in </h1>
 
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Username or email</label>
 					<input
 						id="emailIn"
@@ -127,10 +146,10 @@ export default function Login() {
 						onChange={(event) => setEmail(event.target.value) + checkErrors()}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 				</div>
 
-				<div className="input-control">
+				<div className={styles["input-control"]}>
 					<label>Password</label>
 					<input
 						id="passwordIn"
@@ -142,7 +161,7 @@ export default function Login() {
 						}
 						onClick={(event) => checkErrors()}
 					/>
-					<div className="error"></div>
+					<div className={styles["error"]}></div>
 				</div>
 				<div id="wrong" style={{ color: "red" }}></div>
 				<div>

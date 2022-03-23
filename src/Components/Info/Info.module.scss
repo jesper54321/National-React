@@ -1,46 +1,45 @@
-.infoBackground{
-    font-family: 'Poppins', sans-serif;
-    position: absolute;
-    width: 100%;
-    height:100%;
+.infoBackground {
+	font-family: "Poppins", sans-serif;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    @media (max-width:500px) {
-        background-image: url("../../asset/background/wallpaperflare.com_wallpaper-mobile.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+	@media (max-width: 500px) {
+		background-image: url("../../asset/background/wallpaperflare.com_wallpaper-mobile.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 
-    @media (min-width:500px) {
-        background-image: url("../../asset/background/wallpaperflare.com_wallpaper.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+	@media (min-width: 500px) {
+		background-image: url("../../asset/background/wallpaperflare.com_wallpaper.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 }
-.infoWelcome
-{
-    text-decoration: underline;
-}
-
-.infoPanel
-{
-    box-sizing: border-box;
-
-    @media (max-width:500px) {
-        width: 310px;
-    }
-    @media (min-width:500px) {
-        width: 450px;
-    }
-    
-    margin: 40px auto;
-    padding: 30px;
-    background-color: rgba(142, 207, 199, 0.575);
-    border-radius: 4px;
-    font-size: 12px;
-    text-align: center;
+.infoWelcome {
+	text-decoration: underline;
 }
 
-p{
-     font-size: medium; 
-     margin-top: 9%;
+.infoPanel {
+	box-sizing: border-box;
+
+	@media (max-width: 500px) {
+		width: 310px;
+	}
+	@media (min-width: 500px) {
+		width: 450px;
+	}
+
+	margin: 40px auto;
+	padding: 30px;
+	background-color: rgba(142, 207, 199, 0.575);
+	border-radius: 4px;
+	font-size: 12px;
+	text-align: center;
+	p {
+		font-size: medium;
+		margin-top: 9%;
+	}
 }
