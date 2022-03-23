@@ -1,8 +1,0 @@
-export const places = [
-    {
-        name: "Fat Frank",
-        description: "A nice place where you can it hamburgers",
-        sustainable: "Using QR codes instead of paper menus",
-        location: "https://www.google.com/maps/place/Fat+Frank/@28.1371707,-15.4353853,15z/data=!4m5!3m4!1s0x0:0x737fabd11ced4ae8!8m2!3d28.1371707!4d-15.4353853"
-    }
-]
