@@ -5,36 +5,25 @@ import { username, email } from "../../../Wrappers/AuthProvider";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { NavLink, useParams } from "react-router-dom";
-import { getPlaces } from "../../../Logic/firebase";
 
 const url = "https://picsum.photos/v2/list?limit=10";
 
 export default function Details(props) {
 	let { id } = useParams();
-
 	const [place, setPlace] = useState({});
-	const [images, setImages] = useState([]);
-	useEffect(async () => {
-		const places = await getPlaces();
-		console.dir(places);
-		for (const item in places) {
-			console.log(item);
-		}
-		setPlace(places);
 
-		const imagesTemp = [];
-		for (let index = 0; index < 10; index++) {
-			imagesTemp.push(
-				"https://picsum.photos/seed/picsum" + index + "/1080/608"
-			);
-		}
-		setImages(imagesTemp);
+	useEffect(async () => {
+		setPlace(
+			...(await JSON.parse(await localStorage.getItem("PLACES"))).filter(
+				(item) => item.id != id
+			)
+		);
 	}, []);
-	//console.log(place);
+	console.log(place);
 
 	return (
 		<>
-			{place ? (
+			{place && place.name ? (
 				<>
 					<section className={styles.details}>
 						<AliceCarousel
@@ -48,7 +37,7 @@ export default function Details(props) {
 							touchTracking
 							disableButtonsControls
 						>
-							{images?.map((item, index) => {
+							{place.images?.map((item, index) => {
 								return (
 									<img
 										src={item}
@@ -81,7 +70,7 @@ export default function Details(props) {
 					</section>
 				</>
 			) : (
-				""
+				<p style={{ margin: "1rem" }}>sry this page doesnt exist</p>
 			)}
 		</>
 	);
