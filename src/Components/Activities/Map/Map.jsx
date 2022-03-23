@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import styles from "./location-button.module.css";
