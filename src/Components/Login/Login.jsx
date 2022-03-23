@@ -135,7 +135,7 @@ export default function Login() {
 		<div className={styles["container"]} /*{styles.loginWrapper}*/>
 			<ToastContainer limit={2} />
 			<form onSubmit={handleSubmit} /*className={styles.loginForm}*/>
-				<h1>Log in </h1>
+				<h1>Log in </h1><br></br><br></br>
 
 				<div className={styles["input-control"]}>
 					<label>Username or email</label>
@@ -168,13 +168,19 @@ export default function Login() {
 				<div>
 					<button>Log in</button>
 				</div>
-				<br></br>
-				<br></br>
-				<br></br>
+				<br></br><br></br><br></br><br></br>
 				<div>
-					<h2>Don't have an account yet ?</h2>
+					<h2>Don't have an account yet?</h2>
 					<Link to="../Register">
 						<button>Register</button>
+					</Link>
+				</div>
+				<br></br><br></br><br></br><br></br>
+				<div>
+					<h2>Try the app</h2>
+					<h4>(Some fuctions will be limited)</h4>
+					<Link to="../activities/map">
+						<button>Guest mode</button>
 					</Link>
 				</div>
 			</form>
