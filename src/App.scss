@@ -30,7 +30,9 @@ footer {
 	width: 100%;
 	position: relative;
 	> div {
+		width: 100%;
 		> ul.alice-carousel__stage {
+			width: 100%;
 			> li.alice-carousel__stage-item {
 				width: 100%;
 				aspect-ratio: 16/9;
@@ -44,119 +46,15 @@ footer {
 		transform: translateX(-50%);
 		margin: 0;
 		width: 100%;
-		> li.alice-carousel__dots-item {
-			width: 25px;
-			height: 25px;
-		}
-	}
-	> div.alice-carousel__prev-btn {
-		width: fit-content;
-		position: absolute;
-		left: 1rem;
-		top: 50%;
-		transform: translateY(-50%);
-		font-weight: 900;
-		font-size: 7rem;
-		> div.alice-carousel__prev-btn-wrapper {
-			width: fit-content;
-		}
-	}
-	> div.alice-carousel__next-btn {
-		width: fit-content;
-		top: 50%;
-		right: 1rem;
-		transform: translateY(-50%);
-		position: absolute;
-		font-size: 7rem;
-		font-weight: 900;
-		> div.alice-carousel__next-btn-wrapper {
-			width: fit-content;
-		}
 	}
 }
 
-  .grid {
-	display: grid;
-	width: 100%;
-	grid-template-areas:
-	  "nav head"
-	  "nav main";
-	grid-template-columns: 300px 1fr;
-	grid-template-rows: 100px;
-	gap: 0 30px;
-	max-width: 1350px;
-  }
-
-  main {
-	grid-area: main;
-	width: 100%;
-	margin: 0;
-	height: 88%;
-  }
-  
-  
-  
-  @media (max-width: 1200px) {
-	.grid {
-	  grid-template-columns: 100%;
-	  grid-template-areas:
-		"head"
-		"main";
-	  gap: 0;
+@media (min-width: 900px) {
+	#root
+		div.alice-carousel
+		> ul.alice-carousel__dots
+		> li.alice-carousel__dots-item {
+		width: 25px;
+		height: 25px;
 	}
-
-	main {
-		padding: 20px;
-	  }
-  
-  
-  .marker-position {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	z-index: 999;
-	padding: 5px;
-	font-size: 1rem;
-	font-weight: 700;
-	background-color: #fff;
-  }
-  
-  
-  .marker-click {
-	text-decoration: none;
-	color: red;
-  }
-  
-  .space-between {
-	justify-content: space-between;
-  }
-  
-  /* legend  */
-  .legend {
-	background: #fff;
-	padding: 8px;
-	border-radius: 5px;
-  }
-  
-  .legend .row {
-	display: flex;
-	line-height: 30px;
-  }
-  
-  .legend i {
-	display: block;
-	width: 30px;
-	height: 30px;
-	margin-right: 5px;
-  }
-  
-  .description {
-	width: 250px;
-	font-size: 16px;
-	color: #333;
-	padding: 10px 14px;
-	background-color: hsla(0, 0%, 100%, 0.8);
-	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-	border-radius: 5px;
-	border: 1px solid grey;
-  }}
+}

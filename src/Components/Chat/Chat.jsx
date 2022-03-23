@@ -8,13 +8,14 @@ import {
 	query,
 	serverTimestamp,
 	limit,
+	where,
 } from "firebase/firestore";
 import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
 import { useNavigate } from "react-router-dom";
 import { username, email } from "../../Wrappers/AuthProvider";
 
 const db = getFirestore(app);
-const startTime = new Date;
+const startTime = new Date();
 
 export default function Chat() {
 	let navigate = useNavigate();
@@ -72,7 +73,7 @@ export default function Chat() {
 			const q = query(
 				collection(db, "Chats"),
 				/* where("createdAt", ">", Timestamp.fromDate(startTime) ), */
-				limit(10),
+				limit(10)
 			);
 			const unsubscribe = onSnapshot(q, (querySnapshot) => {
 				const chatArray = [];
