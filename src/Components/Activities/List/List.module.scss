@@ -20,7 +20,41 @@
 
 .listImage{
     background-image: url("../../../asset/background/placeholderLandscape.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     border-style: solid;
     border: 3px;
-    height: 600px;
+    height: 200px;
+    margin-top: 40px;
+
+    @media (min-width:500px){
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    
+    @media (max-width:500px){
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+}
+
+.listImageName{
+    background-color: rgb(182, 182, 182);
+
+    @media (min-width:500px){
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    
+    @media (max-width:500px){
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    h1
+    {
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
