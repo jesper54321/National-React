@@ -101,3 +101,30 @@ export const addDocument = async (database, data) => {
 	const docRef = await addDoc(collection(db, database), data);
 	return docRef.id;
 };
+
+export const getPlaces = async () => {
+	const documentArray = [];
+	const q = query(collection(db, "Places"));
+
+	const querySnapshot = await getDocs(q);
+	querySnapshot.forEach(async (doc) => {
+		const tempData = doc.data();
+		tempData.id = doc.id;
+		tempData.Images = await pullImages(doc.id);
+		documentArray.push(tempData);
+	});
+	return documentArray;
+};
+
+const pullImages = async (id) => {
+	const q = query(collection(db, "Places", id, "Images"));
+	const documentArray = [];
+
+	const querySnapshot = await getDocs(q);
+	querySnapshot.forEach((doc) => {
+		const tempData = doc.data();
+		tempData.id = doc.id;
+		documentArray.push(tempData);
+	});
+	return documentArray;
+};
