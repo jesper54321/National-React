@@ -13,8 +13,9 @@ body {
 
 #root > .activityWrapper {
 	height: 88vh;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
+	position: relative;
 }
 
 header {
@@ -23,4 +24,53 @@ header {
 
 footer {
 	height: 5vh;
+}
+
+#root div.alice-carousel {
+	width: 100%;
+	position: relative;
+	> div {
+		> ul.alice-carousel__stage {
+			> li.alice-carousel__stage-item {
+				width: 100%;
+				aspect-ratio: 16/9;
+			}
+		}
+	}
+	> ul.alice-carousel__dots {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		margin: 0;
+		width: 100%;
+		> li.alice-carousel__dots-item {
+			width: 25px;
+			height: 25px;
+		}
+	}
+	> div.alice-carousel__prev-btn {
+		width: fit-content;
+		position: absolute;
+		left: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		font-weight: 900;
+		font-size: 7rem;
+		> div.alice-carousel__prev-btn-wrapper {
+			width: fit-content;
+		}
+	}
+	> div.alice-carousel__next-btn {
+		width: fit-content;
+		top: 50%;
+		right: 1rem;
+		transform: translateY(-50%);
+		position: absolute;
+		font-size: 7rem;
+		font-weight: 900;
+		> div.alice-carousel__next-btn-wrapper {
+			width: fit-content;
+		}
+	}
 }

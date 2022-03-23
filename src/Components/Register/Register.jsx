@@ -141,7 +141,6 @@ export default function Register() {
 								updateNNavigate();
 							})
 							.catch((error) => {
-								console.log("this is error 1");
 								console.log(error.message);
 							});
 						setUsername("");
