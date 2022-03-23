@@ -93,11 +93,14 @@ footer {
 	margin: 0;
 	height: 100%;
   }
-  
+  .sortable-handler {
+	touch-action: none;
+  }
   
   
   @media (max-width: 1200px) {
 	.grid {
+		background-color: rgba(142, 207, 199, 0.575);
 	  grid-template-columns: 100%;
 	  grid-template-areas:
 		"head"

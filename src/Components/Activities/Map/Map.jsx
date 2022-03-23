@@ -198,11 +198,10 @@ const MapWrapper = () => {
 					whenCreated={setMap}
 					center={center}
 					tap={false}
-					//dragging={true}
 					draggable={true}
 					zoom={17}
 					scrollWheelZoom={false}
-					style={{ width: "100%", height: "100%", margin: "auto", }}
+					style={{ width: "100%", height: "100%", margin: "auto", borderStyle: "solid",borderWidth: "2px"}}
 				>
 					<TileLayer {...tileLayer} />
 
