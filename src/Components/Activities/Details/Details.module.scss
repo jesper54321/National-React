@@ -84,22 +84,26 @@
 
 .comments {
 	border-top: 1px solid rgba(0, 0, 0, 0.7);
-	.chatControl {
-		display: flex;
-		margin: 0.6rem;
-		.chatMessage {
-			resize: none;
-			flex: 1;
-			padding: 0.3rem;
-		}
-		.chatSend {
-			padding: 0.3rem 2rem;
-			margin: 0;
-		}
+	a {
+		text-align: center;
+		display: block;
+		margin-inline: auto;
+		padding: 0.7rem 1.2rem;
+		border: 1px solid black;
+		width: fit-content;
+		margin-block: 2rem;
+		border-radius: 10px;
 	}
 }
 .sliderimg {
 	width: 100%;
 	aspect-ratio: 16/9;
 	object-fit: cover;
+	object-position: center;
+}
+
+@media (min-width: 900px) {
+	.sliderimg {
+		aspect-ratio: 16/7;
+	}
 }
