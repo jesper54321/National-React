@@ -13,7 +13,7 @@ export default function Home() {
 			</div>
 			<div className={style.linkcontainer}>
 				{username && email ? (
-					<NavLink to="/activities">Continue</NavLink>
+					<NavLink to="/activities/map">Continue</NavLink>
 				) : (
 					<>
 						<NavLink to="/login">Log in</NavLink>

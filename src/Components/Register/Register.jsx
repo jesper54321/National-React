@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import FirebaseMain, { db } from "../../Logic/firebase";
 import { auth } from "../../Wrappers/AuthProvider";
 import styles from "./register.module.scss";
-import { SetUser, SetEntry } from "../../Wrappers/AuthProvider";
+import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetEntry } from "../Activities/Map/Map";
 import { serverTimestamp, doc, setDoc, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import CustomPopup from "./CustomPopup";
@@ -188,7 +189,6 @@ export default function Register() {
 						onClick={(event) => checkErrors()}
 					/>
 					<div className={styles["error"]}></div>
-					<br></br>
 				</div>
 				<div className={styles["input-control"]}>
 					<label style={{ display: "block", marginInline: "auto" }}>
@@ -223,8 +223,6 @@ export default function Register() {
 						show={visibility}
 						title="Choose a profile photo:"
 					>
-						<br></br>
-						<div></div>
 						<img
 							src="https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/profile1.PNG?alt=media&token=e01d55ea-c50a-4720-96be-7b7dedf4af8e"
 							width="150"
@@ -268,22 +266,17 @@ export default function Register() {
 							}
 						/>
 					</CustomPopup>
-					<br></br>
 					<div
 						className={styles["error"]}
 						style={{ display: "block", marginInline: "auto" }}
 					></div>
 				</div>
 				<button type="submit">Sign up</button>
-				<br></br>
-				<br></br>
-				<br></br>
 				<h2>Already have an account?</h2>
-				<nav>
 					<NavLink to="/login">
 						<button>Log in</button>
 					</NavLink>
-				</nav>
+				
 			</form>
 		</div>
 	);

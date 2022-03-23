@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { auth, username } from "../../Wrappers/AuthProvider";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import FirebaseMain from "../../Logic/firebase";
-import { SetUser,SetEntry } from "../../Wrappers/AuthProvider";
+import { SetUser } from "../../Wrappers/AuthProvider";
+import { SetEntry } from "../Activities/Map/Map";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -117,6 +118,7 @@ export default function Login() {
 					// Signed in
 					const user = userCredential.user;
 					updateNNavigate(email);
+					
 				})
 				.catch((error) => {
 					//document.getElementById("wrong").innerHTML ="Wrong username or password";
