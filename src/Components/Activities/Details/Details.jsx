@@ -16,7 +16,9 @@ export default function Details(props) {
 	const [Place, setPlace] = useState({});
 	const [images, setimages] = useState([]);
 	useEffect(async () => {
-		const placeTemp = (await JSON.parse(sessionStorage.getItem("PLACES")))[0];
+		const placeTemp = await JSON.parse(sessionStorage.getItem("PLACES"));
+		placeTemp = placeTemp.filter((place) => place.id == id);
+		console.log(placeTemp);
 		const imagesTemp = [];
 		for (let index = 0; index < 10; index++) {
 			imagesTemp.push(
