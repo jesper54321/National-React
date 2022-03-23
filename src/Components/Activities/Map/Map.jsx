@@ -68,7 +68,7 @@ const HomeButton = ({ map }) => {
 			'<img src=\'https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/home-start-top-icon-image-flat-home-icon-logo-symbol-sphere-building-transparent-png-400306.png?alt=media&token=3b4f2141-accc-49e9-b4e2-31b088278151\'width=\'25px\' height=\'25px\'>';
   
 		  btn.onclick = function () {
-			map.flyToBounds([center]);
+			map.flyToBounds([center],12);
 			document.body.classList.remove("show-button-home");
 		  };
   
@@ -144,8 +144,8 @@ const MapWrapper = () => {
 		<div  className={styles["grid"]} style={{ width: "100%", height: "100%", margin: "0", padding: "0" }}>
 			<ToastContainer limit={1} />
 			<main style={{ position: "absolute", bottom: "0%" }}>
-				<MapContainer center={center} zoom={17.2} scrollWheelZoom={false} draggable={true} whenCreated={setMap}
-					style={{ width: "100%", height: "100%", margin: "auto", borderStyle: "solid", borderWidth: "2px" }}>
+				<MapContainer center={center} zoom={18} scrollWheelZoom={false} draggable={true} whenCreated={setMap}
+					style={{ width: "100%", height: "100%", margin: "auto" }}>
 					<TileLayer {...tileLayer} />
 					<Marker position={center}>
 						<Popup maxWidth={200}>
