@@ -74,3 +74,89 @@ footer {
 		}
 	}
 }
+
+  .grid {
+	display: grid;
+	width: 100%;
+	grid-template-areas:
+	  "nav head"
+	  "nav main";
+	grid-template-columns: 300px 1fr;
+	grid-template-rows: 100px;
+	gap: 0 30px;
+	max-width: 1350px;
+  }
+
+  main {
+	grid-area: main;
+	width: 100%;
+	margin: 0;
+	height: 88%;
+  }
+  
+  
+  
+  @media (max-width: 1200px) {
+	.grid {
+	  grid-template-columns: 100%;
+	  grid-template-areas:
+		"head"
+		"main";
+	  gap: 0;
+	}
+
+	main {
+		padding: 20px;
+	  }
+  
+  
+  .marker-position {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	padding: 5px;
+	font-size: 1rem;
+	font-weight: 700;
+	background-color: #fff;
+  }
+  
+  
+  .marker-click {
+	text-decoration: none;
+	color: red;
+  }
+  
+  .space-between {
+	justify-content: space-between;
+  }
+  
+  /* legend  */
+  .legend {
+	background: #fff;
+	padding: 8px;
+	border-radius: 5px;
+  }
+  
+  .legend .row {
+	display: flex;
+	line-height: 30px;
+  }
+  
+  .legend i {
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-right: 5px;
+  }
+  
+  .description {
+	width: 250px;
+	font-size: 16px;
+	color: #333;
+	padding: 10px 14px;
+	background-color: hsla(0, 0%, 100%, 0.8);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	border: 1px solid grey;
+  }}
