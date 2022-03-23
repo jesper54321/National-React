@@ -3,6 +3,42 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import styles from "./location-button.module.css";
 import L from "leaflet";
 import tileLayer from "../../../util/tileLayer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const notifyRegister = () => toast.success('You registered successfully', {
+	theme: "colored",
+	position: "top-right",
+	autoClose: 2000,
+	hideProgressBar: false,
+	closeOnClick: true,
+	progress: undefined,
+	newestOnTop:false,
+	rtl:false,
+}) + toast.clearWaitingQueue();
+
+const notifyLogin = () => toast.success('You logged in correctly', {
+	theme: "colored",
+	position: "top-right",
+	autoClose: 2000,
+	hideProgressBar: false,
+	closeOnClick: true,
+	progress: undefined,
+	newestOnTop:false,
+	rtl:false,
+}) + toast.clearWaitingQueue();
+
+var entry=0
+
+if(entry===1){
+	entry=0;
+	console.log(entry);
+	setTimeout(() => {  notifyRegister(); }, 1000);
+}else if(entry===2){
+	entry=0;
+	console.log(entry);
+	setTimeout(() => {  notifyLogin(); }, 1000);
+}
 
 const center = [28.140705, -15.428731];
 
@@ -155,15 +191,16 @@ const MapWrapper = () => {
 	return (
 		<div className="grid" style={{ width: "100%", height: "100%", margin: "0", padding: "0"}}>
 			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-			<main style={{position:"absolute", bottom:"2%"}}>
+			<main style={{position:"absolute", bottom:"0%"}}>
 			<MapContainer
 				whenCreated={setMap}
 				center={center}
 				tap={false}
 				//dragging={true}
+				draggable={true}
 				zoom={17}
 				scrollWheelZoom={false}
-				style={{ width: "90%", height: "90%", margin: "auto", }}
+				style={{ width: "100%", height: "100%", margin: "auto", }}
 			>
 				<TileLayer {...tileLayer} />
 
