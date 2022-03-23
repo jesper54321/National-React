@@ -4,7 +4,6 @@ import { email } from "../../../Wrappers/AuthProvider";
 export default function Message({ data, styles, user }) {
 	const type = email === data.user_id ? "outgoing" : "incoming";
 	const time = new Date(data?.createdAt?.seconds * 1000 || Date.now());
-	console.log(data.content);
 	return (
 		<>
 			<li className={styles[type]}>
