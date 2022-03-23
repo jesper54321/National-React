@@ -82,7 +82,7 @@ export default function Login() {
 			setSuccess(document.getElementById("emailIn"));
 			rightEmail = true;
 		} else {
-			setError(document.getElementById("emailIn"), "Email is required");
+			setError(document.getElementById("emailIn"), "Username or Email is required");
 		}
 		if (password.length < 6) {
 			setError(
@@ -121,10 +121,7 @@ export default function Login() {
 					
 				})
 				.catch((error) => {
-					//document.getElementById("wrong").innerHTML ="Wrong username or password";
 					notify2();
-					//const errorCode = error.code;
-					//const errorMessage = error.message;
 				});
 		}else{
 			notify();
@@ -138,7 +135,7 @@ export default function Login() {
 				<h1>Log in </h1><br></br><br></br>
 
 				<div className={styles["input-control"]}>
-					<label>Username or email</label>
+					<label>Username or Email</label>
 					<input
 						id="emailIn"
 						type="text"
@@ -180,7 +177,7 @@ export default function Login() {
 					<h2>Try the app</h2>
 					<h4>(Some fuctions will be limited)</h4>
 					<Link to="../activities/map">
-						<button>Guest mode</button>
+						<button style={{backgroundColor: 'rgb(119, 26, 26)'}}>Guest mode</button>
 					</Link>
 				</div>
 			</form>
