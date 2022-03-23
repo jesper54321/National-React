@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./Details.module.scss";
 import Comments from "./Comments/Comments";
 import { username, email } from "../../../Wrappers/AuthProvider";
-import { collection } from "firebase/firestore";
+import { collection, serverTimestamp } from "firebase/firestore";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useParams } from "react-router-dom";
+import { addDocument } from "../../../Logic/firebase";
 
 const url = "https://picsum.photos/v2/list?limit=10";
 
@@ -16,25 +17,37 @@ export default function Details(props) {
 	const [images, setimages] = useState([]);
 	useEffect(async () => {
 		const placeTemp = (await JSON.parse(sessionStorage.getItem("PLACES")))[0];
-		setimages(
-			await fetch(url).then((response) => {
-				return response.json();
-			})
-		);
-
+		const imagesTemp = [];
+		for (let index = 0; index < 10; index++) {
+			imagesTemp.push(
+				"https://picsum.photos/seed/picsum" + index + "/1080/608"
+			);
+		}
+		setimages(imagesTemp);
 		setPlace(placeTemp);
 	}, []);
 
 	return (
 		<>
 			<section className={styles.details}>
-				<AliceCarousel autoPlay infinite autoPlayInterval="2500">
+				<AliceCarousel
+					autoPlay
+					infinite
+					autoPlayInterval="3500"
+					mouseTracking
+					responsive
+					animationDuration="600"
+					renderKey="test"
+					touchTracking
+					disableButtonsControls
+				>
 					{images?.map((item, index) => {
 						return (
 							<img
-								src={item.download_url}
+								src={item}
 								className={styles["sliderimg"]}
-								key={index}
+								style={{ width: "100%" }}
+								key={item}
 							/>
 						);
 					})}
@@ -83,16 +96,7 @@ export default function Details(props) {
 				</a>
 			</section>
 
-			<section className={styles.comments}>
-				<div className={styles.chatControl}>
-					<textarea
-						className={styles.chatMessage}
-						placeholder="Write your message here..."
-					></textarea>
-					<button className={styles.chatSend}>Send</button>
-				</div>
-				{<Comments />}
-			</section>
+			<section className={styles.comments}>{<Comments id={id} />}</section>
 			{/* {username && email ? (
 				<section className={styles.comments}>{<Comments />}</section>
 			) : (
