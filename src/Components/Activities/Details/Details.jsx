@@ -5,7 +5,7 @@ import { username, email } from "../../../Wrappers/AuthProvider";
 import { collection, serverTimestamp } from "firebase/firestore";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { addDocument } from "../../../Logic/firebase";
 
 const url = "https://picsum.photos/v2/list?limit=10";
@@ -95,13 +95,13 @@ export default function Details(props) {
 					Start Route
 				</a>
 			</section>
-
-			<section className={styles.comments}>{<Comments id={id} />}</section>
-			{/* {username && email ? (
-				<section className={styles.comments}>{<Comments />}</section>
-			) : (
-				""
-			)} */}
+			<section className={styles.comments}>
+				{username && email ? (
+					<Comments />
+				) : (
+					<NavLink to="/login">Login to see and write comments</NavLink>
+				)}
+			</section>
 		</>
 	);
 }

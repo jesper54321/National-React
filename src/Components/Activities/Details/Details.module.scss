@@ -84,6 +84,16 @@
 
 .comments {
 	border-top: 1px solid rgba(0, 0, 0, 0.7);
+	a {
+		text-align: center;
+		display: block;
+		margin-inline: auto;
+		padding: 0.7rem 1.2rem;
+		border: 1px solid black;
+		width: fit-content;
+		margin-block: 2rem;
+		border-radius: 10px;
+	}
 }
 .sliderimg {
 	width: 100%;
