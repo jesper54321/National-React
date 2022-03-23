@@ -13,21 +13,23 @@ const url = "https://picsum.photos/v2/list?limit=10";
 export default function Details(props) {
 	let { id } = useParams();
 
-	const [Place, setPlace] = useState({});
-	const [images, setimages] = useState([]);
+	const [place, setPlace] = useState({});
+	const [images, setImages] = useState([]);
 	useEffect(async () => {
-		const placeTemp = await JSON.parse(sessionStorage.getItem("PLACES"));
-		placeTemp = placeTemp.filter((place) => place.id == id);
-		console.log(placeTemp);
+		setPlace(
+			...(await JSON.parse(sessionStorage.getItem("PLACES"))).filter(
+				(place) => place.id == id
+			)
+		);
 		const imagesTemp = [];
 		for (let index = 0; index < 10; index++) {
 			imagesTemp.push(
 				"https://picsum.photos/seed/picsum" + index + "/1080/608"
 			);
 		}
-		setimages(imagesTemp);
-		setPlace(placeTemp);
+		setImages(imagesTemp);
 	}, []);
+	console.log(place);
 
 	return (
 		<>
@@ -54,52 +56,22 @@ export default function Details(props) {
 						);
 					})}
 				</AliceCarousel>
+				<h2>{place.name}</h2>
 				<article className={styles.sustainable}>
 					<h3>Sustainable Goals</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas
-						reiciendis adipisci ipsum asperiores labore perspiciatis in minima
-						provident, corrupti rem incidunt libero repellendus voluptatum vero
-						soluta veniam. Odit recusandae nihil explicabo eveniet et laboriosam
-						delectus officiis deserunt doloribus natus non velit ab amet,
-						consectetur neque dignissimos. Enim velit tempora nesciunt!
-					</p>
+					<p>{place.sustainable}</p>
 				</article>
 				<article className={styles.information}>
 					<h3>Information</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-						maxime molestiae perferendis ipsa nam praesentium fuga autem,
-						dolorem quos ducimus iusto culpa modi odio deleniti? Tempore quis
-						qui, eos est quia quaerat adipisci error vero quas cumque sequi
-						placeat excepturi. Rem dicta debitis earum enim dolor quia quam
-						voluptatum aperiam, pariatur veritatis aliquid ipsam laboriosam sit
-						itaque ut omnis repellat non temporibus adipisci dolores? Facere
-						dicta quia commodi quis nesciunt distinctio, velit dolorum
-						excepturi. Saepe unde inventore nostrum iure possimus blanditiis,
-						dolor officiis accusamus sapiente, facilis quod! Eligendi
-						repudiandae vitae ratione itaque atque culpa eveniet laudantium
-						dolores a sit incidunt, magni nemo consequatur temporibus magnam
-						quae et aspernatur optio amet, deleniti ex accusamus? Dolor facilis
-						laudantium, neque enim atque aspernatur similique explicabo incidunt
-						itaque quasi nam non sunt optio pariatur repudiandae ipsam quam sint
-						quas maiores adipisci facere numquam ducimus porro reprehenderit. Ad
-						dicta facilis delectus consequatur itaque impedit suscipit
-						exercitationem fugit, voluptates laborum vero praesentium rem
-						architecto temporibus. Dolores maxime maiores, eum fugiat impedit
-						sunt quo voluptatem harum adipisci nemo! Ipsa cumque eius vel itaque
-						voluptatibus placeat ullam corporis. Beatae odit perspiciatis sed
-						dolor id, omnis aspernatur dicta itaque recusandae quibusdam nostrum
-						sequi voluptatum sapiente impedit consequuntur officiis aperiam?
-					</p>
+					<p>{place.description}</p>
 				</article>
-				<a href={""} target="_blank">
+				<a href={place.location} target="_blank">
 					Start Route
 				</a>
 			</section>
 			<section className={styles.comments}>
 				{username && email ? (
-					<Comments />
+					<Comments id={id} />
 				) : (
 					<NavLink to="/login">Login to see and write comments</NavLink>
 				)}
