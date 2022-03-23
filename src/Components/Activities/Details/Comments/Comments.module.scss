@@ -17,6 +17,9 @@
 				align-items: center;
 				justify-content: space-between;
 				margin-bottom: 0.4rem;
+				> * {
+					max-width: 50%;
+				}
 			}
 		}
 	}

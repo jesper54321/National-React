@@ -5,9 +5,9 @@ import {
 	serverTimestamp,
 	collection,
 	where,
-	orderBy,
 	getDocs,
 	query,
+	orderBy,
 } from "firebase/firestore";
 import { email } from "../../../../Wrappers/AuthProvider";
 
@@ -51,18 +51,20 @@ export default function Comments({ id }) {
 				</button>
 			</div>
 			{comments?.map((item, index) => {
-				<article className={styles.commentMessage}>
-					<div className={styles.flex}>
-						<img src="https://picsum.photos/seed/picsum/900/900" alt="" />
-						<div className={styles.container}>
-							<div className={styles.flex}>
-								<h4 className={styles.name}>{item.user_id}</h4>
-								<h6 className={styles.createdAt}>{new Date(item.createdAt)}</h6>
+				return (
+					<article className={styles.commentMessage} key={item.id}>
+						<div className={styles.flex}>
+							<img src="https://picsum.photos/seed/picsum/900/900" alt="" />
+							<div className={styles.container}>
+								<div className={styles.flex}>
+									<h4 className={styles.name}>{item.user_id}</h4>
+									<h6 className={styles.createdAt}>{Date(item.createdAt)}</h6>
+								</div>
+								<p className={styles.message}>{item.content}</p>
 							</div>
-							<p className={styles.message}>{item.content}</p>
 						</div>
-					</div>
-				</article>;
+					</article>
+				);
 			})}
 		</>
 	);
