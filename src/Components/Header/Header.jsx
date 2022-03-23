@@ -11,7 +11,7 @@ export default function Header() {
 			{username && email ? (
 				<>
 					<div>
-						<img src={photo} alt="" style={{height:"18%",width:"18%"}}/>
+						<img src={photo} alt="" />
 						<h4>{username}</h4>
 					</div>
 					<NavLink to="/">Out</NavLink>
