@@ -8,7 +8,6 @@ export default function Home() {
 	return (
 		<div className={style.homeclass}>
 			<div className={style.imagecontainer}>
-				<img src={national} alt="national react logo" style={{width:'100%',height:'100%'}}/>
 				<h1>National React</h1>
 			</div>
 			<div className={style.linkcontainer}>

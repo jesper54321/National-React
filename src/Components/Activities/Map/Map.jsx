@@ -127,6 +127,11 @@ const content6 = [{
 	style: { width: "200px" }, text: "Juicy Avenue",
 },];
 
+const content7 = [{
+	image: "https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/Bioloco.jpg?alt=media&token=6b3d291c-e2ac-4fd8-9aac-3137147ae5d6",
+	style: { width: "200px" }, text: "Bioloco",
+},];
+
 const MapWrapper = () => {
 	const [map, setMap] = useState(null);
 
@@ -184,7 +189,7 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/1">Show more</NavLink>
+											<NavLink to="/activities/details/oqyzpPSeOw54wsYprjC8">Show more</NavLink>
 										</div>
 									</div>
 								))}
@@ -214,7 +219,7 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/3">Show more</NavLink>
+											<NavLink to="/activities/details/64CZFoTLooq61CZ4GiD5">Show more</NavLink>
 										</div>
 									</div>
 								))}
@@ -235,16 +240,16 @@ const MapWrapper = () => {
 								))}
 							</Popup>
 						</Marker>
-						<Marker position={[28.144936, -15.430845]}>
+						<Marker position={[28.142022, -15.432969]}>
 							<Popup maxWidth={200}>
-								{content6.map((item, index) => (
+								{content7.map((item, index) => (
 									<div key={index}>
 										<figure>
 											<img src={item.image} alt={item.title} style={item.style} />
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/4">Show more</NavLink>
+											<NavLink to="/activities/details/O6LY8rh6XnwZ0qiAGCrs">Show more</NavLink>
 										</div>
 									</div>
 								))}
