@@ -74,7 +74,7 @@ export default function Chat() {
 		useEffect(async () => {
 			const q = query(
 				collection(db, "Chats"),
-				/* where("createdAt", ">", Timestamp.fromDate(startTime)), */
+				where("createdAt", ">", Timestamp.fromDate(startTime)),
 				orderBy("createdAt", "desc"),
 				limit(10)
 			);
@@ -94,18 +94,20 @@ export default function Chat() {
 			<>
 				<div className={styles.chatcontainer}>
 					<ul className={styles.messageList} id="messageList">
-						{Chats?.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1).map((item, index) => {
-							return Users[item.user_id] ? (
-								<Message
-									data={item}
-									key={item.id}
-									styles={styles}
-									user={Users[item.user_id]}
-								/>
-							) : (
-								""
-							);
-						})}
+						{Chats?.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1)).map(
+							(item, index) => {
+								return Users[item.user_id] ? (
+									<Message
+										data={item}
+										key={item.id}
+										styles={styles}
+										user={Users[item.user_id]}
+									/>
+								) : (
+									""
+								);
+							}
+						)}
 						<div ref={messagesEndRef} />
 					</ul>
 					<div className={styles.messageclass}>
