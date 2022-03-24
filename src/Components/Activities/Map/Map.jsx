@@ -121,6 +121,12 @@ const content5 = [{
 	image: "https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/puerto%20de%20la%20luz.jpg?alt=media&token=5ba91d5b-b750-4dea-9f49-94d3acc8f1e7",
 	style: { width: "200px" }, text: "Port of the Light",
 },];
+
+const content6 = [{
+	image: "https://firebasestorage.googleapis.com/v0/b/national-react-app.appspot.com/o/Juicyavenue3.jpg?alt=media&token=eb0ac625-67a7-4653-ab59-eb8a11cc99ed",
+	style: { width: "200px" }, text: "Juicy Avenue",
+},];
+
 const MapWrapper = () => {
 	const [map, setMap] = useState(null);
 
@@ -224,6 +230,21 @@ const MapWrapper = () => {
 										<div>
 											<h1>{item.text}</h1><br></br>
 											<NavLink to="/activities/details/3">Show more</NavLink>
+										</div>
+									</div>
+								))}
+							</Popup>
+						</Marker>
+						<Marker position={[28.144936, -15.430845]}>
+							<Popup maxWidth={200}>
+								{content6.map((item, index) => (
+									<div key={index}>
+										<figure>
+											<img src={item.image} alt={item.title} style={item.style} />
+										</figure>
+										<div>
+											<h1>{item.text}</h1><br></br>
+											<NavLink to="/activities/details/4">Show more</NavLink>
 										</div>
 									</div>
 								))}
