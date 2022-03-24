@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./List.module.scss";
 import { pullCollection } from "../../../Logic/firebase";
 import { async } from "@firebase/util";
+import { useNavigate } from 'react-router-dom';
 
 
 const myPlaces = [
@@ -37,30 +38,35 @@ export default function List(props) {
 
 	}, []);
 
-	function placeDetails(id) {
-		props.history.push(`activities/details/${id}`);
-	}
+	
+	const navigate = useNavigate();
+
+	const goToOtherPage = (detailId) => {
+		console.log("goToOtherPage");
+		console.log(detailId);
+		navigate(`/activities/details/${detailId}`);
+	  }
 
 	return (
 		<>
 			<div className={styles.listBackground} url="/asset">
 
 				{
-					myPlaces.map((p) => {
+					places.map((p) => {
 
 						console.log(p);
 
 						return (
 
-							<div key={p.id} onClick={(p) => placeDetails(p.id)}>
+							<div key={p.id} onClick={() => goToOtherPage(p.id)}>
 								<div className={styles.listImage}
-									style={{ backgroundImage: `url("./places/place-${p.id}.jpg")` }}>
-									<img src={`./objectives/objective-${p.sustainableId}.png`} className={styles.objectiveImage} />
+									style={{ backgroundImage: `url("./places/place-${p.name}.jpg")` }}>
+									{/* <img src={`./objectives/objective-${p.sustainableId}.png`} className={styles.objectiveImage} /> */}
 									{/* <div className={styles.objectiveImage}
 									style={{ backgroundImage: `url("./objectives/objective-${p.sustainableId}.png")` }}></div> */}
 								</div>
 								<div className={styles.listImageName}>
-									<h1>Moutain of somewhere</h1>
+									<h1>{p.name}</h1>
 								</div>
 							</div>
 						)
