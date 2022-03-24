@@ -173,7 +173,7 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/0">Show more</NavLink>
+											<NavLink to="/activities/details/sBZQfmIv3IkIyFx4RWWR">Show more</NavLink>
 										</div>
 									</div>
 								))}
@@ -204,7 +204,7 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/2">Show more</NavLink>
+											<NavLink to="/activities/details/dk7M04a5WM6rsjEnXwgk">Show more</NavLink>
 										</div>
 									</div>
 								))}
@@ -234,7 +234,22 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/3">Show more</NavLink>
+											<NavLink to="/activities/details/eplTh7uuCa8161I055Sz">Show more</NavLink>
+										</div>
+									</div>
+								))}
+							</Popup>
+						</Marker>
+						<Marker position={[28.145008, -15.430845]}>
+							<Popup maxWidth={200}>
+								{content6.map((item, index) => (
+									<div key={index}>
+										<figure>
+											<img src={item.image} alt={item.title} style={item.style} />
+										</figure>
+										<div>
+											<h1>{item.text}</h1><br></br>
+											<NavLink to="/activities/details/O6LY8rh6XnwZ0qiAGCrs">Show more</NavLink>
 										</div>
 									</div>
 								))}
@@ -249,7 +264,7 @@ const MapWrapper = () => {
 										</figure>
 										<div>
 											<h1>{item.text}</h1><br></br>
-											<NavLink to="/activities/details/O6LY8rh6XnwZ0qiAGCrs">Show more</NavLink>
+											<NavLink to="/activities/details/Vush8ukZptHf2aEbT0Lp">Show more</NavLink>
 										</div>
 									</div>
 								))}
