@@ -1,6 +1,6 @@
 {
-  "short_name": "Feel at home!",
-  "name": "Feel at home!",
+  "short_name": "National-react",
+  "name": "National-react",
   "icons": [
     {
       "src": "national-react-logo.ico",
@@ -9,12 +9,12 @@
       "purpose": "any maskable"
     },
     {
-      "src": "Isometric-House-192.png",
+      "src": "national-react-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "Isometric-House-512.png",
+      "src": "national-react-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
