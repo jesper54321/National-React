@@ -9,6 +9,8 @@ import {
 	serverTimestamp,
 	limit,
 	where,
+	orderBy,
+	Timestamp,
 } from "firebase/firestore";
 import { app, addDocument, pullDocument } from "../../Logic/firebase.js";
 import { useNavigate } from "react-router-dom";
@@ -72,7 +74,8 @@ export default function Chat() {
 		useEffect(async () => {
 			const q = query(
 				collection(db, "Chats"),
-				/* where("createdAt", ">", Timestamp.fromDate(startTime) ), */
+				/* where("createdAt", ">", Timestamp.fromDate(startTime)), */
+				orderBy("createdAt", "desc"),
 				limit(10)
 			);
 			const unsubscribe = onSnapshot(q, (querySnapshot) => {

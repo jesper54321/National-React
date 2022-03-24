@@ -1,6 +1,11 @@
 .details {
 	width: 100%;
 	padding-bottom: 60px;
+
+	h2 {
+		padding: 1.5rem 2rem;
+		padding-bottom: 0;
+	}
 	.slider {
 		width: 100%;
 		position: relative;
@@ -49,7 +54,10 @@
 	.sustainable,
 	.information {
 		padding: 1.5rem 2rem;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	}
+	.sustainable {
+		padding-bottom: 0rem;
 	}
 	a {
 		position: relative;
@@ -64,7 +72,7 @@
 		font-weight: bolder;
 		text-decoration: none;
 		overflow: hidden;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 		&::after {
 			content: "";
 			transition: all 400ms ease-in-out;
@@ -95,7 +103,7 @@
 		margin-block: 2rem;
 		border-radius: 10px;
 		text-decoration: none;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 		color: black;
 	}
 }

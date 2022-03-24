@@ -103,7 +103,10 @@ export const addDocument = async (database, data) => {
 };
 
 export const pullImages = async (id) => {
-	const q = await query(collection(db, "Places", id, "Images"));
+	const q = await query(
+		collection(db, "Places", id, "Images"),
+		orderBy("order", "desc")
+	);
 	const documentArray = [];
 
 	const querySnapshot = await getDocs(q);
@@ -116,5 +119,6 @@ export const pullImages = async (id) => {
 		tempData["id"] = await doc.id;
 		await documentArray.push(await tempData);
 	});
+	console.log(documentArray);
 	return await documentArray;
 };

@@ -11,11 +11,11 @@ export default function ActivitiesWrapper() {
 
 		for (const item in placesT) {
 			placesT[item].images = await pullImages(placesT[item].id);
+			setPlaces(await placesT);
 		}
-		setPlaces(await placesT);
 	}, []);
 
-	if (places.length > 0)
+	if (places && places.images && places.images.length > 1)
 		sessionStorage.setItem("PLACES", JSON.stringify(places));
 
 	return (

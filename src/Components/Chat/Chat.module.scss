@@ -1,8 +1,6 @@
 .flex {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	div {
-		display: grid;
-		grid-template-columns: 10% 15% 65%;
 		gap: 1rem;
 		padding: 4vw;
 		img {
@@ -27,6 +25,7 @@
 	display: grid;
 	height: 88vh;
 	.messageList {
+		min-height: 78vh;
 		list-style: none;
 		overflow-y: auto;
 		padding: 10px;
