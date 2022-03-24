@@ -2,22 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
-import { pullCollection, pullImages } from "../Logic/firebase";
 
 export default function ActivitiesWrapper() {
-	const [places, setPlaces] = useState([]);
-	useEffect(async () => {
-		const placesT = await pullCollection("Places");
-
-		for (const item in placesT) {
-			placesT[item].images = await pullImages(placesT[item].id);
-			setPlaces(await placesT);
-		}
-	}, []);
-
-	if (places && places.images && places.images.length > 1)
-		sessionStorage.setItem("PLACES", JSON.stringify(places));
-
 	return (
 		<>
 			<Header />

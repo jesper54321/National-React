@@ -5,49 +5,22 @@ import { username, email } from "../../../Wrappers/AuthProvider";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { NavLink, useParams } from "react-router-dom";
+import { pullDocument } from "../../../Logic/firebase";
 
-const url = "https://picsum.photos/v2/list?limit=10";
-
-export default function Details(props) {
+export default function Details() {
 	let { id } = useParams();
 	const [place, setPlace] = useState({});
 
 	useEffect(async () => {
-		setPlace(
-			...(await JSON.parse(await sessionStorage.getItem("PLACES"))).filter(
-				(item) => item.id == id
-			)
-		);
+		setPlace(await pullDocument("Places", id));
 	}, []);
-	console.log(place);
 
 	return (
 		<>
 			{place && place.name ? (
 				<>
 					<section className={styles.details}>
-						<AliceCarousel
-							autoPlay
-							infinite
-							autoPlayInterval="3500"
-							mouseTracking
-							responsive
-							animationDuration="600"
-							renderKey="test"
-							touchTracking
-							disableButtonsControls
-						>
-							{place.images?.map((item, index) => {
-								return (
-									<img
-										src={item.url}
-										className={styles["sliderimg"]}
-										style={{ width: "100%" }}
-										key={item.id}
-									/>
-								);
-							})}
-						</AliceCarousel>
+						<Carousel images={place.images} id={id} />
 						<h2>{place.name}</h2>
 						<article className={styles.sustainable}>
 							<h3>Sustainable Goals</h3>
@@ -73,5 +46,25 @@ export default function Details(props) {
 				<p style={{ margin: "1rem" }}>sry this page doesnt exist</p>
 			)}
 		</>
+	);
+}
+
+function Carousel(props) {
+	return (
+		<AliceCarousel
+			autoPlay
+			infinite
+			autoPlayInterval="3500"
+			mouseTracking
+			animationDuration="600"
+			touchTracking
+			disableButtonsControls
+		>
+			{props.images.map((item) => {
+				return (
+					<img src={item} alt="" key={props.id} className={styles.sliderimg} />
+				);
+			})}
+		</AliceCarousel>
 	);
 }

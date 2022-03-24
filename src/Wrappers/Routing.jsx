@@ -16,13 +16,13 @@ import List from "../Components/Activities/List/List";
 import Map from "../Components/Activities/Map/Map";
 import Details from "../Components/Activities/Details/Details";
 import Chat from "../Components/Chat/Chat";
-import FirebaseMain from "../Logic/firebase";
+import Temp from "../temp/temp";
 
 export default function Routing() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="test" element={<FirebaseMain />} />
+				<Route path="test" element={<Temp />} />
 				<Route path="activities" element={<ActivitiesWrapper />}>
 					<Route index element={<List />} />
 					<Route path="map" element={<Map />} />
