@@ -49,7 +49,7 @@ export default function List(props) {
 			<div className={styles.listBackground} url="/asset">
 				{
 					myPlaces.map((p) => {
-						console.log(p + " " + p.id);
+						//console.log(p + " " + p.id);
 						return (
 							<div key={p.id} onClick={(event) => placeDetails(p.id)}>
 								<div className={styles.listImage}
