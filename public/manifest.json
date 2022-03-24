@@ -1,9 +1,9 @@
 {
-  "short_name": "Home",
+  "short_name": "Feel at home!",
   "name": "Feel at home!",
   "icons": [
     {
-      "src": "Isometric-House-icon.ico",
+      "src": "national-react-logo.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon",
       "purpose": "any maskable"
