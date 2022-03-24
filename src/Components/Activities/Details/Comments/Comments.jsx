@@ -89,7 +89,7 @@ export default function Comments({ id }) {
 						</div>
 					</article>
 				);
-			})}
+			})} <br></br>
 		</>
 	);
 }
