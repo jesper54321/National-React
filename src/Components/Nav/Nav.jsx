@@ -23,7 +23,7 @@ export default function Nav() {
 			) : (
 				""
 			)}
-			<NavLink to="/activities/details/oqyzpPSeOw54wsYprjC8">
+			<NavLink to="/activities/">
 				<FontAwesomeIcon className={style.iconcolor} icon={faListUl} />
 			</NavLink>
 			<NavLink to="/activities/info">

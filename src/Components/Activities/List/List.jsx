@@ -58,7 +58,8 @@ export default function List(props) {
 
 							<div key={p.id} onClick={() => goToOtherPage(p.id)}>
 								<div className={styles.listImage}
-									style={{ backgroundImage: `url("./places/place-${p.name}.jpg")` }}>
+									/* style={{ backgroundImage: `url("./places/place-${p.name}.jpg")` }}> */
+									style={{ backgroundImage: `url("${p.images[0]}")` }}>
 									{/* <img src={`./objectives/objective-${p.sustainableId}.png`} className={styles.objectiveImage} /> */}
 									{/* <div className={styles.objectiveImage}
 									style={{ backgroundImage: `url("./objectives/objective-${p.sustainableId}.png")` }}></div> */}
@@ -66,7 +67,9 @@ export default function List(props) {
 								<div className={styles.listImageName}>
 									<h1>{p.name}</h1>
 								</div>
+								<br></br><br></br>
 							</div>
+							
 						)
 					}
 
