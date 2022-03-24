@@ -15,7 +15,8 @@ export default function ActivitiesWrapper() {
 		setPlaces(await placesT);
 	}, []);
 
-	if (places.length > 0) localStorage.setItem("PLACES", JSON.stringify(places));
+	if (places.length > 0)
+		sessionStorage.setItem("PLACES", JSON.stringify(places));
 
 	return (
 		<>

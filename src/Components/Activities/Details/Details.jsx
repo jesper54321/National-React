@@ -14,8 +14,8 @@ export default function Details(props) {
 
 	useEffect(async () => {
 		setPlace(
-			...(await JSON.parse(await localStorage.getItem("PLACES"))).filter(
-				(item) => item.id != id
+			...(await JSON.parse(await sessionStorage.getItem("PLACES"))).filter(
+				(item) => item.id == id
 			)
 		);
 	}, []);
@@ -40,10 +40,10 @@ export default function Details(props) {
 							{place.images?.map((item, index) => {
 								return (
 									<img
-										src={item}
+										src={item.url}
 										className={styles["sliderimg"]}
 										style={{ width: "100%" }}
-										key={item}
+										key={item.id}
 									/>
 								);
 							})}
