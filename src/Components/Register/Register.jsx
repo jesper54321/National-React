@@ -152,7 +152,7 @@ export default function Register() {
 					}
 				}}
 			>
-				<h1>Register</h1>
+				<h1>Register</h1><br></br><br></br>
 				<div className={styles["input-control"]}>
 					<label>Username</label>
 					<input
@@ -272,6 +272,7 @@ export default function Register() {
 					></div>
 				</div>
 				<button type="submit">Sign up</button>
+				<br></br><br></br><br></br><br></br><br></br>
 				<h2>Already have an account?</h2>
 					<NavLink to="/login">
 						<button>Log in</button>
