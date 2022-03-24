@@ -13,7 +13,7 @@ import { username, email, photo } from "../../Wrappers/AuthProvider";
 export default function Nav() {
 	return (
 		<nav className={style.navclass}>
-			<NavLink to="/activities/">
+			<NavLink to="/activities/map">
 				<FontAwesomeIcon className={style.iconcolor} icon={faHouse} />
 			</NavLink>
 			{email && username ? (
@@ -23,7 +23,7 @@ export default function Nav() {
 			) : (
 				""
 			)}
-			<NavLink to="/activities/">
+			<NavLink to="/activities/details/oqyzpPSeOw54wsYprjC8">
 				<FontAwesomeIcon className={style.iconcolor} icon={faListUl} />
 			</NavLink>
 			<NavLink to="/activities/info">

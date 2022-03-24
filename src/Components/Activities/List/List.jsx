@@ -1,6 +1,5 @@
 import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import React, { useEffect, useState } from "react";
-// import { useHistory } from "react-router-dom";
 import styles from "./List.module.scss";
 import { pullCollection } from "../../../Logic/firebase";
 import { async } from "@firebase/util";
@@ -10,19 +9,19 @@ import { useNavigate } from 'react-router-dom';
 const myPlaces = [
 	{
 		id: 1,
-		name: "Fat Frank",
+		name: "Fat Frank 1",
 		sustainableId: 1
 	}, {
 		id: 2,
-		name: "Fat Frank",
+		name: "Fat Frank 2",
 		sustainableId: 1
 	}, {
 		id: 3,
-		name: "Fat Frank",
+		name: "Fat Frank 3",
 		sustainableId: 1
 	}, {
 		id: 4,
-		name: "Fat Frank",
+		name: "Fat Frank 4",
 		sustainableId: 1
 	}
 ];
@@ -50,7 +49,6 @@ export default function List(props) {
 	return (
 		<>
 			<div className={styles.listBackground} url="/asset">
-
 				{
 					places.map((p) => {
 
