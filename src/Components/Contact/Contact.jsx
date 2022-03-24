@@ -20,19 +20,19 @@ export default function Contact() {
 
 				<button type="button" className={styles["contact-button"]}>
 					<span className={styles["contact-button-text"]}>
-						twittProjectnAME
+						Twitter National React
 					</span>
 				</button>
 				<div>
 					<button type="button" className={styles["contact-button"]}>
 						<span className={styles["contact-button-text"]}>
-							facebProjectnAME
+							Facebook National React
 						</span>
 					</button>
 				</div>
 				<button type="button" className={styles["contact-button"]}>
 					<span className={styles["contact-button-text"]}>
-						InstaProjectnAME
+						Instagram National React
 					</span>
 				</button>
 
