@@ -8,31 +8,29 @@ export default function Contact() {
 		<div className={styles["contact-background"]}>
 			<div className={styles["contact-panel"]}>
 				<h1 className={styles["contact-welcome"]}>
-					Welcome to our Contact page!
-				</h1>
-				<h6 className={styles["contact-subtitle"]}>
+					Contact us!
+				</h1><br></br><br></br>
+				<p className={styles["contact-subtitle"]}>
 					Any question sent will be answered as soon as possible through one of
 					the following ways of contact. Press on one to contact us and let us
 					try to fix all your problems! (Those related to the App though ;D)
-				</h6>
-
+				</p><br></br>
 				<br />
-
 				<button type="button" className={styles["contact-button"]}>
 					<span className={styles["contact-button-text"]}>
-						twittProjectnAME
+						Twitter National React
 					</span>
 				</button>
 				<div>
 					<button type="button" className={styles["contact-button"]}>
 						<span className={styles["contact-button-text"]}>
-							facebProjectnAME
+							Facebook National React
 						</span>
 					</button>
 				</div>
 				<button type="button" className={styles["contact-button"]}>
 					<span className={styles["contact-button-text"]}>
-						InstaProjectnAME
+						Instagram National React
 					</span>
 				</button>
 

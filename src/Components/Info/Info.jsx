@@ -7,7 +7,7 @@ export default function Info() {
 	return (<div className={styles.infoBackground}>
 		  
 		  <div className={styles.infoPanel}>
-		  <h1 className={styles.infoWelcome}>Welcome to our Information screen!</h1>
+		  <h1 className={styles.infoWelcome}>Learn more about us!</h1>
 
 		  <div >
 			<p>Our app is made with a friendly interface, collaborating with the quite popular Google Maps app.</p>
