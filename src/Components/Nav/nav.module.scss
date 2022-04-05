@@ -1,0 +1,13 @@
+.navclass {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: space-around;
+
+	.iconcolor {
+		color: black;
+	}
+	a {
+		padding: 5px;
+	}
+}

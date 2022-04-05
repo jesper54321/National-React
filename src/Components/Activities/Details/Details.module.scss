@@ -1,0 +1,121 @@
+.details {
+	width: 100%;
+	padding-bottom: 60px;
+
+	h2 {
+		padding: 1.5rem 2rem;
+		padding-bottom: 0;
+	}
+	.slider {
+		width: 100%;
+		position: relative;
+		.images {
+			width: 100%;
+			img {
+				width: 100%;
+				aspect-ratio: 16/9;
+			}
+		}
+		.pagination {
+			min-width: 30%;
+			position: absolute;
+			bottom: 20px;
+			display: flex;
+			justify-content: space-around;
+			left: 50%;
+			transform: translateX(-50%);
+			gap: 1.3rem;
+
+			.dot {
+				width: 25px;
+				aspect-ratio: 1/1;
+				border-radius: 50%;
+				border: 4px solid white;
+				transition: 175ms all ease-in-out;
+				&:hover,
+				&.active {
+					background-color: white;
+					cursor: pointer;
+				}
+			}
+		}
+		.arrows {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			transform: translateY(-50%);
+			display: flex;
+			justify-content: space-between;
+			padding-inline: 20px;
+			font-size: 5rem;
+			font-weight: 900;
+		}
+	}
+	.sustainable,
+	.information {
+		padding: 1.5rem 2rem;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	}
+	.sustainable {
+		padding-bottom: 0rem;
+	}
+	a {
+		position: relative;
+		padding: 1.3rem 3rem;
+		display: block;
+		background: transparent;
+		width: fit-content;
+		text-align: center;
+		margin-inline: auto;
+		border-radius: 15px;
+		color: black;
+		font-weight: bolder;
+		text-decoration: none;
+		overflow: hidden;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		&::after {
+			content: "";
+			transition: all 400ms ease-in-out;
+			background: linear-gradient(180deg, #ff9696, #b3dbf8 30%);
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			aspect-ratio: 1/1;
+			z-index: -1;
+		}
+
+		&:hover::after {
+			transform: translateY(-30%);
+		}
+	}
+}
+
+.comments {
+	border-top: 1px solid rgba(0, 0, 0, 0.7);
+	a {
+		text-align: center;
+		display: block;
+		margin-inline: auto;
+		padding: 0.7rem 1.2rem;
+		border: 1px solid black;
+		width: fit-content;
+		margin-block: 2rem;
+		border-radius: 10px;
+		text-decoration: none;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		color: black;
+	}
+}
+.sliderimg {
+	width: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	object-position: center;
+}
+
+@media (min-width: 900px) {
+	.sliderimg {
+		aspect-ratio: 16/7;
+	}
+}

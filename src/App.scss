@@ -1,0 +1,60 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	overflow: hidden;
+	height: 100vh;
+}
+
+#root > .activityWrapper {
+	height: 88vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+header {
+	height: 7vh;
+}
+
+footer {
+	height: 5vh;
+}
+
+#root div.alice-carousel {
+	width: 100%;
+	position: relative;
+	> div {
+		width: 100%;
+		> ul.alice-carousel__stage {
+			width: 100%;
+			> li.alice-carousel__stage-item {
+				width: 100%;
+				aspect-ratio: 16/9;
+			}
+		}
+	}
+	> ul.alice-carousel__dots {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		margin: 0;
+		width: 100%;
+	}
+}
+
+@media (min-width: 900px) {
+	#root
+		div.alice-carousel
+		> ul.alice-carousel__dots
+		> li.alice-carousel__dots-item {
+		width: 25px;
+		height: 25px;
+	}
+}

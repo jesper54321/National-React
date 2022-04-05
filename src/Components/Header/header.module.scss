@@ -1,0 +1,39 @@
+.headerclass {
+	display: grid;
+	grid-template-columns: 60% 40%;
+	gap: 1rem;
+	background-color: #799ea8;
+	align-items: center;
+	padding-inline: 10px;
+	width: 100%;
+	div {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		h4 {
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		}
+		img {
+			height: 5vh;
+			border-radius: 50%;
+		}
+	}
+	.iconcolor {
+		padding-left: 10px;
+		color: black;
+	}
+	a {
+		border-radius: 15px;
+		background-color: #fec9c9;
+		font-size: 12px;
+		padding: 10px;
+		width: 60px;
+		border: none;
+		text-decoration: none;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		color: black;
+		text-align: center;
+		justify-self: end;
+		margin-right: 25px;
+	}
+}

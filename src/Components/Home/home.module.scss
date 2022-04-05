@@ -1,0 +1,46 @@
+.homeclass {
+	background-image: url(../../asset/images/Background@1x.png);
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.imagecontainer {
+		display: grid;
+		gap: 1rem;
+		position: absolute;
+		top: 5%;
+		left: 50%;
+		transform: translateX(-50%);
+		h1 {
+			color: #70a9e5;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+		}
+	}
+	.linkcontainer {
+		display: grid;
+		gap: 3rem;
+		position: absolute;
+		left: 50%;
+		bottom: 5%;
+		transform: translateX(-50%);
+		a {
+			background: rgb(36, 14, 0);
+			background: linear-gradient(
+				0deg,
+				rgba(36, 14, 0, 1) 0%,
+				rgba(109, 152, 188, 1) 0%,
+				rgba(255, 255, 255, 1) 100%
+			);
+			font-size: 16px;
+			font-weight: 600;
+			padding: 5px;
+			width: 150px;
+			border: 0.5px solid white;
+			margin: auto;
+			text-decoration: none;
+			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			color: black;
+			text-align: center;
+		}
+	}
+}

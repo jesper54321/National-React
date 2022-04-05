@@ -1,0 +1,39 @@
+.commentMessage {
+	padding: 1rem;
+	margin: 0.6rem;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+	> .flex {
+		display: flex;
+		> img {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+		}
+		> .container {
+			padding-inline: 1rem;
+			> .flex {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 0.4rem;
+				> * {
+					max-width: 50%;
+				}
+			}
+		}
+	}
+}
+.chatControl {
+	display: flex;
+	margin: 0.6rem;
+	.chatMessage {
+		resize: none;
+		flex: 1;
+		padding: 0.3rem;
+	}
+	.chatSend {
+		padding: 0.3rem 2rem;
+		margin: 0;
+	}
+}
